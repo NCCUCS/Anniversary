@@ -11,6 +11,7 @@
 #import "ANSettingsViewController.h"
 #import "ANNewsViewController.h"
 #import "ANMapViewController.h"
+#import "ANCaptureViewController.h"
 
 @interface ANTabBarController ()
 
@@ -30,8 +31,39 @@
   return self;
 }
 
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  UIImage *buttonImage = [UIImage imageNamed:@"capture-button"];
+  
+  UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+  button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
+  button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+  [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+  [button addTarget:self action:@selector(captureButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+  
+  CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
+  if (heightDifference < 0) {
+    button.center = self.tabBar.center;
+  } else {
+    CGPoint center = self.tabBar.center;
+    center.y = center.y - heightDifference/2.0;
+    button.center = center;
+  }
+  
+  [self.view addSubview:button];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
   return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Private
+
+- (void)captureButtonClicked:(id)sender {
+  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 
 @end
