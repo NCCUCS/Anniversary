@@ -14,11 +14,12 @@
 
 @implementation ANNewsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
+@synthesize webView = _webView;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
     self.title = @"最新消息";
+    self.tabBarItem.image = [UIImage imageNamed:@"32-speechbubble"];
   }
   return self;
 }
@@ -26,27 +27,22 @@
 - (void)loadView {
   [super loadView];
   
-  UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-  webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/nccu.edu.tw"]]];
-  [self.view addSubview:webView];
+  _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+  _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/nccu.edu.tw"]]];
+  [self.view addSubview:_webView];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
   [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:_webView action:@selector(reload)];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
   [super viewDidUnload];
-  // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  
+  _webView = nil;
 }
 
 @end

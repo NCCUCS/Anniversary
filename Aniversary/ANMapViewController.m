@@ -14,12 +14,10 @@
 
 @implementation ANMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
     self.title = @"校園景點";
-    self.tabBarItem.image = [UIImage imageNamed:@"71-compass"];
+    self.tabBarItem.image = [UIImage imageNamed:@"07-map-marker"];
   }
   return self;
 }

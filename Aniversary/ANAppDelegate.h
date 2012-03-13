@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+@class ANTabBarController;
+
+@interface ANAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) UITabBarController *tabBarController;
+@property (strong, nonatomic) ANTabBarController *tabBarController;
 
 @end

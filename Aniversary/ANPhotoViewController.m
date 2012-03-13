@@ -1,38 +1,32 @@
 //
-//  ANFirstViewController.m
+//  ANPhotoViewController.m
 //  Aniversary
 //
-//  Created by Lee Chih-Wei on 3/1/12.
+//  Created by Lee Chih-Wei on 3/12/12.
 //  Copyright (c) 2012 Polydice, Inc. All rights reserved.
 //
 
-#import "ANFirstViewController.h"
+#import "ANPhotoViewController.h"
 
-@interface ANFirstViewController ()
+@interface ANPhotoViewController ()
 
 @end
 
-@implementation ANFirstViewController
+@implementation ANPhotoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-    self.title = @"校園景點";
-    self.tabBarItem.image = [UIImage imageNamed:@"71-compass"];
+        // Custom initialization
     }
     return self;
 }
 
-- (void)loadView {
-  [super loadView];
-  
-}
-							
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -43,7 +37,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-  return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
