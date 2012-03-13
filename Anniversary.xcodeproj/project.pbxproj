@@ -55,14 +55,14 @@
 		E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPhotoViewController.m; sourceTree = "<group>"; };
 		E37509F1150D289800F3EC3F /* ANSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSettingsViewController.h; sourceTree = "<group>"; };
 		E37509F2150D289900F3EC3F /* ANSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSettingsViewController.m; sourceTree = "<group>"; };
-		E3BDC43D14FF6B7B001343BE /* Aniversary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aniversary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3BDC43D14FF6B7B001343BE /* Anniversary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anniversary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BDC44114FF6B7B001343BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3BDC44314FF6B7B001343BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3BDC44514FF6B7B001343BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E3BDC44914FF6B7B001343BE /* Aniversary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Aniversary-Info.plist"; sourceTree = "<group>"; };
+		E3BDC44914FF6B7B001343BE /* Anniversary-Info.plist */ = {isa = PBXFileReference; path = "Anniversary-Info.plist"; sourceTree = "<group>"; };
 		E3BDC44B14FF6B7B001343BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E3BDC44D14FF6B7B001343BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E3BDC44F14FF6B7B001343BE /* Aniversary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aniversary-Prefix.pch"; sourceTree = "<group>"; };
+		E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */ = {isa = PBXFileReference; path = "Anniversary-Prefix.pch"; sourceTree = "<group>"; };
 		E3BDC45014FF6B7B001343BE /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		E3BDC45114FF6B7B001343BE /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		E3BDC47014FF7202001343BE /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		E3BDC43214FF6B7A001343BE = {
 			isa = PBXGroup;
 			children = (
-				E3BDC44714FF6B7B001343BE /* Aniversary */,
+				E3BDC44714FF6B7B001343BE /* Anniversary */,
 				E3BDC44014FF6B7B001343BE /* Frameworks */,
 				E3BDC43E14FF6B7B001343BE /* Products */,
 			);
@@ -138,7 +138,7 @@
 		E3BDC43E14FF6B7B001343BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3BDC43D14FF6B7B001343BE /* Aniversary.app */,
+				E3BDC43D14FF6B7B001343BE /* Anniversary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E3BDC44714FF6B7B001343BE /* Aniversary */ = {
+		E3BDC44714FF6B7B001343BE /* Anniversary */ = {
 			isa = PBXGroup;
 			children = (
 				E37509E6150D25B000F3EC3F /* Models */,
@@ -164,7 +164,7 @@
 				E3BDC45114FF6B7B001343BE /* ANAppDelegate.m */,
 				E3BDC44814FF6B7B001343BE /* Supporting Files */,
 			);
-			path = Aniversary;
+			path = Anniversary;
 			sourceTree = "<group>";
 		};
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
@@ -180,10 +180,10 @@
 				E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */,
 				E3BDC47014FF7202001343BE /* 07-map-marker.png */,
 				E3BDC47114FF7202001343BE /* 07-map-marker@2x.png */,
-				E3BDC44914FF6B7B001343BE /* Aniversary-Info.plist */,
+				E3BDC44914FF6B7B001343BE /* Anniversary-Info.plist */,
 				E3BDC44A14FF6B7B001343BE /* InfoPlist.strings */,
 				E3BDC44D14FF6B7B001343BE /* main.m */,
-				E3BDC44F14FF6B7B001343BE /* Aniversary-Prefix.pch */,
+				E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,9 +191,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E3BDC43C14FF6B7B001343BE /* Aniversary */ = {
+		E3BDC43C14FF6B7B001343BE /* Anniversary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3BDC46914FF6B7B001343BE /* Build configuration list for PBXNativeTarget "Aniversary" */;
+			buildConfigurationList = E3BDC46914FF6B7B001343BE /* Build configuration list for PBXNativeTarget "Anniversary" */;
 			buildPhases = (
 				E3BDC43914FF6B7B001343BE /* Sources */,
 				E3BDC43A14FF6B7B001343BE /* Frameworks */,
@@ -203,9 +203,9 @@
 			);
 			dependencies = (
 			);
-			name = Aniversary;
-			productName = Aniversary;
-			productReference = E3BDC43D14FF6B7B001343BE /* Aniversary.app */;
+			name = Anniversary;
+			productName = Anniversary;
+			productReference = E3BDC43D14FF6B7B001343BE /* Anniversary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -218,7 +218,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Polydice, Inc.";
 			};
-			buildConfigurationList = E3BDC43714FF6B7A001343BE /* Build configuration list for PBXProject "Aniversary" */;
+			buildConfigurationList = E3BDC43714FF6B7A001343BE /* Build configuration list for PBXProject "Anniversary" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -230,7 +230,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E3BDC43C14FF6B7B001343BE /* Aniversary */,
+				E3BDC43C14FF6B7B001343BE /* Anniversary */,
 			);
 		};
 /* End PBXProject section */
@@ -337,9 +337,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Aniversary/Aniversary-Prefix.pch";
-				INFOPLIST_FILE = "Aniversary/Aniversary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Anniversary/Anniversary-Prefix.pch";
+				INFOPLIST_FILE = "Anniversary/Anniversary-Info.plist";
+				PRODUCT_NAME = Anniversary;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -348,9 +348,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Aniversary/Aniversary-Prefix.pch";
-				INFOPLIST_FILE = "Aniversary/Aniversary-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Anniversary/Anniversary-Prefix.pch";
+				INFOPLIST_FILE = "Anniversary/Anniversary-Info.plist";
+				PRODUCT_NAME = Anniversary;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -358,7 +358,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3BDC43714FF6B7A001343BE /* Build configuration list for PBXProject "Aniversary" */ = {
+		E3BDC43714FF6B7A001343BE /* Build configuration list for PBXProject "Anniversary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3BDC46714FF6B7B001343BE /* Debug */,
@@ -367,7 +367,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3BDC46914FF6B7B001343BE /* Build configuration list for PBXNativeTarget "Aniversary" */ = {
+		E3BDC46914FF6B7B001343BE /* Build configuration list for PBXNativeTarget "Anniversary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3BDC46A14FF6B7B001343BE /* Debug */,
