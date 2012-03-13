@@ -16,6 +16,7 @@
 		E34F5010150EF36600A5FCD2 /* capture-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E34F500E150EF36600A5FCD2 /* capture-button.png */; };
 		E34F5011150EF36600A5FCD2 /* capture-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E34F500F150EF36600A5FCD2 /* capture-button@2x.png */; };
 		E34F5015150EF41D00A5FCD2 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */; };
+		E34F5018150EF92300A5FCD2 /* ANPersonPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -44,6 +45,8 @@
 		E34F500F150EF36600A5FCD2 /* capture-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture-button@2x.png"; sourceTree = "<group>"; };
 		E34F5013150EF41D00A5FCD2 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
+		E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPersonPickerViewController.h; sourceTree = "<group>"; };
+		E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPersonPickerViewController.m; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
 				E34F5013150EF41D00A5FCD2 /* ANCaptureViewController.h */,
 				E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */,
+				E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */,
+				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */,
 				E37509F3150D289B00F3EC3F /* ANSettingsViewController.m in Sources */,
 				E34F5015150EF41D00A5FCD2 /* ANCaptureViewController.m in Sources */,
+				E34F5018150EF92300A5FCD2 /* ANPersonPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
