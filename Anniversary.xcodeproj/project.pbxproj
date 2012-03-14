@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87781C03151034E5005931F9 /* ANCaptureViewController.m */; };
 		87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87781C04151034E5005931F9 /* ANCaptureViewController.xib */; };
+		A3CB84AE1510A14100F19022 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CB84AD1510A14100F19022 /* example.png */; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
 		E341BA4E150E82ED003F1A9F /* 42-photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */; };
 		E341BA51150E832F003F1A9F /* 20-gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4F150E832F003F1A9F /* 20-gear-2.png */; };
@@ -39,6 +40,7 @@
 		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
+		A3CB84AD1510A14100F19022 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
 		E341BA4F150E832F003F1A9F /* 20-gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear-2.png"; sourceTree = "<group>"; };
@@ -103,21 +105,21 @@
 			children = (
 				E37509E7150D25DA00F3EC3F /* ANTabBarController.h */,
 				E37509E8150D25DA00F3EC3F /* ANTabBarController.m */,
-				E3BDC48714FF751A001343BE /* ANNewsViewController.h */,
-				E3BDC48814FF751A001343BE /* ANNewsViewController.m */,
-				E3BDC48414FF750E001343BE /* ANMapViewController.h */,
-				E3BDC48514FF750E001343BE /* ANMapViewController.m */,
 				E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */,
 				E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */,
 				E37509EE150D27C000F3EC3F /* ANPhotoViewController.h */,
 				E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */,
-				E37509F1150D289800F3EC3F /* ANSettingsViewController.h */,
-				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
-				E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */,
-				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
+				E3BDC48414FF750E001343BE /* ANMapViewController.h */,
+				E3BDC48514FF750E001343BE /* ANMapViewController.m */,
 				87781C02151034E5005931F9 /* ANCaptureViewController.h */,
 				87781C03151034E5005931F9 /* ANCaptureViewController.m */,
 				87781C04151034E5005931F9 /* ANCaptureViewController.xib */,
+				E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */,
+				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
+				E3BDC48714FF751A001343BE /* ANNewsViewController.h */,
+				E3BDC48814FF751A001343BE /* ANNewsViewController.m */,
+				E37509F1150D289800F3EC3F /* ANSettingsViewController.h */,
+				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3CB84AD1510A14100F19022 /* example.png */,
 				E34F500E150EF36600A5FCD2 /* capture-button.png */,
 				E34F500F150EF36600A5FCD2 /* capture-button@2x.png */,
 				E341BA53150E83EE003F1A9F /* 32-speechbubble.png */,
@@ -255,6 +258,7 @@
 				E34F5010150EF36600A5FCD2 /* capture-button.png in Resources */,
 				E34F5011150EF36600A5FCD2 /* capture-button@2x.png in Resources */,
 				87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */,
+				A3CB84AE1510A14100F19022 /* example.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

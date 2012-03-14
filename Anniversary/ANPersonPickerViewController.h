@@ -10,4 +10,6 @@
 
 @interface ANPersonPickerViewController : UIViewController
 
+@property (nonatomic, strong) UIButton *button;
+
 @end
