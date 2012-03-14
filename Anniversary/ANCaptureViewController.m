@@ -1,8 +1,8 @@
 //
 //  ANCaptureViewController.m
-//  Aniversary
+//  Anniversary
 //
-//  Created by Lee Chih-Wei on 3/13/12.
+//  Created by Devi Eddy on 03/14/12.
 //  Copyright (c) 2012 Polydice, Inc. All rights reserved.
 //
 
@@ -14,35 +14,31 @@
 
 @implementation ANCaptureViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
 }
 
-#pragma mark - Private
-
-- (void)doneButtonClicked:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
 
-#pragma mark - UIViewController
-
-- (void)loadView {
-  [super loadView];
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
-  
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
-}
-
-- (void)viewDidUnload {
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

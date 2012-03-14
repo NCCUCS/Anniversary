@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87781C03151034E5005931F9 /* ANCaptureViewController.m */; };
+		87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87781C04151034E5005931F9 /* ANCaptureViewController.xib */; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
 		E341BA4E150E82ED003F1A9F /* 42-photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */; };
 		E341BA51150E832F003F1A9F /* 20-gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4F150E832F003F1A9F /* 20-gear-2.png */; };
@@ -15,7 +17,6 @@
 		E341BA56150E83EE003F1A9F /* 32-speechbubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA54150E83EE003F1A9F /* 32-speechbubble@2x.png */; };
 		E34F5010150EF36600A5FCD2 /* capture-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E34F500E150EF36600A5FCD2 /* capture-button.png */; };
 		E34F5011150EF36600A5FCD2 /* capture-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E34F500F150EF36600A5FCD2 /* capture-button@2x.png */; };
-		E34F5015150EF41D00A5FCD2 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */; };
 		E34F5018150EF92300A5FCD2 /* ANPersonPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
@@ -35,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
+		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
+		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
 		E341BA4F150E832F003F1A9F /* 20-gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear-2.png"; sourceTree = "<group>"; };
@@ -43,8 +47,6 @@
 		E341BA54150E83EE003F1A9F /* 32-speechbubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "32-speechbubble@2x.png"; sourceTree = "<group>"; };
 		E34F500E150EF36600A5FCD2 /* capture-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture-button.png"; sourceTree = "<group>"; };
 		E34F500F150EF36600A5FCD2 /* capture-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capture-button@2x.png"; sourceTree = "<group>"; };
-		E34F5013150EF41D00A5FCD2 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
-		E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPersonPickerViewController.h; sourceTree = "<group>"; };
 		E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPersonPickerViewController.m; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
@@ -59,10 +61,10 @@
 		E3BDC44114FF6B7B001343BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3BDC44314FF6B7B001343BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3BDC44514FF6B7B001343BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		E3BDC44914FF6B7B001343BE /* Anniversary-Info.plist */ = {isa = PBXFileReference; path = "Anniversary-Info.plist"; sourceTree = "<group>"; };
+		E3BDC44914FF6B7B001343BE /* Anniversary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Anniversary-Info.plist"; sourceTree = "<group>"; };
 		E3BDC44B14FF6B7B001343BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E3BDC44D14FF6B7B001343BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */ = {isa = PBXFileReference; path = "Anniversary-Prefix.pch"; sourceTree = "<group>"; };
+		E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Anniversary-Prefix.pch"; sourceTree = "<group>"; };
 		E3BDC45014FF6B7B001343BE /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
 		E3BDC45114FF6B7B001343BE /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
 		E3BDC47014FF7202001343BE /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
@@ -111,10 +113,11 @@
 				E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */,
 				E37509F1150D289800F3EC3F /* ANSettingsViewController.h */,
 				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
-				E34F5013150EF41D00A5FCD2 /* ANCaptureViewController.h */,
-				E34F5014150EF41D00A5FCD2 /* ANCaptureViewController.m */,
 				E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */,
 				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
+				87781C02151034E5005931F9 /* ANCaptureViewController.h */,
+				87781C03151034E5005931F9 /* ANCaptureViewController.m */,
+				87781C04151034E5005931F9 /* ANCaptureViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				E341BA56150E83EE003F1A9F /* 32-speechbubble@2x.png in Resources */,
 				E34F5010150EF36600A5FCD2 /* capture-button.png in Resources */,
 				E34F5011150EF36600A5FCD2 /* capture-button@2x.png in Resources */,
+				87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +273,8 @@
 				E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */,
 				E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */,
 				E37509F3150D289B00F3EC3F /* ANSettingsViewController.m in Sources */,
-				E34F5015150EF41D00A5FCD2 /* ANCaptureViewController.m in Sources */,
 				E34F5018150EF92300A5FCD2 /* ANPersonPickerViewController.m in Sources */,
+				87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
