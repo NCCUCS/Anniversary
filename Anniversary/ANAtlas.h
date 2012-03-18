@@ -10,7 +10,8 @@
 
 #pragma mark - API
 
-#define API_KEY_FACEBOOK @"364875846885282"
+#define kAPI_KEY_FACEBOOK @"364875846885282"
+#define kAPI_BASE_URL @"http://localhost:3000"
 
 @interface ANAtlas : NSObject
 

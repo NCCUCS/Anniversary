@@ -7,12 +7,16 @@
 //
 
 #import "ANPhotosViewController.h"
+#import "ANHTTPClient.h"
 
 @interface ANPhotosViewController ()
 
 @end
 
 @implementation ANPhotosViewController
+
+@synthesize isLoaded = _isLoaded;
+@synthesize isLoading = _isLoading;
 
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
@@ -22,25 +26,20 @@
   return self;
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
+#pragma mark - UIViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
   
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-  
-  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  if (!self.isLoaded && self.isLoading) {
+    [[ANHTTPClient sharedClient] getPath:@"/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+      NSLog(@"Response %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+    
+    }];
+  }
 }
 
-- (void)viewDidUnload {
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
-  // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Table view data source
 

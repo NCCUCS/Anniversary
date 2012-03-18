@@ -10,4 +10,7 @@
 
 @interface ANPhotosViewController : UITableViewController
 
+@property (nonatomic, assign) BOOL isLoaded;
+@property (nonatomic, assign) BOOL isLoading;
+
 @end

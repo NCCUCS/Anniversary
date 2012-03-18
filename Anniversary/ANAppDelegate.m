@@ -25,7 +25,7 @@
   [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.098 green:0.200 blue:0.561 alpha:1.000]];
   
   // Setup Facebook
-  _facebook = [[Facebook alloc] initWithAppId:API_KEY_FACEBOOK andDelegate:self];
+  _facebook = [[Facebook alloc] initWithAppId:kAPI_KEY_FACEBOOK andDelegate:self];
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   if ([defaults objectForKey:@"FBAccessTokenKey"] 
       && [defaults objectForKey:@"FBExpirationDateKey"]) {
@@ -38,10 +38,10 @@
   self.window.rootViewController = self.tabBarController;
   [self.window makeKeyAndVisible];
   
-  // Authorize
-  if (![_facebook isSessionValid]) {
-    [_facebook authorize:[NSArray arrayWithObject:@"email"]];
-  }
+  // Authorize (Only for testing)
+  //  if (![_facebook isSessionValid]) {
+  //    [_facebook authorize:[NSArray arrayWithObject:@"email"]];
+  //  }
   
   return YES;
 }
@@ -66,6 +66,7 @@
 - (void)fbDidNotLogin:(BOOL)cancelled {
 
 }
+
 - (void)fbDidExtendToken:(NSString*)accessToken
                expiresAt:(NSDate*)expiresAt {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -84,7 +85,12 @@
 }
 
 - (void)fbSessionInvalidated {
-
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  if ([defaults objectForKey:@"FBAccessTokenKey"]) {
+    [defaults removeObjectForKey:@"FBAccessTokenKey"];
+    [defaults removeObjectForKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+  }
 }
 
 @end
