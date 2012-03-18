@@ -10,10 +10,11 @@
 
 @class ANTabBarController;
 
-@interface ANAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ANAppDelegate : UIResponder <UIApplicationDelegate, FBSessionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) ANTabBarController *tabBarController;
+
+@property (strong, nonatomic) Facebook *facebook;
 
 @end
