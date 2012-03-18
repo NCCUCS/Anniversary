@@ -4,3 +4,6 @@
 [submodule "Dependencies/AFNetworking"]
 	path = Dependencies/AFNetworking
 	url = git://github.com/AFNetworking/AFNetworking.git
+[submodule "Dependencies/nimbus"]
+	path = Dependencies/nimbus
+	url = git://github.com/jverkoey/nimbus.git

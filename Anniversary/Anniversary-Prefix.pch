@@ -13,4 +13,5 @@
   #import <Foundation/Foundation.h>
   #import "ANAtlas.h"
   #import "Facebook.h"
+  #import "NimbusCore+Additions.h"
 #endif
