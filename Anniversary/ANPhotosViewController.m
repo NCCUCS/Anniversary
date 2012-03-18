@@ -31,11 +31,17 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   
-  if (!self.isLoaded && self.isLoading) {
-    [[ANHTTPClient sharedClient] getPath:@"/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-      NSLog(@"Response %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+  if (!self.isLoaded && !self.isLoading) {
+    self.isLoading = YES;
     
+    [[ANHTTPClient sharedClient] getPath:@"/photos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+      // No need to parse JSON again, AFNetworking will do that for you.
+      NSLog(@"Response Object %@", responseObject);
+      
+      self.isLoading = NO;
+      self.isLoaded = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+      self.isLoading = NO;
     }];
   }
 }
