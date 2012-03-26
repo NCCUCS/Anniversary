@@ -8,10 +8,11 @@
 
 #import "ANPhotosViewController.h"
 #import "ANHTTPClient.h"
+#import "ANPhotoViewController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface ANPhotosViewController ()
-
+- (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
 @end
 
 @implementation ANPhotosViewController
@@ -56,6 +57,11 @@
   }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[self removeObserver:self forKeyPath:@"responseDictionarys" context:nil];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -74,27 +80,34 @@
 	}
   
 	NSUInteger row = indexPath.row;
-	NSLog(@"row: %d", row);
 	for (int i = row * 2; i <= row * 2 + 1; i++) {
-		NSLog(@"index: %d", i);
 		NSDictionary *singlePhotoInfo;
 		if (i < [self.responseDictionarys count]) {
 			singlePhotoInfo = [self.responseDictionarys objectAtIndex:i];	
 		}
-			NSURL *thumbURL = [NSURL URLWithString:[[[singlePhotoInfo objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
-			
-			CGRect frame;
-			if (i % 2 == 0) {
-				frame = CGRectMake(0.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
-			} else {
-				frame = CGRectMake(165.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
-			}
-			
-			UIImageView *photoImageView = [[UIImageView alloc] initWithFrame:frame];
-			[photoImageView setImageWithURL:thumbURL placeholderImage:nil];	
-			[cell.contentView addSubview:photoImageView];
+		NSURL *thumbURL = [NSURL URLWithString:[[[singlePhotoInfo objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
+		
+		CGRect frame;
+		if (i % 2 == 0) {
+			frame = CGRectMake(0.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+		} else {
+			frame = CGRectMake(165.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+		}
+		
+		UIImageView *photoImageView = [[UIImageView alloc] initWithFrame:frame];
+		photoImageView.tag = i;
+		[photoImageView setUserInteractionEnabled:YES];
+		[photoImageView setImageWithURL:thumbURL placeholderImage:nil];	
+		
+		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)];
+		tap.cancelsTouchesInView = YES;
+		tap.numberOfTapsRequired = 1;
+		tap.delegate = self;
+		[photoImageView addGestureRecognizer:tap];
+		
+		[cell.contentView addSubview:photoImageView];
 	}
-
+	
   return cell;
 }
 
@@ -108,15 +121,16 @@
 	return nil;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  // Navigation logic may go here. Create and push another view controller.
-  /*
-   <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-   // ...
-   // Pass the selected object to the new view controller.
-   [self.navigationController pushViewController:detailViewController animated:YES];
-   */
+#pragma mark - Tap Gesture Recognizer 
+
+- (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+	CGPoint tappedImagePoint = [tapGestureRecognizer locationInView:self.tableView];
+	UIView *view = [self.tableView hitTest:tappedImagePoint withEvent:nil];
+	if ([view isMemberOfClass:[UIImageView class]]) {
+		//TODO: Push child view controller to display detail information about the tapped image	
+		ANPhotoViewController *photoViewController = [[ANPhotoViewController alloc] init];
+		[self.navigationController pushViewController:photoViewController animated:YES];
+	}
 }
 
 @end

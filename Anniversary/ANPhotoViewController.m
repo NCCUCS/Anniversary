@@ -14,6 +14,20 @@
 
 @implementation ANPhotoViewController
 
+- (id)initFromMapViewController {
+	if (self = [self init]) {
+		
+	}
+	return self;
+}
+
+- (id)initFromPhotosViewController {
+	if (self = [self init]) {
+		
+	}
+	return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
