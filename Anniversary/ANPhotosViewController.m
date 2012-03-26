@@ -8,6 +8,7 @@
 
 #import "ANPhotosViewController.h"
 #import "ANHTTPClient.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ANPhotosViewController ()
 
@@ -17,6 +18,8 @@
 
 @synthesize isLoaded = _isLoaded;
 @synthesize isLoading = _isLoading;
+@synthesize responseDictionarys = _responseDictionarys;
+
 
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
@@ -26,18 +29,25 @@
   return self;
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	NIDPRINT(@"self.responseDictionarys has been updated.");
+	NIDPRINT(@"self.responseDictionarys: %@", self.responseDictionarys);
+	[self.tableView reloadData];
+}
+
 #pragma mark - UIViewController
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  
+	[self addObserver:self forKeyPath:@"responseDictionarys" options:NSKeyValueObservingOptionOld context:nil];
   if (!self.isLoaded && !self.isLoading) {
     self.isLoading = YES;
     
     [[ANHTTPClient sharedClient] getPath:@"/photos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-      // No need to parse JSON again, AFNetworking will do that for you.
-      NSLog(@"Response Object %@", responseObject);
-      
+      // No need to parse JSON again, AFNetworking will do that for you.		
+			// NSLog(@"Response Object %@", responseObject);
+			self.responseDictionarys = (NSArray *)responseObject;
       self.isLoading = NO;
       self.isLoaded = YES;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -46,73 +56,57 @@
   }
 }
 
-
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-  // Return the number of sections.
-  return 0;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-  // Return the number of rows in the section.
-  return 0;
+	return [[NSNumber numberWithFloat:ceil([self.responseDictionarys count]/2.0)] integerValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *CellIdentifier = @"Cell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  static NSString *PhotosCellIdentifier = @"PhotosCellIdentifier";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PhotosCellIdentifier];
+	
+	if (!cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PhotosCellIdentifier];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	}
   
-  // Configure the cell...
-  
+	NSUInteger row = indexPath.row;
+	NSLog(@"row: %d", row);
+	for (int i = row * 2; i <= row * 2 + 1; i++) {
+		NSLog(@"index: %d", i);
+		NSDictionary *singlePhotoInfo;
+		if (i < [self.responseDictionarys count]) {
+			singlePhotoInfo = [self.responseDictionarys objectAtIndex:i];	
+		}
+			NSURL *thumbURL = [NSURL URLWithString:[[[singlePhotoInfo objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
+			
+			CGRect frame;
+			if (i % 2 == 0) {
+				frame = CGRectMake(0.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+			} else {
+				frame = CGRectMake(165.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+			}
+			
+			UIImageView *photoImageView = [[UIImageView alloc] initWithFrame:frame];
+			[photoImageView setImageWithURL:thumbURL placeholderImage:nil];	
+			[cell.contentView addSubview:photoImageView];
+	}
+
   return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - Table view delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return kThumbPhotoHeight;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	return nil;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -12,6 +12,35 @@
 
 #define kAPI_KEY_FACEBOOK @"364875846885282"
 #define kAPI_BASE_URL @"http://nccu85.herokuapp.com/"
+#define kAPI_PHOTOS_URL @"http://nccu85.herokuapp.com/photos" 
+
+/*[GET] http://nccu85.herokuapp.com/photos
+  參數:page - 分頁代號，目前一頁 16 筆資料
+ {
+ "created_at" = "2012-03-18T17:15:00Z";
+ description = Apple;
+ id = 13;
+ image =         {
+ thumb =             {
+ url = "https://nccu85-development.s3.amazonaws.com/uploads/photo/image/13/thumb_Photo11.jpg";
+ };
+ url = "https://nccu85-development.s3.amazonaws.com/uploads/photo/image/13/Photo11.jpg";
+ };
+ "updated_at" = "2012-03-18T17:15:00Z";
+ }
+ 
+ [POST] http://nccu85.herokuapp.com/photos
+ 
+ 參數
+ * photo[description] - 描述
+ * photo[image] - 照片檔案（必備）
+
+*/
+
+#pragma mark - Photo Size Constant
+
+#define kThumbPhotoWidth 155.0f
+#define kThumbPhotoHeight 155.0f
 
 @interface ANAtlas : NSObject
 
