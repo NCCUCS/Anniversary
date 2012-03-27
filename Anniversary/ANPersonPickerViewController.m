@@ -7,6 +7,7 @@
 //
 
 #import "ANPersonPickerViewController.h"
+#import "NIPageView.h"
 
 @interface ANPersonPickerViewController ()
 
@@ -15,15 +16,7 @@
 @implementation ANPersonPickerViewController
 
 @synthesize button = _button;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
+@synthesize pageView = _pageView;
 
 #pragma mark - Private
 
@@ -37,29 +30,59 @@
 - (void)loadView {
   [super loadView];
   
+  self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+  
   // Frame means where it is
-  self.button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-  self.button.backgroundColor = [UIColor redColor];
-  [self.button setTitle:@"Haha" forState:UIControlStateNormal];
-  [self.view addSubview:self.button];
+  _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 130, 130)];
+  _button.backgroundColor = [UIColor redColor];
+  [_button setTitle:@"Haha" forState:UIControlStateNormal];
+  [self.view addSubview:_button];
+  
+  _pageView = [[NIPagingScrollView alloc] initWithFrame:self.view.bounds];
+  _pageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+  [self.view addSubview:_pageView];
   
   [self.button addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
   [super viewDidLoad];
+  
+  _pageView.delegate = self;
+  _pageView.dataSource = self;
+  [_pageView reloadData];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
   [super viewDidUnload];
-  // Release any retained subviews of the main view.
+  
+  _button = nil;
+  _pageView.delegate = nil;
+  _pageView.dataSource = nil;
+  _pageView = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  
+  
+}
+
+#pragma mark - NIPagingScrollViewDataSource
+
+- (NSInteger)numberOfPagesInPagingScrollView:(NIPagingScrollView *)pagingScrollView {
+  return 3;
+}
+
+- (UIView<NIPagingScrollViewPage> *)pagingScrollView:(NIPagingScrollView *)pagingScrollView pageViewForIndex:(NSInteger)pageIndex {
+  NIPageView *view = [[NIPageView alloc] initWithFrame:self.view.bounds];
+  view.backgroundColor = [UIColor colorWithWhite:1.0 / 3 * (pageIndex + 1) alpha:1];
+  UILabel *label = [[UILabel alloc] initWithFrame:view.frame];
+  label.text = [NSString stringWithFormat:@"Page %d", pageIndex];
+  label.textAlignment = UITextAlignmentCenter;
+  [view addSubview:label];
+  
+  return view;
 }
 
 @end
