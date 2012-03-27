@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANPhotosViewController : UITableViewController
+@interface ANPhotosViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, strong) NSArray *responseDictionarys;
 
 @end

@@ -8,15 +8,19 @@
 
 #import "ANPhotosViewController.h"
 #import "ANHTTPClient.h"
+#import "ANPhotoViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ANPhotosViewController ()
-
+- (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
 @end
 
 @implementation ANPhotosViewController
 
 @synthesize isLoaded = _isLoaded;
 @synthesize isLoading = _isLoading;
+@synthesize responseDictionarys = _responseDictionarys;
+
 
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
@@ -26,18 +30,25 @@
   return self;
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	NIDPRINT(@"self.responseDictionarys has been updated.");
+	NIDPRINT(@"self.responseDictionarys: %@", self.responseDictionarys);
+	[self.tableView reloadData];
+}
+
 #pragma mark - UIViewController
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  
+	[self addObserver:self forKeyPath:@"responseDictionarys" options:NSKeyValueObservingOptionOld context:nil];
   if (!self.isLoaded && !self.isLoading) {
     self.isLoading = YES;
     
     [[ANHTTPClient sharedClient] getPath:@"/photos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-      // No need to parse JSON again, AFNetworking will do that for you.
-      NSLog(@"Response Object %@", responseObject);
-      
+      // No need to parse JSON again, AFNetworking will do that for you.		
+			// NSLog(@"Response Object %@", responseObject);
+			self.responseDictionarys = (NSArray *)responseObject;
       self.isLoading = NO;
       self.isLoaded = YES;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -46,83 +57,90 @@
   }
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[self removeObserver:self forKeyPath:@"responseDictionarys" context:nil];
+}
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-  // Return the number of sections.
-  return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-  // Return the number of rows in the section.
-  return 0;
+	return [[NSNumber numberWithFloat:ceil([self.responseDictionarys count]/2.0)] integerValue];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  static NSString *CellIdentifier = @"Cell";
-  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  static NSString *PhotosCellIdentifier = @"PhotosCellIdentifier";
+  UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PhotosCellIdentifier];
+	
+	if (!cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PhotosCellIdentifier];
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	}
   
-  // Configure the cell...
-  
+	for (UIView *subview in [cell.contentView subviews]) {
+    [subview removeFromSuperview];
+	}
+	
+	NSUInteger row = indexPath.row;
+	for (int i = row * 2; i <= row * 2 + 1 && i < [self.responseDictionarys count]; i++) {
+		NSDictionary *singlePhotoInfo;
+		if (i < [self.responseDictionarys count]) {
+			singlePhotoInfo = [self.responseDictionarys objectAtIndex:i];	
+		}
+		NSURL *thumbURL = [NSURL URLWithString:[[[singlePhotoInfo objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
+		
+		CGRect frame;
+		if (i % 2 == 0) {
+			frame = CGRectMake(0.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+		} else {
+			frame = CGRectMake(165.0f, 0.0f, kThumbPhotoWidth, kThumbPhotoHeight);
+		}
+		
+		UIImageView *photoImageView = [[UIImageView alloc] initWithFrame:frame];
+		photoImageView.tag = i;
+		[photoImageView setUserInteractionEnabled:YES];
+		[photoImageView setImageWithURL:thumbURL placeholderImage:nil];	
+		
+		UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleImageTap:)];
+		tap.cancelsTouchesInView = YES;
+		tap.numberOfTapsRequired = 1;
+		tap.delegate = self;
+		[photoImageView addGestureRecognizer:tap];
+		
+		[cell.contentView addSubview:photoImageView];
+	}
+	
   return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  // Navigation logic may go here. Create and push another view controller.
-  /*
-   <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-   // ...
-   // Pass the selected object to the new view controller.
-   [self.navigationController pushViewController:detailViewController animated:YES];
-   */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return kThumbPhotoHeight;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	return nil;
+}
+
+#pragma mark - Tap Gesture Recognizer 
+
+- (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer {
+	CGPoint tappedImagePoint = [tapGestureRecognizer locationInView:self.tableView];
+	UIView *view = [self.tableView hitTest:tappedImagePoint withEvent:nil];
+	if ([view isMemberOfClass:[UIImageView class]]) {
+		//TODO: Push child view controller to display detail information about the tapped image	
+		
+		UITableViewCell *selectedCell = (UITableViewCell *)[[view superview] superview];
+		NSInteger selectedImageCellRow = [self.tableView indexPathForCell:selectedCell].row;
+		NSInteger selectedImageInfoIndex = view.tag % 2 == 0 ? selectedImageCellRow * 2 : selectedImageCellRow * 2 + 1;
+		NIDPRINT(@"tag: %d", view.tag);
+		NSDictionary *selectedImageInfo = [self.responseDictionarys objectAtIndex:selectedImageInfoIndex];
+		ANPhotoViewController *photoViewController = [[ANPhotoViewController alloc] initFromPhotosViewController:selectedImageInfo];
+		[self.navigationController pushViewController:photoViewController animated:YES];
+	}
 }
 
 @end
