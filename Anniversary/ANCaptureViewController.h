@@ -11,6 +11,7 @@
 @interface ANCaptureViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) IBOutlet UITextField *messageField;
 @property (nonatomic, retain) IBOutlet UIButton *personPicker;
 @property (nonatomic, retain) IBOutlet UIButton *takePhoto;
 @property (nonatomic, retain) IBOutlet UIButton *editText;

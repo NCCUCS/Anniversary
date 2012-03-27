@@ -14,7 +14,7 @@
 @end
 
 @implementation ANCaptureViewController
-@synthesize imageView, personPicker, takePhoto, editText;
+@synthesize imageView, messageField, personPicker, takePhoto, editText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -53,7 +53,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
   [picker dismissModalViewControllerAnimated:YES];
-  imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+  imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -62,6 +62,7 @@
   NSLog(@"Index %d", buttonIndex);
   
   UITextField *field = [alertView textFieldAtIndex:0];
+  messageField.text = [NSString stringWithFormat:@"%@", field.text];
   NSLog(@"Field %@", field.text);
 }
 
