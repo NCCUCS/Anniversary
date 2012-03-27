@@ -16,8 +16,7 @@
 @implementation ANCaptureViewController
 @synthesize imageView, personPicker, takePhoto, editText;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
     // Custom initialization
@@ -27,6 +26,7 @@
 
 -(IBAction)newPerson:(id)sender{
   ANPersonPickerViewController *personPickerView = [[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil];
+  personPickerView.modalTransitionStyle = UIModalTransitionStylePartialCurl;
   [self.navigationController pushViewController:personPickerView animated:YES];
 }
 
@@ -75,18 +75,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
-}
-
-- (void)viewDidUnload
-{
-  [super viewDidUnload];
-  // Release any retained subviews of the main view.
-  // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

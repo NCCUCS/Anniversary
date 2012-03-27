@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NIPagingScrollView.h"
+#import "NIPagingScrollViewDataSource.h"
+#import "NIPagingScrollViewDelegate.h"
 
-@interface ANPersonPickerViewController : UIViewController
+@interface ANPersonPickerViewController : UIViewController <
+NIPagingScrollViewDataSource,
+NIPagingScrollViewDelegate>
 
+@property (nonatomic, strong) NIPagingScrollView *pageView;
 @property (nonatomic, strong) UIButton *button;
 
 @end
