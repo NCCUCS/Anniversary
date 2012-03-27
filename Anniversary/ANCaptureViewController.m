@@ -32,7 +32,7 @@
 
 -(IBAction)capture:(id)sender{
   UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-  //picker.delegate = self;
+  picker.delegate = self;
   picker.allowsEditing = YES;
   //picker.sourceType = UIImagePickerControllerSourceTypeCamera;
   picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
@@ -54,7 +54,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
   [picker dismissModalViewControllerAnimated:YES];
   imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-  //imageView.image = [imageView imageByScalingAndCroppingForSize:CGSizeMake(10, 10)];
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -74,7 +73,10 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+  self.navigationController.navigationBar.tintColor = [UIColor brownColor ];
+  
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked)];
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
 }
 
 @end

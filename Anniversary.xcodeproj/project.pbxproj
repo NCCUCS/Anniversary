@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87781C03151034E5005931F9 /* ANCaptureViewController.m */; };
 		87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87781C04151034E5005931F9 /* ANCaptureViewController.xib */; };
+		878C4AE21521E65300D3E6A9 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 878C4AE11521E65300D3E6A9 /* sample.png */; };
 		A3CB84AE1510A14100F19022 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CB84AD1510A14100F19022 /* example.png */; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
 		E341BA4E150E82ED003F1A9F /* 42-photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */; };
@@ -88,6 +89,7 @@
 		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
+		878C4AE11521E65300D3E6A9 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
 		A3CB84AD1510A14100F19022 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				878C4AE11521E65300D3E6A9 /* sample.png */,
 				A3CB84AD1510A14100F19022 /* example.png */,
 				E34F500E150EF36600A5FCD2 /* capture-button.png */,
 				E34F500F150EF36600A5FCD2 /* capture-button@2x.png */,
@@ -612,6 +615,7 @@
 				87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */,
 				A3CB84AE1510A14100F19022 /* example.png in Resources */,
 				E3CAC30B1515EE94003994A7 /* FBDialog.bundle in Resources */,
+				878C4AE21521E65300D3E6A9 /* sample.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
