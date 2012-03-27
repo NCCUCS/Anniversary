@@ -79,8 +79,12 @@
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
   
+	for (UIView *subview in [cell.contentView subviews]) {
+    [subview removeFromSuperview];
+	}
+	
 	NSUInteger row = indexPath.row;
-	for (int i = row * 2; i <= row * 2 + 1; i++) {
+	for (int i = row * 2; i <= row * 2 + 1 && i < [self.responseDictionarys count]; i++) {
 		NSDictionary *singlePhotoInfo;
 		if (i < [self.responseDictionarys count]) {
 			singlePhotoInfo = [self.responseDictionarys objectAtIndex:i];	
@@ -128,7 +132,13 @@
 	UIView *view = [self.tableView hitTest:tappedImagePoint withEvent:nil];
 	if ([view isMemberOfClass:[UIImageView class]]) {
 		//TODO: Push child view controller to display detail information about the tapped image	
-		ANPhotoViewController *photoViewController = [[ANPhotoViewController alloc] init];
+		
+		UITableViewCell *selectedCell = (UITableViewCell *)[[view superview] superview];
+		NSInteger selectedImageCellRow = [self.tableView indexPathForCell:selectedCell].row;
+		NSInteger selectedImageInfoIndex = view.tag % 2 == 0 ? selectedImageCellRow * 2 : selectedImageCellRow * 2 + 1;
+		NIDPRINT(@"tag: %d", view.tag);
+		NSDictionary *selectedImageInfo = [self.responseDictionarys objectAtIndex:selectedImageInfoIndex];
+		ANPhotoViewController *photoViewController = [[ANPhotoViewController alloc] initFromPhotosViewController:selectedImageInfo];
 		[self.navigationController pushViewController:photoViewController animated:YES];
 	}
 }

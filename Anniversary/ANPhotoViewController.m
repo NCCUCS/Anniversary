@@ -7,40 +7,41 @@
 //
 
 #import "ANPhotoViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ANPhotoViewController ()
-
+@property (nonatomic, strong) NSDictionary *singlePhotoInfo;
 @end
 
 @implementation ANPhotoViewController
 
-- (id)initFromMapViewController {
+@synthesize singlePhotoInfo = _singlePhotoInfo;
+
+- (id)init {
+	if (self = [super init]) {
+
+	}
+	return self;
+}
+
+- (id)initFromMapViewController:(NSDictionary *)singlePhotoInfo {
 	if (self = [self init]) {
 		
 	}
 	return self;
 }
 
-- (id)initFromPhotosViewController {
+- (id)initFromPhotosViewController:(NSDictionary *)singlePhotoInfo {
 	if (self = [self init]) {
-		
+		self.singlePhotoInfo = [NSDictionary dictionaryWithDictionary:singlePhotoInfo];
 	}
 	return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  [super viewDidLoad];
+	
 }
 
 - (void)viewDidUnload
@@ -49,9 +50,14 @@
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	self.title = [self.singlePhotoInfo objectForKey:@"description"];
+	UIImageView *imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	NSURL *imageURL = [NSURL URLWithString:[[self.singlePhotoInfo objectForKey:@"image"] objectForKey:@"url"]];
+	[imageView setImageWithURL:imageURL placeholderImage:nil];
+	[self.view addSubview:imageView];
 }
 
 @end

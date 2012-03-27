@@ -10,4 +10,8 @@
 
 @interface ANPhotoViewController : UIViewController
 
+- (id)initFromMapViewController:(NSDictionary *)singlePhotoInfo;
+- (id)initFromPhotosViewController:(NSDictionary *)singlePhotoInfo;
+
+
 @end
