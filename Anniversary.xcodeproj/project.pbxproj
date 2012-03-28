@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8705632A152342DE001B3A41 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87056329152342DE001B3A41 /* ANCaptureViewController.m */; };
+		874C841515235F2800866E26 /* ANTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C841415235F2800866E26 /* ANTextViewController.m */; };
 		878C4AE21521E65300D3E6A9 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 878C4AE11521E65300D3E6A9 /* sample.png */; };
 		A3CB84AE1510A14100F19022 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CB84AD1510A14100F19022 /* example.png */; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
@@ -87,6 +88,8 @@
 /* Begin PBXFileReference section */
 		87056328152342DE001B3A41 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87056329152342DE001B3A41 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
+		874C841315235F2800866E26 /* ANTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTextViewController.h; sourceTree = "<group>"; };
+		874C841415235F2800866E26 /* ANTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTextViewController.m; sourceTree = "<group>"; };
 		878C4AE11521E65300D3E6A9 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
 		A3CB84AD1510A14100F19022 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				87056329152342DE001B3A41 /* ANCaptureViewController.m */,
 				E34F5016150EF92300A5FCD2 /* ANPersonPickerViewController.h */,
 				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
+				874C841315235F2800866E26 /* ANTextViewController.h */,
+				874C841415235F2800866E26 /* ANTextViewController.m */,
 				E3BDC48714FF751A001343BE /* ANNewsViewController.h */,
 				E3BDC48814FF751A001343BE /* ANNewsViewController.m */,
 				E37509F1150D289800F3EC3F /* ANSettingsViewController.h */,
@@ -679,6 +684,7 @@
 				E3CAC460151653F3003994A7 /* NIPageView.m in Sources */,
 				E3CAC461151653F3003994A7 /* NIPagingScrollView.m in Sources */,
 				8705632A152342DE001B3A41 /* ANCaptureViewController.m in Sources */,
+				874C841515235F2800866E26 /* ANTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
