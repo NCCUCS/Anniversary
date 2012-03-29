@@ -91,11 +91,11 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info{
-	[picker dismissModalViewControllerAnimated:YES];
-  
-  ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:@"ANCaptureViewController" bundle:nil];
+  [self dismissModalViewControllerAnimated:NO];
+  ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
   viewController.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-  [self.selectedViewController presentModalViewController:viewController animated:YES];
+  [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
+  
 //  [self.navigationController pushViewController:viewController animated:YES];
 //  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController ]animated:YES];
 //  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];

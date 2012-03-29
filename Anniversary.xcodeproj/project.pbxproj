@@ -12,8 +12,6 @@
 		3732B5451524257C00729636 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3732B5411524257C00729636 /* PullToRefreshView.m */; };
 		3732B5461524257C00729636 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 3732B5421524257C00729636 /* README */; };
 		3732B549152428F600729636 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3732B548152428F600729636 /* QuartzCore.framework */; };
-		87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87781C03151034E5005931F9 /* ANCaptureViewController.m */; };
-		87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87781C04151034E5005931F9 /* ANCaptureViewController.xib */; };
 		8705632A152342DE001B3A41 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87056329152342DE001B3A41 /* ANCaptureViewController.m */; };
 		874C841515235F2800866E26 /* ANTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874C841415235F2800866E26 /* ANTextViewController.m */; };
 		878C4AE21521E65300D3E6A9 /* sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 878C4AE11521E65300D3E6A9 /* sample.png */; };
@@ -99,9 +97,6 @@
 		3732B5411524257C00729636 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		3732B5421524257C00729636 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		3732B548152428F600729636 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
-		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
-		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
 		87056328152342DE001B3A41 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87056329152342DE001B3A41 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		874C841315235F2800866E26 /* ANTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTextViewController.h; sourceTree = "<group>"; };
@@ -331,7 +326,6 @@
 		E3BDC43214FF6B7A001343BE = {
 			isa = PBXGroup;
 			children = (
-				3732B548152428F600729636 /* QuartzCore.framework */,
 				E3BDC44714FF6B7B001343BE /* Anniversary */,
 				E3CAC2E71515EE87003994A7 /* Dependencies */,
 				E3BDC44014FF6B7B001343BE /* Frameworks */,
@@ -350,6 +344,7 @@
 		E3BDC44014FF6B7B001343BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3732B548152428F600729636 /* QuartzCore.framework */,
 				E3BDC48A14FF753F001343BE /* MapKit.framework */,
 				E3BDC44114FF6B7B001343BE /* UIKit.framework */,
 				E3BDC44314FF6B7B001343BE /* Foundation.framework */,
