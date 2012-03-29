@@ -93,7 +93,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		3732B53E1524257C00729636 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		3732B53F1524257C00729636 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		3732B5401524257C00729636 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
@@ -103,13 +102,11 @@
 		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
-=======
 		87056328152342DE001B3A41 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87056329152342DE001B3A41 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		874C841315235F2800866E26 /* ANTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTextViewController.h; sourceTree = "<group>"; };
 		874C841415235F2800866E26 /* ANTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTextViewController.m; sourceTree = "<group>"; };
 		878C4AE11521E65300D3E6A9 /* sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.png; sourceTree = "<group>"; };
->>>>>>> 717c6ec8c9d491794449fb2de200a54340d0fca8
 		A3CB84AD1510A14100F19022 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
@@ -651,13 +648,10 @@
 				E34F5011150EF36600A5FCD2 /* capture-button@2x.png in Resources */,
 				A3CB84AE1510A14100F19022 /* example.png in Resources */,
 				E3CAC30B1515EE94003994A7 /* FBDialog.bundle in Resources */,
-<<<<<<< HEAD
 				3732B5431524257C00729636 /* arrow.png in Resources */,
 				3732B5441524257C00729636 /* arrow@2x.png in Resources */,
 				3732B5461524257C00729636 /* README in Resources */,
-=======
 				878C4AE21521E65300D3E6A9 /* sample.png in Resources */,
->>>>>>> 717c6ec8c9d491794449fb2de200a54340d0fca8
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,12 +718,9 @@
 				E3CAC455151653E5003994A7 /* NIWebController.m in Sources */,
 				E3CAC460151653F3003994A7 /* NIPageView.m in Sources */,
 				E3CAC461151653F3003994A7 /* NIPagingScrollView.m in Sources */,
-<<<<<<< HEAD
 				3732B5451524257C00729636 /* PullToRefreshView.m in Sources */,
-=======
 				8705632A152342DE001B3A41 /* ANCaptureViewController.m in Sources */,
 				874C841515235F2800866E26 /* ANTextViewController.m in Sources */,
->>>>>>> 717c6ec8c9d491794449fb2de200a54340d0fca8
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
