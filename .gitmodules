@@ -7,3 +7,6 @@
 [submodule "Dependencies/nimbus"]
 	path = Dependencies/nimbus
 	url = git://github.com/jverkoey/nimbus.git
+[submodule "Dependencies/PullToRefresh"]
+	path = Dependencies/PullToRefresh
+	url = https://github.com/sonnyparlin/PullToRefresh.git

@@ -13,6 +13,7 @@
 
 @interface ANPhotosViewController ()
 - (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
+- (void)reloadTableData;
 @end
 
 @implementation ANPhotosViewController
@@ -20,7 +21,7 @@
 @synthesize isLoaded = _isLoaded;
 @synthesize isLoading = _isLoading;
 @synthesize responseDictionarys = _responseDictionarys;
-
+@synthesize pullToRefreshView = _pullToRefreshView;
 
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
@@ -30,18 +31,33 @@
   return self;
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-	NIDPRINT(@"self.responseDictionarys has been updated.");
-	NIDPRINT(@"self.responseDictionarys: %@", self.responseDictionarys);
-	[self.tableView reloadData];
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	[self addObserver:self forKeyPath:@"responseDictionarys" options:NSKeyValueObservingOptionOld context:nil];
+	if (self.pullToRefreshView == nil) {
+		self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *)self.tableView];	
+		self.pullToRefreshView.delegate = self;
+		[self.tableView addSubview:self.pullToRefreshView];
+	}
 }
 
-#pragma mark - UIViewController
+- (void)viewDidUnload {
+	[super viewDidUnload];
+	[self removeObserver:self forKeyPath:@"responseDictionarys" context:nil];
+	self.pullToRefreshView = nil;
+}
+	
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-	[self addObserver:self forKeyPath:@"responseDictionarys" options:NSKeyValueObservingOptionOld context:nil];
+	[self reloadTableData];
+}
+
+#pragma mark - Downloading Table Data
+
+- (void)reloadTableData {
   if (!self.isLoaded && !self.isLoading) {
     self.isLoading = YES;
     
@@ -57,9 +73,12 @@
   }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	[self removeObserver:self forKeyPath:@"responseDictionarys" context:nil];
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	NIDPRINT(@"self.responseDictionarys has been updated.");
+	NIDPRINT(@"self.responseDictionarys: %@", self.responseDictionarys);
+	[self.tableView reloadData];
+	[self.pullToRefreshView finishedLoading];
 }
 
 #pragma mark - Table view data source
@@ -142,5 +161,13 @@
 		[self.navigationController pushViewController:photoViewController animated:YES];
 	}
 }
+
+#pragma mark - Pull To Refresh View Delegate 
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
+	self.isLoaded = NO;
+	[self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
+}
+
 
 @end

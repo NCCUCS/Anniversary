@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullToRefreshView.h"
 
-@interface ANPhotosViewController : UITableViewController <UIGestureRecognizerDelegate>
+@interface ANPhotosViewController : UITableViewController <UIGestureRecognizerDelegate, PullToRefreshViewDelegate>
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong) NSArray *responseDictionarys;
+@property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 
 @end

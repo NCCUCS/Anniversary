@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3732B5431524257C00729636 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3732B53E1524257C00729636 /* arrow.png */; };
+		3732B5441524257C00729636 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3732B53F1524257C00729636 /* arrow@2x.png */; };
+		3732B5451524257C00729636 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3732B5411524257C00729636 /* PullToRefreshView.m */; };
+		3732B5461524257C00729636 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 3732B5421524257C00729636 /* README */; };
+		3732B549152428F600729636 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3732B548152428F600729636 /* QuartzCore.framework */; };
 		87781C05151034E5005931F9 /* ANCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87781C03151034E5005931F9 /* ANCaptureViewController.m */; };
 		87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87781C04151034E5005931F9 /* ANCaptureViewController.xib */; };
 		A3CB84AE1510A14100F19022 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CB84AD1510A14100F19022 /* example.png */; };
@@ -85,6 +90,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3732B53E1524257C00729636 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		3732B53F1524257C00729636 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		3732B5401524257C00729636 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
+		3732B5411524257C00729636 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
+		3732B5421524257C00729636 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		3732B548152428F600729636 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		87781C02151034E5005931F9 /* ANCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANCaptureViewController.h; sourceTree = "<group>"; };
 		87781C03151034E5005931F9 /* ANCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANCaptureViewController.m; sourceTree = "<group>"; };
 		87781C04151034E5005931F9 /* ANCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ANCaptureViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3732B549152428F600729636 /* QuartzCore.framework in Frameworks */,
 				E3BDC48B14FF753F001343BE /* MapKit.framework in Frameworks */,
 				E3BDC44214FF6B7B001343BE /* UIKit.framework in Frameworks */,
 				E3BDC44414FF6B7B001343BE /* Foundation.framework in Frameworks */,
@@ -254,6 +266,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3732B53D1524257C00729636 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				3732B53E1524257C00729636 /* arrow.png */,
+				3732B53F1524257C00729636 /* arrow@2x.png */,
+				3732B5401524257C00729636 /* PullToRefreshView.h */,
+				3732B5411524257C00729636 /* PullToRefreshView.m */,
+				3732B5421524257C00729636 /* README */,
+			);
+			name = PullToRefresh;
+			path = Dependencies/PullToRefresh;
+			sourceTree = "<group>";
+		};
 		E37509E3150D25A600F3EC3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +322,7 @@
 		E3BDC43214FF6B7A001343BE = {
 			isa = PBXGroup;
 			children = (
+				3732B548152428F600729636 /* QuartzCore.framework */,
 				E3BDC44714FF6B7B001343BE /* Anniversary */,
 				E3CAC2E71515EE87003994A7 /* Dependencies */,
 				E3BDC44014FF6B7B001343BE /* Frameworks */,
@@ -363,6 +389,7 @@
 		E3CAC2E71515EE87003994A7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				3732B53D1524257C00729636 /* PullToRefresh */,
 				E3CAC3EC151653A5003994A7 /* Nimbus */,
 				E3CAC31D1515F39A003994A7 /* AFNetworking */,
 				E3CAC2E81515EE94003994A7 /* facebook-ios-sdk */,
@@ -612,6 +639,9 @@
 				87781C06151034E5005931F9 /* ANCaptureViewController.xib in Resources */,
 				A3CB84AE1510A14100F19022 /* example.png in Resources */,
 				E3CAC30B1515EE94003994A7 /* FBDialog.bundle in Resources */,
+				3732B5431524257C00729636 /* arrow.png in Resources */,
+				3732B5441524257C00729636 /* arrow@2x.png in Resources */,
+				3732B5461524257C00729636 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +709,7 @@
 				E3CAC455151653E5003994A7 /* NIWebController.m in Sources */,
 				E3CAC460151653F3003994A7 /* NIPageView.m in Sources */,
 				E3CAC461151653F3003994A7 /* NIPagingScrollView.m in Sources */,
+				3732B5451524257C00729636 /* PullToRefreshView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
