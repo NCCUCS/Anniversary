@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANTabBarController : UITabBarController
+@interface ANTabBarController : UITabBarController <UIActionSheetDelegate>
 
 @end

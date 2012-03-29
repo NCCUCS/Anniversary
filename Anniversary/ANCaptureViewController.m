@@ -14,7 +14,7 @@
 @end
 
 @implementation ANCaptureViewController
-@synthesize imageView, toolbar;
+@synthesize imageView, toolbar, image;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,56 +50,7 @@
 
 -(void)loadView{
   [super loadView];
-  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Albums", nil];
-	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-	actionSheet.alpha=0.90;
-	actionSheet.tag = 1;
-	[actionSheet showInView:self.view]; 
-}
-
-#pragma mark - UIActionSheet
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-	switch (actionSheet.tag){
-		case 1:
-			switch (buttonIndex){
-			case 0:{				
-#if TARGET_IPHONE_SIMULATOR
-				UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Saw Them" message:@"Camera not available." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-				[alert show];
-#elif TARGET_OS_IPHONE
-				UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
-				picker.sourceType = UIImagePickerControllerSourceTypeCamera;  
-				picker.delegate = self;  
-				//picker.allowsEditing = YES;  
-				[self presentModalViewController:picker animated:YES];
-				[picker release];
-#endif	
-			}break;
-			case 1:{
-				UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
-				picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
-				picker.delegate = self;  
-				[self presentModalViewController:picker animated:YES];
-			}break;
-      case 2:{
-        [self dismissModalViewControllerAnimated:YES];
-      }break;
-		}break;
-		default:
-			break;
-	}	
-}
-
--(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info{
-	[picker dismissModalViewControllerAnimated:YES];
-  imageView = [[UIImageView alloc] initWithFrame:CGRectMake(32, 34, 250, 300)];
-  imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-  [self.view addSubview:imageView];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-	[self dismissModalViewControllerAnimated:YES];	
+  NSLog(@"captureViewController");
 }
 
 - (void)viewDidLoad{
@@ -109,6 +60,11 @@
   //navigation Item
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked:)];
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+  
+  //UIImage
+  imageView = [[UIImageView alloc] initWithFrame:CGRectMake(32, 34, 250, 300)];
+  imageView.image = image;
+  [self.view addSubview:imageView];
   
   //UIToolbar
   CGRect rect = CGRectMake(0, self.view.frame.size.height-88, self.view.frame.size.width, 0);

@@ -56,14 +56,59 @@
   [self.view addSubview:button];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-  return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Private
 
 - (void)captureButtonClicked:(id)sender {
-  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+//  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Albums", nil];
+	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+	actionSheet.alpha=0.90;
+	actionSheet.tag = 1;
+	[actionSheet showFromTabBar:self.tabBar]; 
+}
+
+#pragma mark - UIActionSheetDelegate
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+  switch (buttonIndex){
+    case 0:{				
+      UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
+      picker.sourceType = UIImagePickerControllerSourceTypeCamera;  
+      picker.delegate = self;  
+      //picker.allowsEditing = YES;  
+      [self presentModalViewController:picker animated:YES];
+      break;
+    }
+    case 1:{
+      UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
+      picker.delegate = self;  
+      [self presentModalViewController:picker animated:YES];
+      break;
+    }
+  }
+}
+
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info{
+	[picker dismissModalViewControllerAnimated:YES];
+  
+  ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:@"ANCaptureViewController" bundle:nil];
+  viewController.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+  [self.selectedViewController presentModalViewController:viewController animated:YES];
+//  [self.navigationController pushViewController:viewController animated:YES];
+//  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController ]animated:YES];
+//  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+  
+//  imageView = [[UIImageView alloc] initWithFrame:CGRectMake(32, 34, 250, 300)];
+//  imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+//  [self.view addSubview:imageView];
+  
+  NSLog(@"hi");
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+	[self dismissModalViewControllerAnimated:YES];	
 }
 
 @end

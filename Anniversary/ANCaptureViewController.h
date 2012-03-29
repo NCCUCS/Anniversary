@@ -12,6 +12,7 @@
 @interface ANCaptureViewController : UIViewController
 
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
 
 @end
