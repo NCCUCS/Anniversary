@@ -10,3 +10,6 @@
 [submodule "Dependencies/PullToRefresh"]
 	path = Dependencies/PullToRefresh
 	url = https://github.com/sonnyparlin/PullToRefresh.git
+[submodule "Dependencies/QuickDialog"]
+	path = Dependencies/QuickDialog
+	url = git://github.com/escoz/QuickDialog.git

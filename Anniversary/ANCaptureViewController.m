@@ -6,10 +6,11 @@
 //  Copyright (c) 2012 Polydice, Inc. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ANPersonPickerViewController.h"
 #import "ANCaptureViewController.h"
 #import "ANTextViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "ANUploadViewController.h"
 
 @interface ANCaptureViewController ()
 
@@ -18,7 +19,9 @@
 @implementation ANCaptureViewController
 @synthesize imageView, toolbar, image, label, textArray, stickerArray;
 @synthesize textimage,textimageview;
+
 float angle = 0, size=14;
+
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
@@ -29,24 +32,24 @@ float angle = 0, size=14;
 
 #pragma mark - Private
 
--(void)cancelButtonClicked:(id)sender {
+- (void)cancelButtonClicked:(id)sender {
   [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)doneButtonClicked:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
+- (void)doneButtonClicked:(id)sender {
+  ANUploadViewController *uploadViewController = [ANUploadViewController uploadViewControllerWithImage:self.image];
+  [self.navigationController pushViewController:uploadViewController animated:YES];
 }
 
--(void)frameButtonClicked:(id)sender {
-  //  [self dismissModalViewControllerAnimated:YES];
+- (void)frameButtonClicked:(id)sender {
   [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 
--(void)stickerButtonClicked:(id)sender {
+- (void)stickerButtonClicked:(id)sender {
   [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)textButtonClicked:(id)sender {
+- (void)textButtonClicked:(id)sender {
   [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANTextViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 

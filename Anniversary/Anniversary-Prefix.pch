@@ -14,4 +14,5 @@
   #import "ANAtlas.h"
   #import "Facebook.h"
   #import "NimbusCore+Additions.h"
+  #import <QuickDialog/QuickDialog.h>
 #endif
