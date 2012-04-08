@@ -22,7 +22,8 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   
   // Setup UIAppearance
-  [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.098 green:0.200 blue:0.561 alpha:1.000]];
+  [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
+  [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.541 green:0.710 blue:0.882 alpha:1.000]];
   
   // Setup Facebook
   _facebook = [[Facebook alloc] initWithAppId:kAPI_KEY_FACEBOOK andDelegate:self];

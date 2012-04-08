@@ -32,6 +32,8 @@
 		E3AEAB341530996C00AEEBB2 /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEAB311530995F00AEEBB2 /* libQuickDialog.a */; };
 		E3AEAB36153099C600AEEBB2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3AEAB35153099C600AEEBB2 /* CoreLocation.framework */; };
 		E3AEAB3915309A6000AEEBB2 /* ANUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */; };
+		E3AEAB3C1530AD7100AEEBB2 /* navigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AEAB3A1530AD7100AEEBB2 /* navigationBar@2x.png */; };
+		E3AEAB3D1530AD7100AEEBB2 /* navigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AEAB3B1530AD7100AEEBB2 /* navigationBar.png */; };
 		E3BDC44214FF6B7B001343BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44114FF6B7B001343BE /* UIKit.framework */; };
 		E3BDC44414FF6B7B001343BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44314FF6B7B001343BE /* Foundation.framework */; };
 		E3BDC44614FF6B7B001343BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44514FF6B7B001343BE /* CoreGraphics.framework */; };
@@ -152,6 +154,8 @@
 		E3AEAB35153099C600AEEBB2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E3AEAB3715309A6000AEEBB2 /* ANUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANUploadViewController.h; sourceTree = "<group>"; };
 		E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANUploadViewController.m; sourceTree = "<group>"; };
+		E3AEAB3A1530AD7100AEEBB2 /* navigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar@2x.png"; sourceTree = "<group>"; };
+		E3AEAB3B1530AD7100AEEBB2 /* navigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBar.png; sourceTree = "<group>"; };
 		E3BDC43D14FF6B7B001343BE /* Anniversary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anniversary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BDC44114FF6B7B001343BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3BDC44314FF6B7B001343BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -416,6 +420,8 @@
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3AEAB3A1530AD7100AEEBB2 /* navigationBar@2x.png */,
+				E3AEAB3B1530AD7100AEEBB2 /* navigationBar.png */,
 				878C4AE11521E65300D3E6A9 /* sample.png */,
 				A3CB84AD1510A14100F19022 /* example.png */,
 				E34F500E150EF36600A5FCD2 /* capture-button.png */,
@@ -717,6 +723,8 @@
 				3732B5441524257C00729636 /* arrow@2x.png in Resources */,
 				3732B5461524257C00729636 /* README in Resources */,
 				878C4AE21521E65300D3E6A9 /* sample.png in Resources */,
+				E3AEAB3C1530AD7100AEEBB2 /* navigationBar@2x.png in Resources */,
+				E3AEAB3D1530AD7100AEEBB2 /* navigationBar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
