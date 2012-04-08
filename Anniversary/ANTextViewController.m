@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Polydice, Inc. All rights reserved.
 //
 
+#import "ANCaptureViewController.h"
 #import "ANTextViewController.h"
 
 @interface ANTextViewController ()
@@ -17,11 +18,11 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 #pragma mark - Private
@@ -30,7 +31,10 @@
   [self dismissModalViewControllerAnimated:YES];
 }
 
--(void)doneButtonClicked:(id)sender {
+-(void)saveButtonClicked:(id)sender {
+  NSLog(@"%@", messageField.text);
+  ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
+  viewController.label.text = messageField.text;
   [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -55,7 +59,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
 	// The keyboard will be shown. If the user is editing the comments, adjust the display so that the
 	// comments field will not be covered by the keyboard.
-	[self setViewMovedUp:YES];
+  //	[self setViewMovedUp:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{	
@@ -76,25 +80,33 @@
 	self.view.backgroundColor = [UIColor whiteColor];
   
   //navigation Item
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked:)];
-  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
+  //  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
   
   //UITextField
-  messageField = [[UITextField alloc] initWithFrame:CGRectMake(94, 333, 206, 31)];
+  messageField = [[UITextField alloc] initWithFrame:CGRectMake(45, 55, 240, 100)];
   messageField.borderStyle = UITextBorderStyleRoundedRect;
   messageField.delegate = self;
   [self.view addSubview:messageField];
+  
+  //UIButton
+  UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [doneButton addTarget:self action:@selector(saveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+  [doneButton setTitle:@"Save" forState:UIControlStateNormal];
+  doneButton.frame = CGRectMake(235.0, 160.0, 60.0, 30.0);
+  [self.view addSubview:doneButton];
+  
 }
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+  [super viewDidUnload];
+  // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+  return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end
