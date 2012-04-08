@@ -13,3 +13,9 @@
 [submodule "Dependencies/QuickDialog"]
 	path = Dependencies/QuickDialog
 	url = git://github.com/escoz/QuickDialog.git
+[submodule "Dependencies/BlocksKit"]
+	path = Dependencies/BlocksKit
+	url = git://github.com/zwaldowski/BlocksKit.git
+[submodule "Dependencies/A2DynamicDelegate"]
+	path = Dependencies/A2DynamicDelegate
+	url = https://github.com/pandamonia/A2DynamicDelegate.git
