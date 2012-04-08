@@ -15,6 +15,8 @@
 @implementation ANUploadViewController
 
 @synthesize image = _image;
+@synthesize isUploadingToFacebook = _isUploadingToFacebook;
+@synthesize isSavingToAlbum = _isSavingToAlbum;
 
 #pragma mark - Class
 
@@ -35,20 +37,24 @@
   [root addSection:section0];
   
   QSection *section1 = [[QSection alloc] init];
-  QBooleanElement *facebookButtonElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:YES];
-  QBooleanElement *saveToAlbumButtonElement = [[QBooleanElement alloc] initWithTitle:@"儲存到本機相簿" BoolValue:YES];
+  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:NO];
+  facebookElement.controllerAction = @"facebookSwitched:";
+  QBooleanElement *saveToAlbumElement = [[QBooleanElement alloc] initWithTitle:@"儲存到本機相簿" BoolValue:YES];
+  saveToAlbumElement.controllerAction = @"saveToAlbumSwitched:";
   
-  [section1 addElement:facebookButtonElement];
-  [section1 addElement:saveToAlbumButtonElement];
+  [section1 addElement:facebookElement];
+  [section1 addElement:saveToAlbumElement];
   
   [root addSection:section1];
   
   QSection *section2 = [[QSection alloc] init];
   QButtonElement *acceptButton = [[QButtonElement alloc] initWithTitle:@"參加活動"];
-  QButtonElement *cancelButton = [[QButtonElement alloc] initWithTitle:@"不參加活動"];
+  acceptButton.controllerAction = @"acceptButtonClicked:";
+  QButtonElement *declineButton = [[QButtonElement alloc] initWithTitle:@"不參加活動"];
+  declineButton.controllerAction = @"declineButtonClicked:";
   
   [section2 addElement:acceptButton];
-  [section2 addElement:cancelButton];
+  [section2 addElement:declineButton];
   
   [root addSection:section2];
   
@@ -57,5 +63,51 @@
   
   return viewController;
 }
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    _isSavingToAlbum = YES;
+  }
+  
+  return self;
+}
+
+#pragma mark - Private
+
+- (void)facebookSwitched:(QBooleanElement *)element {
+  _isUploadingToFacebook = element.boolValue;
+  if (_isUploadingToFacebook && ![[ANAtlas sharedFacebook] isSessionValid]) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Facebook 授權" message:@"分享到 Facebook 需要使用者授權。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"授權", nil];
+    [alertView show];
+  }
+}
+
+- (void)saveToAlbumSwitched:(QBooleanElement *)element {
+  _isSavingToAlbum = element.boolValue;
+}
+
+- (void)acceptButtonClicked:(QButtonElement *)element {
+  if (_isSavingToAlbum) {
+    UIImageWriteToSavedPhotosAlbum(self.image, NULL, NULL, NULL);
+  }
+  
+  [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)declineButtonClicked:(QButtonElement *)element {
+  [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if (alertView.cancelButtonIndex != buttonIndex) {
+    if (![[ANAtlas sharedFacebook] isSessionValid]) {
+      [[ANAtlas sharedFacebook] authorize:[NSArray arrayWithObject:@"email"]];
+    }
+  }
+}
+
+
 
 @end

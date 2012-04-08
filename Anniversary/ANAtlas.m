@@ -7,7 +7,12 @@
 //
 
 #import "ANAtlas.h"
+#import "ANAppDelegate.h"
 
 @implementation ANAtlas
+
++ (Facebook *)sharedFacebook {
+  return [(ANAppDelegate *)[[UIApplication sharedApplication] delegate] facebook];
+}
 
 @end

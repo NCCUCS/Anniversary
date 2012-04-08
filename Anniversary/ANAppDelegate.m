@@ -39,11 +39,6 @@
   self.window.rootViewController = self.tabBarController;
   [self.window makeKeyAndVisible];
   
-  // Authorize (Only for testing)
-  //  if (![_facebook isSessionValid]) {
-  //    [_facebook authorize:[NSArray arrayWithObject:@"email"]];
-  //  }
-  
   return YES;
 }
 

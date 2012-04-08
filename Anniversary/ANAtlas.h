@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class Facebook;
+
 #pragma mark - API
 
 #define kAPI_KEY_FACEBOOK @"364875846885282"
@@ -43,5 +45,7 @@
 #define kThumbPhotoHeight 155.0f
 
 @interface ANAtlas : NSObject
+
++ (Facebook *)sharedFacebook;
 
 @end

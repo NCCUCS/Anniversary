@@ -8,9 +8,11 @@
 
 #import "QuickDialogController.h"
 
-@interface ANUploadViewController : QuickDialogController
+@interface ANUploadViewController : QuickDialogController <UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, assign) BOOL isUploadingToFacebook;
+@property (nonatomic, assign) BOOL isSavingToAlbum;
 
 + (ANUploadViewController *)uploadViewControllerWithImage:(UIImage *)image;
 
