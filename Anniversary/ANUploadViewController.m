@@ -7,8 +7,12 @@
 //
 
 #import "ANUploadViewController.h"
+#import "ANHTTPClient.h"
 
 @interface ANUploadViewController ()
+
+- (void)processImage:(UIImage *)image;
+- (BOOL)checkFacebookAuthorized;
 
 @end
 
@@ -37,10 +41,10 @@
   [root addSection:section0];
   
   QSection *section1 = [[QSection alloc] init];
-  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:NO];
-  facebookElement.controllerAction = @"facebookSwitched:";
   QBooleanElement *saveToAlbumElement = [[QBooleanElement alloc] initWithTitle:@"儲存到本機相簿" BoolValue:YES];
   saveToAlbumElement.controllerAction = @"saveToAlbumSwitched:";
+  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:YES];
+  facebookElement.controllerAction = @"facebookSwitched:";
   
   [section1 addElement:facebookElement];
   [section1 addElement:saveToAlbumElement];
@@ -67,47 +71,72 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
     _isSavingToAlbum = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookDidLogin:) name:kNotificationFacebookDidLogin object:nil];
   }
   
   return self;
 }
 
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Private
+
+- (void)facebookDidLogin:(NSNotification *)notification {
+  [self processImage:self.image];
+}
+
+- (BOOL)checkFacebookAuthorized {
+  BOOL isSessionValid = [[ANAtlas sharedFacebook] isSessionValid];
+  if (!isSessionValid) {
+    [[ANAtlas sharedFacebook] authorize:[NSArray arrayWithObjects:@"email", @"publish_stream", nil]];
+  }
+  
+  return isSessionValid;
+}
 
 - (void)facebookSwitched:(QBooleanElement *)element {
   _isUploadingToFacebook = element.boolValue;
-  if (_isUploadingToFacebook && ![[ANAtlas sharedFacebook] isSessionValid]) {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Facebook 授權" message:@"分享到 Facebook 需要使用者授權。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"授權", nil];
-    [alertView show];
-  }
 }
 
 - (void)saveToAlbumSwitched:(QBooleanElement *)element {
   _isSavingToAlbum = element.boolValue;
 }
 
-- (void)acceptButtonClicked:(QButtonElement *)element {
+- (void)processImage:(UIImage *)image {
+  NSData *data = UIImageJPEGRepresentation(image, 0.9);
+  
   if (_isSavingToAlbum) {
-    UIImageWriteToSavedPhotosAlbum(self.image, NULL, NULL, NULL);
+    UIImageWriteToSavedPhotosAlbum(image, NULL, NULL, NULL);
   }
   
-  [self dismissModalViewControllerAnimated:YES];
+  if (_isUploadingToFacebook) {
+    [[ANAtlas sharedFacebook] requestWithGraphPath:@"me/photos" andParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:data, @"source", nil] andHttpMethod:@"POST" andDelegate:nil];
+  }
+  
+  NSMutableURLRequest *request = [[ANHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST" path:@"photos.json" parameters:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"], @"access_token", nil] constructingBodyWithBlock:^(<AFMultipartFormData>formData) {
+    [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
+  }];
+  
+  AFHTTPRequestOperation *operation = [[ANHTTPClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [self dismissModalViewControllerAnimated:YES];
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+    [UIAlertView showAlertViewWithTitle:@"上傳失敗" message:@"請檢查網路連線，稍後重新再試一次。" cancelButtonTitle:@"完成" otherButtonTitles:nil handler:NULL];
+  }];
+  
+  [[ANHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
+}
+
+- (void)acceptButtonClicked:(QButtonElement *)element {
+  if ([self checkFacebookAuthorized]) {
+    [self processImage:self.image];
+  }
 }
 
 - (void)declineButtonClicked:(QButtonElement *)element {
   [self dismissModalViewControllerAnimated:YES];
 }
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if (alertView.cancelButtonIndex != buttonIndex) {
-    if (![[ANAtlas sharedFacebook] isSessionValid]) {
-      [[ANAtlas sharedFacebook] authorize:[NSArray arrayWithObject:@"email"]];
-    }
-  }
-}
-
 
 
 @end

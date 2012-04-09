@@ -57,6 +57,8 @@
   [defaults setObject:_facebook.accessToken forKey:@"FBAccessTokenKey"];
   [defaults setObject:_facebook.expirationDate forKey:@"FBExpirationDateKey"];
   [defaults synchronize];
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationFacebookDidLogin object:nil];
 }
 
 - (void)fbDidNotLogin:(BOOL)cancelled {

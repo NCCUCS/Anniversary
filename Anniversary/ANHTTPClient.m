@@ -25,7 +25,7 @@ static ANHTTPClient *gShareClient;
   NSDictionary *parametersWithAPIKey = parameters ? [parameters mutableCopy] : [NSMutableDictionary dictionary];
   
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *accessToken = [defaults objectForKey:@"ANAccessTokenKey"];
+  NSString *accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
   if (accessToken) {
     [parametersWithAPIKey setValue:accessToken forKey:@"access_token"];
   }

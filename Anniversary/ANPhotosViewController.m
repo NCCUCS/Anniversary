@@ -33,22 +33,26 @@
 
 #pragma mark - UIViewController
 
+- (void)loadView {
+  [super loadView];
+  
+  _pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *)self.tableView];	
+  _pullToRefreshView.delegate = self;
+  [self.tableView addSubview:_pullToRefreshView];
+  
+  self.tableView.allowsSelection = NO;
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self addObserver:self forKeyPath:@"responseDictionarys" options:NSKeyValueObservingOptionOld context:nil];
-	if (self.pullToRefreshView == nil) {
-		self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *)self.tableView];	
-		self.pullToRefreshView.delegate = self;
-		[self.tableView addSubview:self.pullToRefreshView];
-	}
 }
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
 	[self removeObserver:self forKeyPath:@"responseDictionarys" context:nil];
-	self.pullToRefreshView = nil;
+	_pullToRefreshView = nil;
 }
-	
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
@@ -138,10 +142,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return kThumbPhotoHeight;
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	return nil;
 }
 
 #pragma mark - Tap Gesture Recognizer 

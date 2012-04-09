@@ -14,7 +14,6 @@
 
 #define kAPI_KEY_FACEBOOK @"364875846885282"
 #define kAPI_BASE_URL @"http://nccu85.herokuapp.com/"
-#define kAPI_PHOTOS_URL @"http://nccu85.herokuapp.com/photos" 
 
 /*[GET] http://nccu85.herokuapp.com/photos
   參數:page - 分頁代號，目前一頁 16 筆資料
@@ -43,6 +42,11 @@
 
 #define kThumbPhotoWidth 155.0f
 #define kThumbPhotoHeight 155.0f
+
+#pragma mark - Notification
+
+#define kNotificationFacebookDidLogin @"kNotificationFacebookDidLogin"
+
 
 @interface ANAtlas : NSObject
 
