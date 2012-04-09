@@ -60,12 +60,19 @@
 #pragma mark - Private
 
 - (void)captureButtonClicked:(id)sender {
-//  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
-  UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Albums", nil];
-	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-	actionSheet.alpha=0.90;
-	actionSheet.tag = 1;
-	[actionSheet showFromTabBar:self.tabBar]; 
+  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Albums", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    actionSheet.alpha = 0.90;
+    actionSheet.tag = 1;
+    [actionSheet showFromTabBar:self.tabBar]; 
+  } else {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
+    picker.delegate = self;  
+    picker.allowsEditing = YES;  
+    [self presentModalViewController:picker animated:YES];
+  }
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -76,7 +83,7 @@
       UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
       picker.sourceType = UIImagePickerControllerSourceTypeCamera;  
       picker.delegate = self;  
-      //picker.allowsEditing = YES;  
+      picker.allowsEditing = YES;  
       [self presentModalViewController:picker animated:YES];
       break;
     }
@@ -84,6 +91,7 @@
       UIImagePickerController *picker = [[UIImagePickerController alloc] init];
       picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
       picker.delegate = self;  
+      picker.allowsEditing = YES;  
       [self presentModalViewController:picker animated:YES];
       break;
     }
@@ -95,16 +103,6 @@
   ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
   viewController.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
   [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
-  
-//  [self.navigationController pushViewController:viewController animated:YES];
-//  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController ]animated:YES];
-//  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANCaptureViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
-  
-//  imageView = [[UIImageView alloc] initWithFrame:CGRectMake(32, 34, 250, 300)];
-//  imageView.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-//  [self.view addSubview:imageView];
-  
-  NSLog(@"hi");
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

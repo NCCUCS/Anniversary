@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANTabBarController : UITabBarController <UIActionSheetDelegate>
+@interface ANTabBarController : UITabBarController <
+UIActionSheetDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate>
 
 @end
