@@ -90,6 +90,18 @@
 		E35682A9153415150011F99B /* 李四端.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A6153415150011F99B /* 李四端.png */; };
 		E35682AA153415150011F99B /* 陳珊妮.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A7153415150011F99B /* 陳珊妮.png */; };
 		E35682AB153415150011F99B /* 陶晶瑩.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A8153415150011F99B /* 陶晶瑩.png */; };
+		E35682AE153417520011F99B /* ANFramePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E35682AD153417510011F99B /* ANFramePickerViewController.m */; };
+		E35682BA15341CCF0011F99B /* 中正圖書館.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B015341CCF0011F99B /* 中正圖書館.png */; };
+		E35682BB15341CCF0011F99B /* 四維堂.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B115341CCF0011F99B /* 四維堂.png */; };
+		E35682BC15341CCF0011F99B /* 外框A.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B215341CCF0011F99B /* 外框A.png */; };
+		E35682BD15341CCF0011F99B /* 外框B.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B315341CCF0011F99B /* 外框B.png */; };
+		E35682BE15341CCF0011F99B /* 外框C.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B415341CCF0011F99B /* 外框C.png */; };
+		E35682BF15341CCF0011F99B /* 外框D.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B515341CCF0011F99B /* 外框D.png */; };
+		E35682C015341CCF0011F99B /* 校碑.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B615341CCF0011F99B /* 校碑.png */; };
+		E35682C115341CCF0011F99B /* 綜合大樓.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B715341CCF0011F99B /* 綜合大樓.png */; };
+		E35682C215341CCF0011F99B /* 蔣公銅像.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B815341CCF0011F99B /* 蔣公銅像.png */; };
+		E35682C315341CCF0011F99B /* 體育館.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B915341CCF0011F99B /* 體育館.png */; };
+		E35682C515341CDA0011F99B /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35682C415341CDA0011F99B /* frames.plist */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -307,6 +319,19 @@
 		E35682A6153415150011F99B /* 李四端.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "李四端.png"; sourceTree = "<group>"; };
 		E35682A7153415150011F99B /* 陳珊妮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陳珊妮.png"; sourceTree = "<group>"; };
 		E35682A8153415150011F99B /* 陶晶瑩.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陶晶瑩.png"; sourceTree = "<group>"; };
+		E35682AC153417510011F99B /* ANFramePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANFramePickerViewController.h; sourceTree = "<group>"; };
+		E35682AD153417510011F99B /* ANFramePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANFramePickerViewController.m; sourceTree = "<group>"; };
+		E35682B015341CCF0011F99B /* 中正圖書館.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "中正圖書館.png"; sourceTree = "<group>"; };
+		E35682B115341CCF0011F99B /* 四維堂.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "四維堂.png"; sourceTree = "<group>"; };
+		E35682B215341CCF0011F99B /* 外框A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "外框A.png"; sourceTree = "<group>"; };
+		E35682B315341CCF0011F99B /* 外框B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "外框B.png"; sourceTree = "<group>"; };
+		E35682B415341CCF0011F99B /* 外框C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "外框C.png"; sourceTree = "<group>"; };
+		E35682B515341CCF0011F99B /* 外框D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "外框D.png"; sourceTree = "<group>"; };
+		E35682B615341CCF0011F99B /* 校碑.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "校碑.png"; sourceTree = "<group>"; };
+		E35682B715341CCF0011F99B /* 綜合大樓.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "綜合大樓.png"; sourceTree = "<group>"; };
+		E35682B815341CCF0011F99B /* 蔣公銅像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蔣公銅像.png"; sourceTree = "<group>"; };
+		E35682B915341CCF0011F99B /* 體育館.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "體育館.png"; sourceTree = "<group>"; };
+		E35682C415341CDA0011F99B /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frames.plist; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -600,6 +625,23 @@
 			path = Stickers;
 			sourceTree = "<group>";
 		};
+		E35682AF15341CCF0011F99B /* Frames */ = {
+			isa = PBXGroup;
+			children = (
+				E35682B015341CCF0011F99B /* 中正圖書館.png */,
+				E35682B115341CCF0011F99B /* 四維堂.png */,
+				E35682B215341CCF0011F99B /* 外框A.png */,
+				E35682B315341CCF0011F99B /* 外框B.png */,
+				E35682B415341CCF0011F99B /* 外框C.png */,
+				E35682B515341CCF0011F99B /* 外框D.png */,
+				E35682B615341CCF0011F99B /* 校碑.png */,
+				E35682B715341CCF0011F99B /* 綜合大樓.png */,
+				E35682B815341CCF0011F99B /* 蔣公銅像.png */,
+				E35682B915341CCF0011F99B /* 體育館.png */,
+			);
+			path = Frames;
+			sourceTree = "<group>";
+		};
 		E37509E3150D25A600F3EC3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +676,8 @@
 				E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */,
 				E356829015340EDA0011F99B /* ANStickerPickerViewController.h */,
 				E356829115340EDA0011F99B /* ANStickerPickerViewController.m */,
+				E35682AC153417510011F99B /* ANFramePickerViewController.h */,
+				E35682AD153417510011F99B /* ANFramePickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -748,7 +792,9 @@
 				E3BDC44A14FF6B7B001343BE /* InfoPlist.strings */,
 				E3BDC44D14FF6B7B001343BE /* main.m */,
 				E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */,
+				E35682C415341CDA0011F99B /* frames.plist */,
 				E3568293153413A00011F99B /* stickers.plist */,
+				E35682AF15341CCF0011F99B /* Frames */,
 				E3568295153413EC0011F99B /* Stickers */,
 			);
 			name = "Supporting Files";
@@ -1074,6 +1120,17 @@
 				E35682A9153415150011F99B /* 李四端.png in Resources */,
 				E35682AA153415150011F99B /* 陳珊妮.png in Resources */,
 				E35682AB153415150011F99B /* 陶晶瑩.png in Resources */,
+				E35682BA15341CCF0011F99B /* 中正圖書館.png in Resources */,
+				E35682BB15341CCF0011F99B /* 四維堂.png in Resources */,
+				E35682BC15341CCF0011F99B /* 外框A.png in Resources */,
+				E35682BD15341CCF0011F99B /* 外框B.png in Resources */,
+				E35682BE15341CCF0011F99B /* 外框C.png in Resources */,
+				E35682BF15341CCF0011F99B /* 外框D.png in Resources */,
+				E35682C015341CCF0011F99B /* 校碑.png in Resources */,
+				E35682C115341CCF0011F99B /* 綜合大樓.png in Resources */,
+				E35682C215341CCF0011F99B /* 蔣公銅像.png in Resources */,
+				E35682C315341CCF0011F99B /* 體育館.png in Resources */,
+				E35682C515341CDA0011F99B /* frames.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1175,6 +1232,7 @@
 				E3CFF90215334B2B008589F2 /* ANPhoto.m in Sources */,
 				E3BD42D91533570A000F707E /* ANPhotosTableViewCell.m in Sources */,
 				E356829215340EDB0011F99B /* ANStickerPickerViewController.m in Sources */,
+				E35682AE153417520011F99B /* ANFramePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

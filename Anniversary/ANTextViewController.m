@@ -34,7 +34,6 @@
 -(void)saveButtonClicked:(id)sender {
   NSLog(@"%@", messageField.text);
   ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
-  viewController.label.text = messageField.text;
   [self dismissModalViewControllerAnimated:YES];
 }
 

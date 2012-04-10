@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface ANCaptureViewController : UIViewController
+#import "ANFramePickerViewController.h"
 
-@property (nonatomic, retain) IBOutlet UIImageView *imageView;
-@property (nonatomic, retain) IBOutlet UIImageView *textimageview;
+@interface ANCaptureViewController : UIViewController <ANFramePickerViewControllerDelegate>
+
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *frameImageView;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, strong) UIImage *textimage;
-@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) UILabel *label;
-@property (nonatomic, strong) NSArray *textArray;
-@property (nonatomic, strong) NSArray *stickerArray;
+@property (nonatomic, retain) UIToolbar *toolbar;
 
 @end

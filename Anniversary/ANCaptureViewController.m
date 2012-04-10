@@ -19,9 +19,9 @@
 
 @implementation ANCaptureViewController
 @synthesize imageView = _imageView;
+@synthesize frameImageView = _frameImageView;
 @synthesize toolbar = _toolbar;
-@synthesize image, label, textArray, stickerArray;
-@synthesize textimage,textimageview;
+@synthesize image = _image;
 
 float angle = 0, size=14;
 
@@ -58,54 +58,24 @@ float angle = 0, size=14;
 
 #pragma mark - UIButton
 
--(void)zoomIn:(id)sender {
-  [UIImageView beginAnimations:nil context:NULL];
-  [UIImageView setAnimationDuration:0.5];
-  [UIImageView setAnimationBeginsFromCurrentState:YES];
-  textimageview.frame = CGRectMake(textimageview.frame.origin.x,textimageview.frame.origin.y, textimageview.frame.size.width+9, textimageview.frame.size.height+6);
-  [UIImageView commitAnimations];
-  
-  size += 1;
-  label.font=[UIFont systemFontOfSize:size];
+- (void)zoomIn:(id)sender {
+
 }
 
--(void)zoomOut:(id)sender {
-  [UIImageView beginAnimations:nil context:NULL];
-  [UIImageView setAnimationDuration:0.5];
-  [UIImageView setAnimationBeginsFromCurrentState:YES];
-  textimageview.frame = CGRectMake(textimageview.frame.origin.x, textimageview.frame.origin.y, textimageview.frame.size.width-9 , textimageview.frame.size.height-6);
-  [UIImageView commitAnimations];
-  
-  size -= 1;
-  label.font=[UIFont systemFontOfSize:size];
+- (void)zoomOut:(id)sender {
+
 }
 
--(void)rotateRight:(id)sender {
-  [UIImageView beginAnimations:nil context:NULL];
-  [UIImageView setAnimationDuration:0.5];
-  [UIImageView setAnimationBeginsFromCurrentState:YES];
-  angle += M_PI/4;
-  CGAffineTransform transform =CGAffineTransformMakeRotation(angle);
-  textimageview.transform = transform;
-  [UIImageView commitAnimations];
-  
-  label.transform=transform;
+- (void)rotateRight:(id)sender {
+
 }
 
--(void)rotateLeft:(id)sender {
-  [UIImageView beginAnimations:nil context:NULL];
-  [UIImageView setAnimationDuration:0.5];
-  [UIImageView setAnimationBeginsFromCurrentState:YES];
-  angle -= M_PI/4;
-  CGAffineTransform transform =CGAffineTransformMakeRotation(angle);
-  textimageview.transform = transform;
-  [UIImageView commitAnimations];
-  
-  label.transform=transform;
+- (void)rotateLeft:(id)sender {
+
 }
 
--(void)trash:(id)sender {
-  textimageview.removeFromSuperview;
+- (void)trash:(id)sender {
+
 }
 
 #pragma mark - UIViewController
@@ -117,8 +87,11 @@ float angle = 0, size=14;
   
   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
   _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
-  _imageView.image = image;
+  _imageView.image = self.image;
   [self.view addSubview:_imageView];
+  
+  _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+  [self.view addSubview:_frameImageView];
   
   _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - NIToolbarHeightForOrientation(self.interfaceOrientation), 
                          self.view.bounds.size.width, NIToolbarHeightForOrientation(self.interfaceOrientation))];
@@ -130,6 +103,11 @@ float angle = 0, size=14;
   [frameButton setImage:[UIImage imageNamed:@"frameButton"] forState:UIControlStateNormal];
   [frameButton setImage:[UIImage imageNamed:@"frameButtonClicked"] forState:UIControlStateHighlighted];
   [frameButton sizeToFit];
+  [frameButton addEventHandler:^(id sender){
+    ANFramePickerViewController *viewController = [[ANFramePickerViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.delegate = self;
+    [tempSelf presentModalViewController:viewController animated:YES];
+  } forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *frameButtonItem = [[UIBarButtonItem alloc] initWithCustomView:frameButton];
   
@@ -138,7 +116,7 @@ float angle = 0, size=14;
   [stickerButton setImage:[UIImage imageNamed:@"stickerButtonClicked"] forState:UIControlStateHighlighted];
   [stickerButton sizeToFit];
   [stickerButton addEventHandler:^(id sender){
-    [tempSelf presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+    [tempSelf presentModalViewController:[[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
   } forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *stickerButtonItem = [[UIBarButtonItem alloc] initWithCustomView:stickerButton];
@@ -189,26 +167,20 @@ float angle = 0, size=14;
   [trashButton setTitle:@"x" forState:UIControlStateNormal];
   trashButton.frame = CGRectMake(275.0, 325.0, 30.0, 30.0);
   [self.view addSubview:trashButton];
-  
-  //UILabel
-  label = [[UILabel alloc] initWithFrame:CGRectMake(20, 300, 50, 20)];
-  label.text = @"test"; 
-  label.backgroundColor=[UIColor clearColor];
-  label.font=[UIFont systemFontOfSize:size];
-  [self.view addSubview:label];
-  
-  //textimageview
-  textimageview = [[UIImageView alloc] initWithFrame:CGRectMake(20.0, 20.0, 60.0, 40.0)];
-  [textimageview setImage:[UIImage imageNamed:@"capture-button.png"]];
-  [self.view addSubview:textimageview];
-  
 }
 
 - (void)viewDidUnload{
   [super viewDidUnload];
   
   _imageView = nil;
+  _frameImageView = nil;
   _toolbar = nil;
+}
+
+#pragma mark - ANFramePickerViewControllerDelegate
+
+- (void)framePickerController:(ANFramePickerViewController *)picker didFinishPickingFrame:(UIImage *)image {
+  _frameImageView.image = image;
 }
 
 @end
