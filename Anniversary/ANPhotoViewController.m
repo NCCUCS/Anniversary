@@ -18,6 +18,8 @@
 
 @synthesize photo = _photo;
 @synthesize imageView = _imageView;
+@synthesize avatarImageView = _avatarImageView;
+@synthesize userNameLabel = _userNameLabel;
 
 - (id)initWithPhoto:(ANPhoto *)photo {
   if (self = [self initWithNibName:nil bundle:nil]) {
@@ -32,20 +34,27 @@
 - (void)loadView {
   [super loadView];
   
-  _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 310, 310)];
-  [_imageView setImageWithURL:_photo.imageURL];
+  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+  
+  _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+  [_imageView setImageWithURL:self.photo.imageURL];
   [self.view addSubview:_imageView];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:YES];
-   
+  
+  _avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(3, 323, 40, 40)];
+  [_avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%lld/picture", self.photo.userFid]]];
+  [self.view addSubview:_avatarImageView];
+  
+  _userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(51, 323, 272, 45)];
+  _userNameLabel.backgroundColor = [UIColor clearColor];
+  _userNameLabel.text = self.photo.userName;
+  [self.view addSubview:_userNameLabel];
 }
 
 - (void)viewDidUnload {
   [super viewDidUnload];
   
   _imageView = nil;
+  _avatarImageView = nil;
 }
 
 @end

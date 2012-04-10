@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong) ANPhoto *photo;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) UILabel *userNameLabel;
 
 - (id)initWithPhoto:(ANPhoto *)photo;
 

@@ -7,6 +7,7 @@
 //
 
 #import "ANMapViewController.h"
+#import "ANPhotoViewController.h"
 #import "ANHTTPClient.h"
 #import "ANPhoto.h"
 
@@ -125,6 +126,14 @@
     view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:NSStringFromClass(self.class)];
     view.canShowCallout = YES;
     view.animatesDrop = YES;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    __weak ANMapViewController *tempSelf = self;
+    [button addEventHandler:^(id sender){
+      ANPhoto *photo = (ANPhoto *)[(MKPinAnnotationView *)[[(UIButton *)sender superview] superview] annotation];
+      [tempSelf.navigationController pushViewController:[[ANPhotoViewController alloc] initWithPhoto:photo] animated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    view.rightCalloutAccessoryView = button;
   }
   view.annotation = annotation;
   
