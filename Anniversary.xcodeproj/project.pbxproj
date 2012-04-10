@@ -61,6 +61,18 @@
 		E356825D1533FED70011F99B /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682571533FED70011F99B /* background@2x.png */; };
 		E356825E1533FED70011F99B /* titleView.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682581533FED70011F99B /* titleView.png */; };
 		E356825F1533FED70011F99B /* titleView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682591533FED70011F99B /* titleView@2x.png */; };
+		E3568266153404F20011F99B /* frameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568260153404F20011F99B /* frameButton.png */; };
+		E3568267153404F20011F99B /* frameButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568261153404F20011F99B /* frameButton@2x.png */; };
+		E3568268153404F20011F99B /* textButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568262153404F20011F99B /* textButton@2x.png */; };
+		E3568269153404F20011F99B /* textButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568263153404F20011F99B /* textButton.png */; };
+		E356826A153404F20011F99B /* stickerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568264153404F20011F99B /* stickerButton.png */; };
+		E356826B153404F20011F99B /* sitckerButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568265153404F20011F99B /* sitckerButton@2x.png */; };
+		E3568272153409E10011F99B /* frameButtonClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = E356826C153409E10011F99B /* frameButtonClicked.png */; };
+		E3568273153409E10011F99B /* stickerButtonClicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E356826D153409E10011F99B /* stickerButtonClicked@2x.png */; };
+		E3568274153409E10011F99B /* frameButtonClicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E356826E153409E10011F99B /* frameButtonClicked@2x.png */; };
+		E3568275153409E10011F99B /* stickerButtonClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = E356826F153409E10011F99B /* stickerButtonClicked.png */; };
+		E3568276153409E10011F99B /* textButtonClicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568270153409E10011F99B /* textButtonClicked@2x.png */; };
+		E3568277153409E10011F99B /* textButtonClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568271153409E10011F99B /* textButtonClicked.png */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -248,6 +260,18 @@
 		E35682571533FED70011F99B /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		E35682581533FED70011F99B /* titleView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleView.png; sourceTree = "<group>"; };
 		E35682591533FED70011F99B /* titleView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleView@2x.png"; sourceTree = "<group>"; };
+		E3568260153404F20011F99B /* frameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frameButton.png; sourceTree = "<group>"; };
+		E3568261153404F20011F99B /* frameButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frameButton@2x.png"; sourceTree = "<group>"; };
+		E3568262153404F20011F99B /* textButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textButton@2x.png"; sourceTree = "<group>"; };
+		E3568263153404F20011F99B /* textButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textButton.png; sourceTree = "<group>"; };
+		E3568264153404F20011F99B /* stickerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerButton.png; sourceTree = "<group>"; };
+		E3568265153404F20011F99B /* sitckerButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sitckerButton@2x.png"; sourceTree = "<group>"; };
+		E356826C153409E10011F99B /* frameButtonClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frameButtonClicked.png; sourceTree = "<group>"; };
+		E356826D153409E10011F99B /* stickerButtonClicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickerButtonClicked@2x.png"; sourceTree = "<group>"; };
+		E356826E153409E10011F99B /* frameButtonClicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frameButtonClicked@2x.png"; sourceTree = "<group>"; };
+		E356826F153409E10011F99B /* stickerButtonClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerButtonClicked.png; sourceTree = "<group>"; };
+		E3568270153409E10011F99B /* textButtonClicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textButtonClicked@2x.png"; sourceTree = "<group>"; };
+		E3568271153409E10011F99B /* textButtonClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textButtonClicked.png; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -629,6 +653,18 @@
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E356826C153409E10011F99B /* frameButtonClicked.png */,
+				E356826D153409E10011F99B /* stickerButtonClicked@2x.png */,
+				E356826E153409E10011F99B /* frameButtonClicked@2x.png */,
+				E356826F153409E10011F99B /* stickerButtonClicked.png */,
+				E3568270153409E10011F99B /* textButtonClicked@2x.png */,
+				E3568271153409E10011F99B /* textButtonClicked.png */,
+				E3568260153404F20011F99B /* frameButton.png */,
+				E3568261153404F20011F99B /* frameButton@2x.png */,
+				E3568262153404F20011F99B /* textButton@2x.png */,
+				E3568263153404F20011F99B /* textButton.png */,
+				E3568264153404F20011F99B /* stickerButton.png */,
+				E3568265153404F20011F99B /* sitckerButton@2x.png */,
 				E35682541533FED70011F99B /* toolbar.png */,
 				E35682551533FED70011F99B /* toolbar@2x.png */,
 				E35682561533FED70011F99B /* background.png */,
@@ -949,6 +985,18 @@
 				E356825D1533FED70011F99B /* background@2x.png in Resources */,
 				E356825E1533FED70011F99B /* titleView.png in Resources */,
 				E356825F1533FED70011F99B /* titleView@2x.png in Resources */,
+				E3568266153404F20011F99B /* frameButton.png in Resources */,
+				E3568267153404F20011F99B /* frameButton@2x.png in Resources */,
+				E3568268153404F20011F99B /* textButton@2x.png in Resources */,
+				E3568269153404F20011F99B /* textButton.png in Resources */,
+				E356826A153404F20011F99B /* stickerButton.png in Resources */,
+				E356826B153404F20011F99B /* sitckerButton@2x.png in Resources */,
+				E3568272153409E10011F99B /* frameButtonClicked.png in Resources */,
+				E3568273153409E10011F99B /* stickerButtonClicked@2x.png in Resources */,
+				E3568274153409E10011F99B /* frameButtonClicked@2x.png in Resources */,
+				E3568275153409E10011F99B /* stickerButtonClicked.png in Resources */,
+				E3568276153409E10011F99B /* textButtonClicked@2x.png in Resources */,
+				E3568277153409E10011F99B /* textButtonClicked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

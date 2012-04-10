@@ -17,15 +17,17 @@
 @end
 
 @implementation ANCaptureViewController
-@synthesize imageView, toolbar, image, label, textArray, stickerArray;
+@synthesize imageView = _imageView;
+@synthesize toolbar = _toolbar;
+@synthesize image, label, textArray, stickerArray;
 @synthesize textimage,textimageview;
 
 float angle = 0, size=14;
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    self.title = @"照片編輯";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
   }
   return self;
 }
@@ -107,37 +109,49 @@ float angle = 0, size=14;
 
 #pragma mark - UIViewController
 
--(void)loadView{
+- (void)loadView{
   [super loadView];
+  
+  self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+  _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+  _imageView.image = image;
+  [self.view addSubview:_imageView];
+  
+  _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - NIToolbarHeightForOrientation(self.interfaceOrientation), 
+                         self.view.bounds.size.width, NIToolbarHeightForOrientation(self.interfaceOrientation))];
+  _toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+  [self.view addSubview:_toolbar];
+  
+  UIBarItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  UIButton *frameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [frameButton setImage:[UIImage imageNamed:@"frameButton"] forState:UIControlStateNormal];
+  [frameButton setImage:[UIImage imageNamed:@"frameButtonClicked"] forState:UIControlStateHighlighted];
+  [frameButton sizeToFit];
+  
+  UIBarButtonItem *frameButtonItem = [[UIBarButtonItem alloc] initWithCustomView:frameButton];
+  
+  UIButton *stickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [stickerButton setImage:[UIImage imageNamed:@"stickerButton"] forState:UIControlStateNormal];
+  [stickerButton setImage:[UIImage imageNamed:@"stickerButtonClicked"] forState:UIControlStateHighlighted];
+  [stickerButton sizeToFit];
+  
+  UIBarButtonItem *stickerButtonItem = [[UIBarButtonItem alloc] initWithCustomView:stickerButton];
+  
+  UIButton *textButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [textButton setImage:[UIImage imageNamed:@"textButton"] forState:UIControlStateNormal];
+  [textButton setImage:[UIImage imageNamed:@"textButtonClicked"] forState:UIControlStateHighlighted];
+  [textButton sizeToFit];
+  
+  UIBarButtonItem *textButtonItem = [[UIBarButtonItem alloc] initWithCustomView:textButton];
+  
+  _toolbar.items = [NSArray arrayWithObjects: space, frameButtonItem, space, stickerButtonItem, space, textButtonItem, space, nil];
 }
 
 - (void)viewDidLoad{
   [super viewDidLoad];
-	self.view.backgroundColor = [UIColor whiteColor];
   
-  //navigation Item
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
-  
-  //UIImage
-  imageView = [[UIImageView alloc] initWithFrame:CGRectMake(38, 20, 240, 280)];
-  imageView.image = image;
-  [self.view addSubview:imageView];
-  
-  //UIToolbar
-  CGRect rect = CGRectMake(0, self.view.frame.size.height-88, self.view.frame.size.width, 0);
-  toolbar = [[UIToolbar alloc]initWithFrame:rect];
-  toolbar.barStyle = UIBarStyleDefault;
-  [toolbar sizeToFit];
-  [self.view addSubview:toolbar];
-  
-  //UIBarButtonItem
-  UIBarItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-  UIBarButtonItem *frameButton = [[UIBarButtonItem alloc] initWithTitle:@"Frame" style:UIBarButtonItemStyleBordered target:self action:@selector(frameButtonClicked:)];
-  UIBarButtonItem *stickerButton = [[UIBarButtonItem alloc] initWithTitle:@"Sticker" style:UIBarButtonItemStyleBordered target:self action:@selector(stickerButtonClicked:)];
-  UIBarButtonItem *textButton = [[UIBarButtonItem alloc] initWithTitle:@"Text" style:UIBarButtonItemStyleBordered target:self action:@selector(textButtonClicked:)];
-  NSArray *buttons = [NSArray arrayWithObjects: space, frameButton, space, stickerButton, space, textButton, space, nil];
-  [toolbar setItems: buttons animated:NO];
   
   //UIButton
   UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -186,7 +200,9 @@ float angle = 0, size=14;
 
 - (void)viewDidUnload{
   [super viewDidUnload];
-  // Release any retained subviews of the main view.
+  
+  _imageView = nil;
+  _toolbar = nil;
 }
 
 @end
