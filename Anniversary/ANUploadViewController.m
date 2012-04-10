@@ -20,8 +20,8 @@
 @implementation ANUploadViewController
 
 @synthesize image = _image;
+@synthesize isUploadingToStage = _isUploadingToStage;
 @synthesize isUploadingToFacebook = _isUploadingToFacebook;
-@synthesize isSavingToAlbum = _isSavingToAlbum;
 
 #pragma mark - Class
 
@@ -42,26 +42,15 @@
   [root addSection:section0];
   
   QSection *section1 = [[QSection alloc] init];
-  QBooleanElement *saveToAlbumElement = [[QBooleanElement alloc] initWithTitle:@"儲存到本機相簿" BoolValue:YES];
-  saveToAlbumElement.controllerAction = @"saveToAlbumSwitched:";
-  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:YES];
+  QBooleanElement *uploadElement = [[QBooleanElement alloc] initWithTitle:@"參加活動" BoolValue:YES];
+  uploadElement.controllerAction = @"uploadToStageSwitched:";
+  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:NO];
   facebookElement.controllerAction = @"facebookSwitched:";
   
+  [section1 addElement:uploadElement];
   [section1 addElement:facebookElement];
-  [section1 addElement:saveToAlbumElement];
   
   [root addSection:section1];
-  
-  QSection *section2 = [[QSection alloc] init];
-  QButtonElement *acceptButton = [[QButtonElement alloc] initWithTitle:@"參加活動"];
-  acceptButton.controllerAction = @"acceptButtonClicked:";
-  QButtonElement *declineButton = [[QButtonElement alloc] initWithTitle:@"不參加活動"];
-  declineButton.controllerAction = @"declineButtonClicked:";
-  
-  [section2 addElement:acceptButton];
-  [section2 addElement:declineButton];
-  
-  [root addSection:section2];
   
   ANUploadViewController *viewController = (ANUploadViewController *)[QuickDialogController controllerForRoot:root];
   viewController.image = image;
@@ -71,7 +60,8 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-    _isSavingToAlbum = YES;
+    _isUploadingToStage = YES;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookDidLogin:) name:kNotificationFacebookDidLogin object:nil];
   }
   
@@ -97,59 +87,63 @@
   return isSessionValid;
 }
 
+- (void)uplaodSwitched:(QBooleanElement *)element {
+  _isUploadingToStage = element.boolValue;
+}
+
 - (void)facebookSwitched:(QBooleanElement *)element {
   _isUploadingToFacebook = element.boolValue;
 }
 
-- (void)saveToAlbumSwitched:(QBooleanElement *)element {
-  _isSavingToAlbum = element.boolValue;
-}
-
 - (void)processImage:(UIImage *)image {
   NSData *data = UIImageJPEGRepresentation(image, 0.9);
-  
-  if (_isSavingToAlbum) {
-    UIImageWriteToSavedPhotosAlbum(image, NULL, NULL, NULL);
-  }
+  UIImageWriteToSavedPhotosAlbum(image, NULL, NULL, NULL);
   
   if (_isUploadingToFacebook) {
     [[ANAtlas sharedFacebook] requestWithGraphPath:@"me/photos" andParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:data, @"source", nil] andHttpMethod:@"POST" andDelegate:nil];
   }
   
-  CLLocationCoordinate2D locationCoordinate = [[[(ANAppDelegate *)[[UIApplication sharedApplication] delegate] locationManager] location] coordinate];
-  
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                          [[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"], 
-                          @"access_token", 
-                          [NSNumber numberWithDouble:locationCoordinate.latitude], 
-                          @"photo[latitude]", 
-                          [NSNumber numberWithDouble:locationCoordinate.longitude], 
-                          @"photo[longitude]", nil];
-  
-  NSMutableURLRequest *request = [[ANHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST" 
-                                                                                        path:@"photos.json" 
-                                                                                  parameters:params 
-                                                                   constructingBodyWithBlock:^(id<AFMultipartFormData>formData) {
-    [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
-  }];
-  
-  AFHTTPRequestOperation *operation = [[ANHTTPClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject){
-    [self dismissModalViewControllerAnimated:YES];
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-    [UIAlertView showAlertViewWithTitle:@"上傳失敗" message:@"請檢查網路連線，稍後重新再試一次。" cancelButtonTitle:@"完成" otherButtonTitles:nil handler:NULL];
-  }];
-  
-  [[ANHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
-}
-
-- (void)acceptButtonClicked:(QButtonElement *)element {
-  if ([self checkFacebookAuthorized]) {
-    [self processImage:self.image];
+  if (_isUploadingToStage) {  
+    CLLocationCoordinate2D locationCoordinate = [[[(ANAppDelegate *)[[UIApplication sharedApplication] delegate] locationManager] location] coordinate];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"], 
+                            @"access_token", 
+                            [NSNumber numberWithDouble:locationCoordinate.latitude], 
+                            @"photo[latitude]", 
+                            [NSNumber numberWithDouble:locationCoordinate.longitude], 
+                            @"photo[longitude]", nil];
+    
+    NSMutableURLRequest *request = [[ANHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST" 
+                                                                                          path:@"photos.json" 
+                                                                                    parameters:params 
+                                                                     constructingBodyWithBlock:^(id<AFMultipartFormData>formData) {
+      [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
+    }];
+    
+    __weak ANUploadViewController *tempSelf = self;
+    AFHTTPRequestOperation *operation = [[ANHTTPClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject){
+      [tempSelf dismissModalViewControllerAnimated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+      [UIAlertView showAlertViewWithTitle:@"上傳失敗" message:@"請檢查網路連線，稍後重新再試一次。" cancelButtonTitle:@"完成" otherButtonTitles:nil handler:NULL];
+    }];
+    
+    [[ANHTTPClient sharedClient] enqueueHTTPRequestOperation:operation];
   }
 }
 
-- (void)declineButtonClicked:(QButtonElement *)element {
-  [self dismissModalViewControllerAnimated:YES];
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  
+  __weak ANUploadViewController *tempSelf = self;
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone handler:^(id sender){
+    if ((!_isUploadingToStage && !_isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
+      [tempSelf processImage:tempSelf.image];
+    }
+  }];
 }
 
 
