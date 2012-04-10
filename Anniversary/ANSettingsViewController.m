@@ -17,6 +17,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
     self.title = @"設定選項";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
     self.tabBarItem.image = [UIImage imageNamed:@"20-gear-2"];
   }
   return self;

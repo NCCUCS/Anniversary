@@ -25,6 +25,7 @@
   // Setup UIAppearance
   [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
   [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithRed:0.541 green:0.710 blue:0.882 alpha:1.000]];
+  [[UIToolbar appearance] setBackgroundImage:[UIImage imageNamed:@"toolbar"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
   
   // Setup Facebook
   _facebook = [[Facebook alloc] initWithAppId:kAPI_KEY_FACEBOOK andDelegate:self];

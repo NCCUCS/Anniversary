@@ -29,6 +29,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
     self.title = @"最新照片";
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
     self.tabBarItem.image = [UIImage imageNamed:@"42-photos"];
   }
   return self;
@@ -45,6 +46,8 @@
   
   self.tableView.allowsSelection = NO;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+  
+  self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
 }
 
 - (void)viewDidLoad {
