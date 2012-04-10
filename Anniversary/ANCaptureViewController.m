@@ -170,6 +170,31 @@ float angle = 0, size=14;
   [textButton setImage:[UIImage imageNamed:@"textButton"] forState:UIControlStateNormal];
   [textButton setImage:[UIImage imageNamed:@"textButtonClicked"] forState:UIControlStateHighlighted];
   [textButton sizeToFit];
+  [textButton addEventHandler:^(id sender){
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"請輸入文字" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"完成", nil];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alertView.willDismissBlock = ^(UIAlertView *alertView, NSInteger index){
+      if (index != alertView.cancelButtonIndex) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.text = [[alertView textFieldAtIndex:0] text];
+        label.textColor = [UIColor colorWithRed:0.541 green:0.710 blue:0.882 alpha:1.000];
+        label.font = [UIFont boldSystemFontOfSize:30];
+        label.backgroundColor = [UIColor clearColor];
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [label sizeToFit];
+        
+        SEDraggable *draggable = [[SEDraggable alloc] initWithFrame:label.frame];
+        [draggable addSubview:label];
+        [tempSelf.imageView addSubview:draggable];
+        
+        if (!tempSelf.selectedView) {
+          tempSelf.selectedView = draggable;
+        }
+      }
+    };
+    [alertView show];
+    
+  } forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *textButtonItem = [[UIBarButtonItem alloc] initWithCustomView:textButton];
   
@@ -212,20 +237,16 @@ float angle = 0, size=14;
   dragView.delegate = self;
   [self.imageView addSubview:dragView];
   
-  if (!_selectedView) {
-    _selectedView = dragView;
+  if (!self.selectedView) {
+    self.selectedView = dragView;
   }
 }
 
 #pragma mark - SEDraggableEventResponder
 
-- (void) draggableObjectDidMove:(SEDraggable *)object {
-  _selectedView = object;
+- (void)draggableObjectDidMove:(SEDraggable *)object {
+  self.selectedView = object;
   [self.imageView bringSubviewToFront:object];
-}
-
-- (void) draggableObjectDidStopMoving:(SEDraggable *)object {
-
 }
 
 
