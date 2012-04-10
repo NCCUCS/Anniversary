@@ -19,3 +19,6 @@
 [submodule "Dependencies/A2DynamicDelegate"]
 	path = Dependencies/A2DynamicDelegate
 	url = https://github.com/pandamonia/A2DynamicDelegate.git
+[submodule "Dependencies/iOS-DragAndDrop"]
+	path = Dependencies/iOS-DragAndDrop
+	url = git://github.com/brynbellomy/iOS-DragAndDrop.git

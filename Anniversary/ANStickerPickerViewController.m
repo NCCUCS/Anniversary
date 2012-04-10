@@ -16,6 +16,7 @@
 @implementation ANStickerPickerViewController
 
 @synthesize stickers = _stickers;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -52,8 +53,10 @@
 		cell = [[ANPhotosTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:PhotosCellIdentifier];
     UIGestureRecognizer *recognizer1 = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){      
       if (UIGestureRecognizerStateRecognized == state) {
-        if (sender.view.tag < tempSelf.stickers.count) {
-          
+        if (sender.view.tag < tempSelf.stickers.count && [self.delegate respondsToSelector:@selector(stickerPickerController:didFinishPickingFrame:)]) {
+          UIImageView *imageView = (UIImageView *)sender.view;
+          [tempSelf.delegate stickerPickerController:tempSelf didFinishPickingFrame:imageView.image];
+          [tempSelf dismissModalViewControllerAnimated:YES];
         }
       }
     }];
@@ -62,8 +65,10 @@
     
     UIGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
       if (UIGestureRecognizerStateRecognized == state) {
-        if (sender.view.tag < tempSelf.stickers.count) {
-          
+        if (sender.view.tag < tempSelf.stickers.count && [self.delegate respondsToSelector:@selector(stickerPickerController:didFinishPickingFrame:)]) {
+          UIImageView *imageView = (UIImageView *)sender.view;
+          [tempSelf.delegate stickerPickerController:tempSelf didFinishPickingFrame:imageView.image];
+          [tempSelf dismissModalViewControllerAnimated:YES];
         }
       }
     }];

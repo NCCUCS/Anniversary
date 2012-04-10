@@ -12,16 +12,22 @@
 #import "ANStickerPickerViewController.h"
 #import "ANTextViewController.h"
 #import "ANUploadViewController.h"
+#import "SEDraggable.h"
 
 @interface ANCaptureViewController ()
 
 @end
 
 @implementation ANCaptureViewController
+
 @synthesize imageView = _imageView;
 @synthesize frameImageView = _frameImageView;
 @synthesize toolbar = _toolbar;
 @synthesize image = _image;
+@synthesize selectedView = _selectedView;
+
+#define kMaxStickerWidth 100
+#define degreesToRadians(x) (M_PI * x / 180.0)
 
 float angle = 0, size=14;
 
@@ -56,42 +62,79 @@ float angle = 0, size=14;
   [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANTextViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 
-#pragma mark - UIButton
-
-- (void)zoomIn:(id)sender {
-
-}
-
-- (void)zoomOut:(id)sender {
-
-}
-
-- (void)rotateRight:(id)sender {
-
-}
-
-- (void)rotateLeft:(id)sender {
-
-}
-
-- (void)trash:(id)sender {
-
-}
-
 #pragma mark - UIViewController
 
 - (void)loadView{
   [super loadView];
   
-  __weak UIViewController *tempSelf = self;
+  __weak ANCaptureViewController *tempSelf = self;
   
   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+  
+  // Images
+  
   _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
   _imageView.image = self.image;
+  _imageView.userInteractionEnabled = YES;
+  _imageView.clipsToBounds = YES;
   [self.view addSubview:_imageView];
   
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
-  [self.view addSubview:_frameImageView];
+  [self.imageView addSubview:_frameImageView];
+  
+  // Buttons
+  
+  UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [zoomInButton setTitle:@"+" forState:UIControlStateNormal];
+  zoomInButton.frame = CGRectMake(18.0, 325.0, 30.0, 30.0);
+  [zoomInButton addEventHandler:^(id sender){
+    [UIView animateWithDuration:0.1 animations:^{
+      self.selectedView.transform = CGAffineTransformScale(self.selectedView.transform, 1.1, 1.1);
+    }];
+  } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:zoomInButton];
+  
+  UIButton *zoomOutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [zoomOutButton setTitle:@"-" forState:UIControlStateNormal];
+  zoomOutButton.frame = CGRectMake(55.0, 325.0, 30.0, 30.0);
+  [zoomOutButton addEventHandler:^(id sender){
+    [UIView animateWithDuration:0.1 animations:^{
+      self.selectedView.transform = CGAffineTransformScale(self.selectedView.transform, 0.909, 0.909);
+    }];
+
+  } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:zoomOutButton];
+  
+  UIButton *rotateRightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [rotateRightButton setTitle:@"↷" forState:UIControlStateNormal];
+  rotateRightButton.frame = CGRectMake(92.0, 325.0, 30.0, 30.0);
+  [rotateRightButton addEventHandler:^(id sender){
+    [UIView animateWithDuration:0.1 animations:^{
+      tempSelf.selectedView.transform = CGAffineTransformRotate(CGAffineTransformRotate(tempSelf.selectedView.transform, -degreesToRadians(45 * (tempSelf.selectedView.tag))), degreesToRadians(45 * (++tempSelf.selectedView.tag)));
+    }];
+  } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:rotateRightButton];
+  
+  UIButton *rotateLeftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [rotateLeftButton setTitle:@"↶" forState:UIControlStateNormal];
+  rotateLeftButton.frame = CGRectMake(129.0, 325.0, 30.0, 30.0);
+  [rotateLeftButton addEventHandler:^(id sender){
+    [UIView animateWithDuration:0.1 animations:^{
+      tempSelf.selectedView.transform = CGAffineTransformRotate(CGAffineTransformRotate(tempSelf.selectedView.transform, -degreesToRadians(-45 * (tempSelf.selectedView.tag))), degreesToRadians(-45 * (++tempSelf.selectedView.tag)));
+    }];
+  } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:rotateLeftButton];
+  
+  UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  [trashButton setTitle:@"x" forState:UIControlStateNormal];
+  trashButton.frame = CGRectMake(275.0, 325.0, 30.0, 30.0);
+  [trashButton addEventHandler:^(id sender){
+    [tempSelf.selectedView removeFromSuperview];
+    tempSelf.selectedView = nil;
+  } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:trashButton];
+  
+  // Toolbar
   
   _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - NIToolbarHeightForOrientation(self.interfaceOrientation), 
                          self.view.bounds.size.width, NIToolbarHeightForOrientation(self.interfaceOrientation))];
@@ -116,7 +159,9 @@ float angle = 0, size=14;
   [stickerButton setImage:[UIImage imageNamed:@"stickerButtonClicked"] forState:UIControlStateHighlighted];
   [stickerButton sizeToFit];
   [stickerButton addEventHandler:^(id sender){
-    [tempSelf presentModalViewController:[[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
+    ANStickerPickerViewController *viewController = [[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.delegate = self;
+    [tempSelf presentModalViewController:viewController animated:YES];
   } forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *stickerButtonItem = [[UIBarButtonItem alloc] initWithCustomView:stickerButton];
@@ -137,36 +182,6 @@ float angle = 0, size=14;
   self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
   
-  //UIButton
-  UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [zoomInButton addTarget:self action:@selector(zoomIn:) forControlEvents:UIControlEventTouchUpInside];
-  [zoomInButton setTitle:@"+" forState:UIControlStateNormal];
-  zoomInButton.frame = CGRectMake(18.0, 325.0, 30.0, 30.0);
-  [self.view addSubview:zoomInButton];
-  
-  UIButton *zoomOutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [zoomOutButton addTarget:self action:@selector(zoomOut:) forControlEvents:UIControlEventTouchUpInside];
-  [zoomOutButton setTitle:@"-" forState:UIControlStateNormal];
-  zoomOutButton.frame = CGRectMake(55.0, 325.0, 30.0, 30.0);
-  [self.view addSubview:zoomOutButton];
-  
-  UIButton *rotateRightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [rotateRightButton addTarget:self action:@selector(rotateRight:) forControlEvents:UIControlEventTouchUpInside];
-  [rotateRightButton setTitle:@"↷" forState:UIControlStateNormal];
-  rotateRightButton.frame = CGRectMake(92.0, 325.0, 30.0, 30.0);
-  [self.view addSubview:rotateRightButton];
-  
-  UIButton *rotateLeftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [rotateLeftButton addTarget:self action:@selector(rotateLeft:) forControlEvents:UIControlEventTouchUpInside];
-  [rotateLeftButton setTitle:@"↶" forState:UIControlStateNormal];
-  rotateLeftButton.frame = CGRectMake(129.0, 325.0, 30.0, 30.0);
-  [self.view addSubview:rotateLeftButton];
-  
-  UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [trashButton addTarget:self action:@selector(trash:) forControlEvents:UIControlEventTouchUpInside];
-  [trashButton setTitle:@"x" forState:UIControlStateNormal];
-  trashButton.frame = CGRectMake(275.0, 325.0, 30.0, 30.0);
-  [self.view addSubview:trashButton];
 }
 
 - (void)viewDidUnload{
@@ -175,6 +190,7 @@ float angle = 0, size=14;
   _imageView = nil;
   _frameImageView = nil;
   _toolbar = nil;
+  _selectedView = nil;
 }
 
 #pragma mark - ANFramePickerViewControllerDelegate
@@ -182,5 +198,35 @@ float angle = 0, size=14;
 - (void)framePickerController:(ANFramePickerViewController *)picker didFinishPickingFrame:(UIImage *)image {
   _frameImageView.image = image;
 }
+
+#pragma mark - ANStickerPickerViewControllerDelegate
+
+- (void)stickerPickerController:(ANStickerPickerViewController *)picker didFinishPickingFrame:(UIImage *)image {
+  UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+  imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  
+  CGFloat ratio = kMaxStickerWidth / image.size.width;
+  imageView.frame = CGRectMake(0, 0, image.size.width * ratio, image.size.height * ratio);
+  
+  SEDraggable *dragView = [[SEDraggable alloc] initWithImageView:imageView];
+  dragView.delegate = self;
+  [self.imageView addSubview:dragView];
+  
+  if (!_selectedView) {
+    _selectedView = dragView;
+  }
+}
+
+#pragma mark - SEDraggableEventResponder
+
+- (void) draggableObjectDidMove:(SEDraggable *)object {
+  _selectedView = object;
+  [self.imageView bringSubviewToFront:object];
+}
+
+- (void) draggableObjectDidStopMoving:(SEDraggable *)object {
+
+}
+
 
 @end

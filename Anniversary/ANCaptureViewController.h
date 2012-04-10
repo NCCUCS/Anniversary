@@ -10,12 +10,18 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "ANFramePickerViewController.h"
+#import "ANStickerPickerViewController.h"
 
-@interface ANCaptureViewController : UIViewController <ANFramePickerViewControllerDelegate>
+#import "SEDraggable.h"
+
+@interface ANCaptureViewController : UIViewController <ANFramePickerViewControllerDelegate, ANStickerPickerViewControllerDelegate,
+  SEDraggableEventResponder>
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *frameImageView;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, retain) UIToolbar *toolbar;
+
+@property (nonatomic, weak) UIView *selectedView;
 
 @end
