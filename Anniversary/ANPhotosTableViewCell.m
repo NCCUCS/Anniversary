@@ -19,6 +19,8 @@
     [self.contentView addSubview:_imageView1];
     _imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10, 130, 130)];
     [self.contentView addSubview:_imageView2];
+    
+    _imageView1.contentMode = _imageView2.contentMode = UIViewContentModeScaleAspectFit;
   }
   return self;
 }

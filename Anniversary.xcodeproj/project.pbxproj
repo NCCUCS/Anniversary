@@ -77,6 +77,19 @@
 		E356827B15340C420011F99B /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827A15340C420011F99B /* icon114.png */; };
 		E356827D15340D1C0011F99B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827C15340D1C0011F99B /* Default@2x.png */; };
 		E356827F15340D1F0011F99B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827E15340D1F0011F99B /* Default.png */; };
+		E356829215340EDB0011F99B /* ANStickerPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E356829115340EDA0011F99B /* ANStickerPickerViewController.m */; };
+		E3568294153413A00011F99B /* stickers.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3568293153413A00011F99B /* stickers.plist */; };
+		E356829E153413EC0011F99B /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568296153413EC0011F99B /* bus.png */; };
+		E356829F153413EC0011F99B /* 學士帽.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568297153413EC0011F99B /* 學士帽.png */; };
+		E35682A0153413EC0011F99B /* 學士服.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568298153413EC0011F99B /* 學士服.png */; };
+		E35682A1153413EC0011F99B /* 小橘.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568299153413EC0011F99B /* 小橘.png */; };
+		E35682A2153413EC0011F99B /* 杏花.png in Resources */ = {isa = PBXBuildFile; fileRef = E356829A153413EC0011F99B /* 杏花.png */; };
+		E35682A3153413EC0011F99B /* 纜車.png in Resources */ = {isa = PBXBuildFile; fileRef = E356829B153413EC0011F99B /* 纜車.png */; };
+		E35682A4153413EC0011F99B /* 茶具.png in Resources */ = {isa = PBXBuildFile; fileRef = E356829C153413EC0011F99B /* 茶具.png */; };
+		E35682A5153413EC0011F99B /* 麵疙瘩.png in Resources */ = {isa = PBXBuildFile; fileRef = E356829D153413EC0011F99B /* 麵疙瘩.png */; };
+		E35682A9153415150011F99B /* 李四端.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A6153415150011F99B /* 李四端.png */; };
+		E35682AA153415150011F99B /* 陳珊妮.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A7153415150011F99B /* 陳珊妮.png */; };
+		E35682AB153415150011F99B /* 陶晶瑩.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682A8153415150011F99B /* 陶晶瑩.png */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -280,6 +293,20 @@
 		E356827A15340C420011F99B /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		E356827C15340D1C0011F99B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		E356827E15340D1F0011F99B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		E356829015340EDA0011F99B /* ANStickerPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANStickerPickerViewController.h; sourceTree = "<group>"; };
+		E356829115340EDA0011F99B /* ANStickerPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANStickerPickerViewController.m; sourceTree = "<group>"; };
+		E3568293153413A00011F99B /* stickers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stickers.plist; sourceTree = "<group>"; };
+		E3568296153413EC0011F99B /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
+		E3568297153413EC0011F99B /* 學士帽.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "學士帽.png"; sourceTree = "<group>"; };
+		E3568298153413EC0011F99B /* 學士服.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "學士服.png"; sourceTree = "<group>"; };
+		E3568299153413EC0011F99B /* 小橘.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小橘.png"; sourceTree = "<group>"; };
+		E356829A153413EC0011F99B /* 杏花.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "杏花.png"; sourceTree = "<group>"; };
+		E356829B153413EC0011F99B /* 纜車.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "纜車.png"; sourceTree = "<group>"; };
+		E356829C153413EC0011F99B /* 茶具.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "茶具.png"; sourceTree = "<group>"; };
+		E356829D153413EC0011F99B /* 麵疙瘩.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "麵疙瘩.png"; sourceTree = "<group>"; };
+		E35682A6153415150011F99B /* 李四端.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "李四端.png"; sourceTree = "<group>"; };
+		E35682A7153415150011F99B /* 陳珊妮.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陳珊妮.png"; sourceTree = "<group>"; };
+		E35682A8153415150011F99B /* 陶晶瑩.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "陶晶瑩.png"; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -555,6 +582,24 @@
 			path = Dependencies/A2DynamicDelegate;
 			sourceTree = "<group>";
 		};
+		E3568295153413EC0011F99B /* Stickers */ = {
+			isa = PBXGroup;
+			children = (
+				E35682A6153415150011F99B /* 李四端.png */,
+				E35682A7153415150011F99B /* 陳珊妮.png */,
+				E35682A8153415150011F99B /* 陶晶瑩.png */,
+				E3568296153413EC0011F99B /* bus.png */,
+				E3568297153413EC0011F99B /* 學士帽.png */,
+				E3568298153413EC0011F99B /* 學士服.png */,
+				E3568299153413EC0011F99B /* 小橘.png */,
+				E356829A153413EC0011F99B /* 杏花.png */,
+				E356829B153413EC0011F99B /* 纜車.png */,
+				E356829C153413EC0011F99B /* 茶具.png */,
+				E356829D153413EC0011F99B /* 麵疙瘩.png */,
+			);
+			path = Stickers;
+			sourceTree = "<group>";
+		};
 		E37509E3150D25A600F3EC3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,6 +632,8 @@
 				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
 				E3AEAB3715309A6000AEEBB2 /* ANUploadViewController.h */,
 				E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */,
+				E356829015340EDA0011F99B /* ANStickerPickerViewController.h */,
+				E356829115340EDA0011F99B /* ANStickerPickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -701,6 +748,8 @@
 				E3BDC44A14FF6B7B001343BE /* InfoPlist.strings */,
 				E3BDC44D14FF6B7B001343BE /* main.m */,
 				E3BDC44F14FF6B7B001343BE /* Anniversary-Prefix.pch */,
+				E3568293153413A00011F99B /* stickers.plist */,
+				E3568295153413EC0011F99B /* Stickers */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1013,6 +1062,18 @@
 				E356827B15340C420011F99B /* icon114.png in Resources */,
 				E356827D15340D1C0011F99B /* Default@2x.png in Resources */,
 				E356827F15340D1F0011F99B /* Default.png in Resources */,
+				E3568294153413A00011F99B /* stickers.plist in Resources */,
+				E356829E153413EC0011F99B /* bus.png in Resources */,
+				E356829F153413EC0011F99B /* 學士帽.png in Resources */,
+				E35682A0153413EC0011F99B /* 學士服.png in Resources */,
+				E35682A1153413EC0011F99B /* 小橘.png in Resources */,
+				E35682A2153413EC0011F99B /* 杏花.png in Resources */,
+				E35682A3153413EC0011F99B /* 纜車.png in Resources */,
+				E35682A4153413EC0011F99B /* 茶具.png in Resources */,
+				E35682A5153413EC0011F99B /* 麵疙瘩.png in Resources */,
+				E35682A9153415150011F99B /* 李四端.png in Resources */,
+				E35682AA153415150011F99B /* 陳珊妮.png in Resources */,
+				E35682AB153415150011F99B /* 陶晶瑩.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1174,7 @@
 				E3156AB41531B4600094565C /* A2DynamicDelegate.m in Sources */,
 				E3CFF90215334B2B008589F2 /* ANPhoto.m in Sources */,
 				E3BD42D91533570A000F707E /* ANPhotosTableViewCell.m in Sources */,
+				E356829215340EDB0011F99B /* ANStickerPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

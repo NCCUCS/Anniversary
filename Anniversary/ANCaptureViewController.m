@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ANPersonPickerViewController.h"
 #import "ANCaptureViewController.h"
+#import "ANStickerPickerViewController.h"
 #import "ANTextViewController.h"
 #import "ANUploadViewController.h"
 
@@ -44,7 +45,7 @@ float angle = 0, size=14;
 }
 
 - (void)frameButtonClicked:(id)sender {
-  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+  [self presentModalViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
 }
 
 - (void)stickerButtonClicked:(id)sender {
@@ -112,6 +113,8 @@ float angle = 0, size=14;
 - (void)loadView{
   [super loadView];
   
+  __weak UIViewController *tempSelf = self;
+  
   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
   _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
   _imageView.image = image;
@@ -134,6 +137,9 @@ float angle = 0, size=14;
   [stickerButton setImage:[UIImage imageNamed:@"stickerButton"] forState:UIControlStateNormal];
   [stickerButton setImage:[UIImage imageNamed:@"stickerButtonClicked"] forState:UIControlStateHighlighted];
   [stickerButton sizeToFit];
+  [stickerButton addEventHandler:^(id sender){
+    [tempSelf presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
+  } forControlEvents:UIControlEventTouchUpInside];
   
   UIBarButtonItem *stickerButtonItem = [[UIBarButtonItem alloc] initWithCustomView:stickerButton];
   
