@@ -101,7 +101,7 @@
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info{
   [self dismissModalViewControllerAnimated:NO];
   ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
-  viewController.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+  viewController.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
   [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
 }
 

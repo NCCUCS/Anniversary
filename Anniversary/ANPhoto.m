@@ -18,9 +18,19 @@
 @synthesize thumbURL = _thumbURL;
 @synthesize userName = _userName;
 @synthesize userFid = _userFid;
+@synthesize longitude = _longitude;
+@synthesize latitude = _latitude;
 
 - (NSString *)description {
   return [NSString stringWithFormat:@"%@ - %d %@ %@ (%l %d)", [super description], _objectID, _photoDescription, _imageURL, _userFid, _userName];
+}
+
+- (NSString *)title {
+  return self.userName;
+}
+
+- (CLLocationCoordinate2D)coordinate {
+  return (0 != _longitude && 0 != _latitude) ? CLLocationCoordinate2DMake(_latitude, _longitude) : kCLLocationCoordinate2DInvalid;
 }
 
 @end

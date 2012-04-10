@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface ANMapViewController : UIViewController
+@interface ANMapViewController : UIViewController <MKMapViewDelegate>
+
+@property (nonatomic, assign) BOOL isLoaded;
+@property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) MKMapView *mapView;
 
 @end

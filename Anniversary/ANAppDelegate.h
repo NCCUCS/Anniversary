@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class ANTabBarController;
 
@@ -16,5 +17,6 @@
 @property (strong, nonatomic) ANTabBarController *tabBarController;
 
 @property (strong, nonatomic) Facebook *facebook;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end

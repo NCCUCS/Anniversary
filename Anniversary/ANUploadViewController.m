@@ -7,6 +7,7 @@
 //
 
 #import "ANUploadViewController.h"
+#import "ANAppDelegate.h"
 #import "ANHTTPClient.h"
 
 @interface ANUploadViewController ()
@@ -115,7 +116,20 @@
     [[ANAtlas sharedFacebook] requestWithGraphPath:@"me/photos" andParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:data, @"source", nil] andHttpMethod:@"POST" andDelegate:nil];
   }
   
-  NSMutableURLRequest *request = [[ANHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST" path:@"photos.json" parameters:[NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"], @"access_token", nil] constructingBodyWithBlock:^(<AFMultipartFormData>formData) {
+  CLLocationCoordinate2D locationCoordinate = [[[(ANAppDelegate *)[[UIApplication sharedApplication] delegate] locationManager] location] coordinate];
+  
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+                          [[NSUserDefaults standardUserDefaults] objectForKey:@"FBAccessTokenKey"], 
+                          @"access_token", 
+                          [NSNumber numberWithDouble:locationCoordinate.latitude], 
+                          @"photo[latitude]", 
+                          [NSNumber numberWithDouble:locationCoordinate.longitude], 
+                          @"photo[longitude]", nil];
+  
+  NSMutableURLRequest *request = [[ANHTTPClient sharedClient] multipartFormRequestWithMethod:@"POST" 
+                                                                                        path:@"photos.json" 
+                                                                                  parameters:params 
+                                                                   constructingBodyWithBlock:^(id<AFMultipartFormData>formData) {
     [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
   }];
   

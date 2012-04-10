@@ -60,7 +60,7 @@
   [super viewWillAppear:animated];
   
   if (!self.isLoaded) {
-    	[self reloadTableData];
+    [self reloadTableData];
   }
 }
 
@@ -82,6 +82,8 @@
         photo.thumbURL = [NSURL URLWithString:[[[dictioanry objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
         photo.userFid = [[[dictioanry objectForKey:@"user"] objectForKey:@"fid"] longLongValue];
         photo.userName = [[dictioanry objectForKey:@"user"] objectForKey:@"name"];
+        photo.longitude = [[dictioanry objectForKey:@"longitude"] doubleValue];
+        photo.latitude = [[dictioanry objectForKey:@"latitude"] doubleValue];
         
         [photos addObject:photo];
       }

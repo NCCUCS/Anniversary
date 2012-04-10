@@ -15,6 +15,7 @@
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
 @synthesize facebook = _facebook;
+@synthesize locationManager = _locationManager;
 
 #pragma mark - UIApplicationDelegate
 
@@ -34,6 +35,9 @@
     _facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
   }
   
+  // Setup location manager
+  _locationManager = [[CLLocationManager alloc] init];
+  
   // Setup view controllers
   _tabBarController = [[ANTabBarController alloc] initWithNibName:nil bundle:nil];
   self.window.rootViewController = self.tabBarController;
@@ -44,10 +48,15 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   [_facebook extendAccessTokenIfNeeded];
+  [_locationManager startMonitoringSignificantLocationChanges];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [_facebook handleOpenURL:url]; 
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+  [_locationManager stopMonitoringSignificantLocationChanges];
 }
 
 #pragma mark - FBSessionDelegate
