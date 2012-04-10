@@ -40,8 +40,8 @@
 
 #pragma mark - Photo Size Constant
 
-#define kThumbPhotoWidth 155.0f
-#define kThumbPhotoHeight 155.0f
+#define kThumbPhotoWidth 130.0f
+#define kThumbPhotoHeight 130.0f
 
 #pragma mark - Notification
 

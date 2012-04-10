@@ -13,7 +13,7 @@
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, assign) BOOL isLoading;
-@property (nonatomic, strong) NSArray *responseDictionarys;
+@property (nonatomic, strong) NSArray *photos;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 
 @end

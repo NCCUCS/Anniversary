@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class ANPhoto;
+
 @interface ANPhotoViewController : UIViewController
 
-- (id)initFromMapViewController:(NSDictionary *)singlePhotoInfo;
-- (id)initFromPhotosViewController:(NSDictionary *)singlePhotoInfo;
+@property (nonatomic, strong) ANPhoto *photo;
+@property (nonatomic, strong) UIImageView *imageView;
 
+- (id)initWithPhoto:(ANPhoto *)photo;
 
 @end

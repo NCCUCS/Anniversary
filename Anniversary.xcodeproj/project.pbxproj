@@ -64,6 +64,7 @@
 		E3AEAB3915309A6000AEEBB2 /* ANUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */; };
 		E3AEAB3C1530AD7100AEEBB2 /* navigationBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AEAB3A1530AD7100AEEBB2 /* navigationBar@2x.png */; };
 		E3AEAB3D1530AD7100AEEBB2 /* navigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AEAB3B1530AD7100AEEBB2 /* navigationBar.png */; };
+		E3BD42D91533570A000F707E /* ANPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BD42D81533570A000F707E /* ANPhotosTableViewCell.m */; };
 		E3BDC44214FF6B7B001343BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44114FF6B7B001343BE /* UIKit.framework */; };
 		E3BDC44414FF6B7B001343BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44314FF6B7B001343BE /* Foundation.framework */; };
 		E3BDC44614FF6B7B001343BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC44514FF6B7B001343BE /* CoreGraphics.framework */; };
@@ -123,6 +124,7 @@
 		E3CAC455151653E5003994A7 /* NIWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC454151653E5003994A7 /* NIWebController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3CAC460151653F3003994A7 /* NIPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC45A151653F3003994A7 /* NIPageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3CAC461151653F3003994A7 /* NIPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC45C151653F3003994A7 /* NIPagingScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E3CFF90215334B2B008589F2 /* ANPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CFF90115334B2B008589F2 /* ANPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +250,8 @@
 		E3AEAB3815309A6000AEEBB2 /* ANUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANUploadViewController.m; sourceTree = "<group>"; };
 		E3AEAB3A1530AD7100AEEBB2 /* navigationBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBar@2x.png"; sourceTree = "<group>"; };
 		E3AEAB3B1530AD7100AEEBB2 /* navigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationBar.png; sourceTree = "<group>"; };
+		E3BD42D71533570A000F707E /* ANPhotosTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosTableViewCell.h; sourceTree = "<group>"; };
+		E3BD42D81533570A000F707E /* ANPhotosTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPhotosTableViewCell.m; sourceTree = "<group>"; };
 		E3BDC43D14FF6B7B001343BE /* Anniversary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anniversary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BDC44114FF6B7B001343BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E3BDC44314FF6B7B001343BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -378,6 +382,8 @@
 		E3CAC45D151653F3003994A7 /* NIPagingScrollViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPagingScrollViewDataSource.h; sourceTree = "<group>"; };
 		E3CAC45E151653F3003994A7 /* NIPagingScrollViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPagingScrollViewDelegate.h; sourceTree = "<group>"; };
 		E3CAC45F151653F3003994A7 /* NIPagingScrollViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPagingScrollViewPage.h; sourceTree = "<group>"; };
+		E3CFF90015334B2B008589F2 /* ANPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhoto.h; sourceTree = "<group>"; };
+		E3CFF90115334B2B008589F2 /* ANPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +514,8 @@
 		E37509E3150D25A600F3EC3F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E3BD42D71533570A000F707E /* ANPhotosTableViewCell.h */,
+				E3BD42D81533570A000F707E /* ANPhotosTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -544,6 +552,8 @@
 			children = (
 				E3CAC33E1515F3AC003994A7 /* ANHTTPClient.h */,
 				E3CAC33F1515F3AC003994A7 /* ANHTTPClient.m */,
+				E3CFF90015334B2B008589F2 /* ANPhoto.h */,
+				E3CFF90115334B2B008589F2 /* ANPhoto.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1013,6 +1023,8 @@
 				E3156A991531B1A10094565C /* UIWebView+BlocksKit.m in Sources */,
 				E3156AB31531B4600094565C /* A2BlockDelegate.m in Sources */,
 				E3156AB41531B4600094565C /* A2DynamicDelegate.m in Sources */,
+				E3CFF90215334B2B008589F2 /* ANPhoto.m in Sources */,
+				E3BD42D91533570A000F707E /* ANPhotosTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
