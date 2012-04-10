@@ -73,6 +73,10 @@
 		E3568275153409E10011F99B /* stickerButtonClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = E356826F153409E10011F99B /* stickerButtonClicked.png */; };
 		E3568276153409E10011F99B /* textButtonClicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568270153409E10011F99B /* textButtonClicked@2x.png */; };
 		E3568277153409E10011F99B /* textButtonClicked.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568271153409E10011F99B /* textButtonClicked.png */; };
+		E356827915340C3E0011F99B /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827815340C3E0011F99B /* icon57.png */; };
+		E356827B15340C420011F99B /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827A15340C420011F99B /* icon114.png */; };
+		E356827D15340D1C0011F99B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827C15340D1C0011F99B /* Default@2x.png */; };
+		E356827F15340D1F0011F99B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827E15340D1F0011F99B /* Default.png */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -272,6 +276,10 @@
 		E356826F153409E10011F99B /* stickerButtonClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerButtonClicked.png; sourceTree = "<group>"; };
 		E3568270153409E10011F99B /* textButtonClicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textButtonClicked@2x.png"; sourceTree = "<group>"; };
 		E3568271153409E10011F99B /* textButtonClicked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textButtonClicked.png; sourceTree = "<group>"; };
+		E356827815340C3E0011F99B /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
+		E356827A15340C420011F99B /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
+		E356827C15340D1C0011F99B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		E356827E15340D1F0011F99B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -653,6 +661,10 @@
 		E3BDC44814FF6B7B001343BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E356827E15340D1F0011F99B /* Default.png */,
+				E356827C15340D1C0011F99B /* Default@2x.png */,
+				E356827A15340C420011F99B /* icon114.png */,
+				E356827815340C3E0011F99B /* icon57.png */,
 				E356826C153409E10011F99B /* frameButtonClicked.png */,
 				E356826D153409E10011F99B /* stickerButtonClicked@2x.png */,
 				E356826E153409E10011F99B /* frameButtonClicked@2x.png */,
@@ -997,6 +1009,10 @@
 				E3568275153409E10011F99B /* stickerButtonClicked.png in Resources */,
 				E3568276153409E10011F99B /* textButtonClicked@2x.png in Resources */,
 				E3568277153409E10011F99B /* textButtonClicked.png in Resources */,
+				E356827915340C3E0011F99B /* icon57.png in Resources */,
+				E356827B15340C420011F99B /* icon114.png in Resources */,
+				E356827D15340D1C0011F99B /* Default@2x.png in Resources */,
+				E356827F15340D1F0011F99B /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
