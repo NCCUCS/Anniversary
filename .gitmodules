@@ -22,3 +22,6 @@
 [submodule "Dependencies/iOS-DragAndDrop"]
 	path = Dependencies/iOS-DragAndDrop
 	url = git://github.com/brynbellomy/iOS-DragAndDrop.git
+[submodule "Dependencies/SVProgressHUD"]
+	path = Dependencies/SVProgressHUD
+	url = git://github.com/samvermette/SVProgressHUD.git

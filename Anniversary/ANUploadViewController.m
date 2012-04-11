@@ -9,6 +9,7 @@
 #import "ANUploadViewController.h"
 #import "ANAppDelegate.h"
 #import "ANHTTPClient.h"
+#import "SVProgressHUD.h"
 
 @interface ANUploadViewController ()
 
@@ -35,7 +36,7 @@
   section0.title = @"活動說明";
   
   QTextElement *textElement = [[QTextElement alloc] init];
-  textElement.text = @"大學副教授，夠浪漫，鄧麗君鳳飛飛被消費，我真的笑了，有瘦肉精，怎麼就是有人那麼再意臉書上寫什麼...以為幫別人求婚，為演狀況劇，這不是教學，上月失業率4.18，這隻獅子也太糗了!各位勞工朋友，但.....我們老板以前趕走的眾多postdoc中有那麼一個法國的phd，換，喝了杯咖啡，犧牲自己的假期，肉燥麵？";
+  textElement.text = @"政大校慶又到囉，今年邀請政大校友及師生們，使用「我是政大人」校慶大頭貼APP，製作一張專屬於你的政大回憶照吧！大頭貼完成後，分享照片並參加「校慶抽獎活動」，還有機會拿到特別的政大校慶紀念禮物噢！";
   
   [section0 addElement:textElement];
   
@@ -123,8 +124,11 @@
     
     __weak ANUploadViewController *tempSelf = self;
     AFHTTPRequestOperation *operation = [[ANHTTPClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject){
+        [SVProgressHUD dismiss];
       [tempSelf dismissModalViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+      [SVProgressHUD dismiss];
+      tempSelf.navigationItem.rightBarButtonItem.enabled = YES;
       [UIAlertView showAlertViewWithTitle:@"上傳失敗" message:@"請檢查網路連線，稍後重新再試一次。" cancelButtonTitle:@"完成" otherButtonTitles:nil handler:NULL];
     }];
     
@@ -140,6 +144,8 @@
   __weak ANUploadViewController *tempSelf = self;
   
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone handler:^(id sender){
+    tempSelf.navigationItem.rightBarButtonItem.enabled = NO;
+    [SVProgressHUD showWithStatus:@"上傳中"];
     if ((!_isUploadingToStage && !_isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
       [tempSelf processImage:tempSelf.image];
     }
