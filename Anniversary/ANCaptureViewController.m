@@ -46,7 +46,14 @@ float angle = 0, size=14;
 }
 
 - (void)doneButtonClicked:(id)sender {
-  ANUploadViewController *uploadViewController = [ANUploadViewController uploadViewControllerWithImage:self.image];
+  UIGraphicsBeginImageContextWithOptions(self.imageView.bounds.size, self.imageView.opaque, 0.0);
+  [self.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+  
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+  
+  UIGraphicsEndImageContext();
+  
+  ANUploadViewController *uploadViewController = [ANUploadViewController uploadViewControllerWithImage:image];
   [self.navigationController pushViewController:uploadViewController animated:YES];
 }
 
@@ -184,8 +191,9 @@ float angle = 0, size=14;
         [label sizeToFit];
         
         SEDraggable *draggable = [[SEDraggable alloc] initWithFrame:label.frame];
+        draggable.delegate = tempSelf;
         [draggable addSubview:label];
-        [tempSelf.imageView addSubview:draggable];
+        [tempSelf.imageView insertSubview:draggable belowSubview:tempSelf.frameImageView];
         
         if (!tempSelf.selectedView) {
           tempSelf.selectedView = draggable;
