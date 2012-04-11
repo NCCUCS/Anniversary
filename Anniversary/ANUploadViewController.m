@@ -119,12 +119,13 @@
                                                                                           path:@"photos.json" 
                                                                                     parameters:params 
                                                                      constructingBodyWithBlock:^(id<AFMultipartFormData>formData) {
-      [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
-    }];
+                                                                       [formData appendPartWithFileData:data name:@"photo[image]" fileName:@"image.jpg" mimeType:@"image/jpeg"];
+                                                                     }];
     
     __weak ANUploadViewController *tempSelf = self;
     AFHTTPRequestOperation *operation = [[ANHTTPClient sharedClient] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject){
-        [SVProgressHUD dismiss];
+      [SVProgressHUD dismiss];
+      [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationPhotosNeedsRefresh object:nil];
       [tempSelf dismissModalViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
       [SVProgressHUD dismiss];

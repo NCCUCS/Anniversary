@@ -46,6 +46,7 @@
 #pragma mark - Notification
 
 #define kNotificationFacebookDidLogin @"kNotificationFacebookDidLogin"
+#define kNotificationPhotosNeedsRefresh @"kNotificationPhotosNeedsRefresh"
 
 
 @interface ANAtlas : NSObject

@@ -31,8 +31,13 @@
     self.title = @"最新照片";
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
     self.tabBarItem.image = [UIImage imageNamed:@"42-photos"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:kNotificationPhotosNeedsRefresh object:nil];
   }
   return self;
+}
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UIViewController
@@ -156,8 +161,8 @@
     cell.imageView2.tag = index2;
   };
   
-  [cell.imageView1 setImageWithURL:photo1.thumbURL];
-  [cell.imageView2 setImageWithURL:photo2.thumbURL];
+  [cell.imageView1 setImageWithURL:photo1.thumbURL placeholderImage:[UIImage imageNamed:@"placeholder"]];
+  [cell.imageView2 setImageWithURL:photo2.thumbURL placeholderImage:[UIImage imageNamed:@"placeholder"]];
 	
   return cell;
 }
