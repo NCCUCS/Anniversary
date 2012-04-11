@@ -43,7 +43,7 @@ float angle = 0, size=14;
 
 - (void)cancelButtonClicked:(id)sender {
   __weak UIViewController *tempSelf = self;
-  [UIAlertView showAlertViewWithTitle:@"放棄編輯" message:@"確定要離開此畫面？" cancelButtonTitle:@"取消" otherButtonTitles:@"確定" handler:^(UIAlertView *alertView, NSInteger index){
+  [UIAlertView showAlertViewWithTitle:@"放棄編輯" message:@"確定要離開此畫面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"確定"] handler:^(UIAlertView *alertView, NSInteger index){
     [tempSelf dismissModalViewControllerAnimated:YES];
   }];
 }
