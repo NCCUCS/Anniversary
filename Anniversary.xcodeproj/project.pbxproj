@@ -129,6 +129,7 @@
 		E3BDC48614FF750E001343BE /* ANMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BDC48514FF750E001343BE /* ANMapViewController.m */; };
 		E3BDC48914FF751A001343BE /* ANNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BDC48814FF751A001343BE /* ANNewsViewController.m */; };
 		E3BDC48B14FF753F001343BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC48A14FF753F001343BE /* MapKit.framework */; };
+		E3C1FDD415366DEF00582855 /* description.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FDD315366DEF00582855 /* description.txt */; };
 		E3CAC2E51515EE2A003994A7 /* ANAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC2E41515EE2A003994A7 /* ANAtlas.m */; };
 		E3CAC30A1515EE94003994A7 /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC2ED1515EE94003994A7 /* Facebook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3CAC30B1515EE94003994A7 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3CAC2F01515EE94003994A7 /* FBDialog.bundle */; };
@@ -380,6 +381,7 @@
 		E3BDC48714FF751A001343BE /* ANNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANNewsViewController.h; sourceTree = "<group>"; };
 		E3BDC48814FF751A001343BE /* ANNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANNewsViewController.m; sourceTree = "<group>"; };
 		E3BDC48A14FF753F001343BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E3C1FDD315366DEF00582855 /* description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
 		E3CAC2E31515EE2A003994A7 /* ANAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAtlas.h; sourceTree = "<group>"; };
 		E3CAC2E41515EE2A003994A7 /* ANAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAtlas.m; sourceTree = "<group>"; };
 		E3CAC2EC1515EE94003994A7 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
@@ -836,6 +838,7 @@
 				E3568293153413A00011F99B /* stickers.plist */,
 				E35682AF15341CCF0011F99B /* Frames */,
 				E3568295153413EC0011F99B /* Stickers */,
+				E3C1FDD315366DEF00582855 /* description.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1176,6 +1179,7 @@
 				E385A35D15353CFF00420C09 /* SVProgressHUD.bundle in Resources */,
 				E385A371153544B100420C09 /* placeholder.png in Resources */,
 				E385A372153544B100420C09 /* placeholder@2x.png in Resources */,
+				E3C1FDD415366DEF00582855 /* description.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

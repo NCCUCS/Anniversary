@@ -36,7 +36,7 @@
   section0.title = @"活動說明";
   
   QTextElement *textElement = [[QTextElement alloc] init];
-  textElement.text = @"政大校慶又到囉，今年邀請政大校友及師生們，使用「我是政大人」校慶大頭貼APP，製作一張專屬於你的政大回憶照吧！大頭貼完成後，分享照片並參加「校慶抽獎活動」，還有機會拿到特別的政大校慶紀念禮物噢！";
+  textElement.text = [NSString stringWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"description.txt") encoding:NSUTF8StringEncoding error:nil];
   
   [section0 addElement:textElement];
   
@@ -45,7 +45,7 @@
   QSection *section1 = [[QSection alloc] init];
   QBooleanElement *uploadElement = [[QBooleanElement alloc] initWithTitle:@"參加活動" BoolValue:YES];
   uploadElement.controllerAction = @"uploadToStageSwitched:";
-  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:NO];
+  QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:YES];
   facebookElement.controllerAction = @"facebookSwitched:";
   
   [section1 addElement:uploadElement];
@@ -62,6 +62,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
     _isUploadingToStage = YES;
+    _isUploadingToFacebook = YES;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookDidLogin:) name:kNotificationFacebookDidLogin object:nil];
   }
