@@ -30,7 +30,7 @@
   
   _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
   _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-  [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/nccu.edu.tw"]]];
+  [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.facebook.com/nccu85"]]];
   [self.view addSubview:_webView];
 }
 
