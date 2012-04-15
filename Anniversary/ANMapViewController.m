@@ -37,7 +37,7 @@
   if (!self.isLoading) {
     self.isLoading = YES;
     
-    [[ANHTTPClient sharedClient] getPath:@"/photos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [[ANHTTPClient sharedClient] getPath:@"/photos/locations.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
       NSMutableArray *photos = [NSMutableArray array];
       for (NSDictionary *dictioanry in responseObject) {
         ANPhoto *photo = [[ANPhoto alloc] init];
