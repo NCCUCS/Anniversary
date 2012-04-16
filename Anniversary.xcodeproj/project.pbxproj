@@ -102,6 +102,7 @@
 		E35682C215341CCF0011F99B /* 蔣公銅像.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B815341CCF0011F99B /* 蔣公銅像.png */; };
 		E35682C315341CCF0011F99B /* 體育館.png in Resources */ = {isa = PBXBuildFile; fileRef = E35682B915341CCF0011F99B /* 體育館.png */; };
 		E35682C515341CDA0011F99B /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35682C415341CDA0011F99B /* frames.plist */; };
+		E35EBFA1153C03D600D8AD6B /* NimbusWebController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E35EBFA0153C03D600D8AD6B /* NimbusWebController.bundle */; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
 		E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EC150D27B400F3EC3F /* ANPhotosViewController.m */; };
 		E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509EF150D27C000F3EC3F /* ANPhotoViewController.m */; };
@@ -339,6 +340,7 @@
 		E35682B815341CCF0011F99B /* 蔣公銅像.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蔣公銅像.png"; sourceTree = "<group>"; };
 		E35682B915341CCF0011F99B /* 體育館.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "體育館.png"; sourceTree = "<group>"; };
 		E35682C415341CDA0011F99B /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frames.plist; sourceTree = "<group>"; };
+		E35EBFA0153C03D600D8AD6B /* NimbusWebController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NimbusWebController.bundle; path = Dependencies/nimbus/src/webcontroller/resources/NimbusWebController.bundle; sourceTree = SOURCE_ROOT; };
 		E37509E7150D25DA00F3EC3F /* ANTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANTabBarController.h; sourceTree = "<group>"; };
 		E37509E8150D25DA00F3EC3F /* ANTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANTabBarController.m; sourceTree = "<group>"; };
 		E37509EB150D27B400F3EC3F /* ANPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhotosViewController.h; sourceTree = "<group>"; };
@@ -1009,6 +1011,7 @@
 		E3CAC450151653E5003994A7 /* webcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				E35EBFA0153C03D600D8AD6B /* NimbusWebController.bundle */,
 				E3CAC451151653E5003994A7 /* NimbusWebController+Namespace.h */,
 				E3CAC452151653E5003994A7 /* NimbusWebController.h */,
 				E3CAC453151653E5003994A7 /* NIWebController.h */,
@@ -1180,6 +1183,7 @@
 				E385A371153544B100420C09 /* placeholder.png in Resources */,
 				E385A372153544B100420C09 /* placeholder@2x.png in Resources */,
 				E3C1FDD415366DEF00582855 /* description.txt in Resources */,
+				E35EBFA1153C03D600D8AD6B /* NimbusWebController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

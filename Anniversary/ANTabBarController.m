@@ -15,6 +15,8 @@
 
 @interface ANTabBarController ()
 
+- (ANSettingsViewController *)settingsViewController;
+
 @end
 
 @implementation ANTabBarController
@@ -26,7 +28,7 @@
                             [[UINavigationController alloc] initWithRootViewController:[[ANMapViewController alloc] initWithNibName:nil bundle:nil]],
                             [[UIViewController alloc] initWithNibName:nil bundle:nil], 
                             [[UINavigationController alloc] initWithRootViewController:[[ANNewsViewController alloc] initWithNibName:nil bundle:nil]],
-                            [[UINavigationController alloc] initWithRootViewController:[[ANSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped]], nil];
+                            [[UINavigationController alloc] initWithRootViewController:[self settingsViewController]], nil];
   }
   return self;
 }
@@ -58,6 +60,32 @@
 
 
 #pragma mark - Private
+
+- (ANSettingsViewController *)settingsViewController {
+  // Setting
+  QRootElement *root = [[QRootElement alloc] init];
+  root.title = @"設定選項";
+  root.grouped = YES;
+  
+  QSection *section1 = [[QSection alloc] init];
+  
+  QLabelElement *version = [[QLabelElement alloc] initWithTitle:@"版本" Value:[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]];
+  [section1 addElement:version];
+  QLabelElement *fansPage = [[QLabelElement alloc] initWithTitle:@"製作團隊" Value:@"政治大學資訊科學系"];
+  fansPage.controllerAction = @"openWebsite:";
+  [section1 addElement:fansPage];
+  
+  [root addSection:section1];
+  
+  QSection *section2 = [[QSection alloc] init];
+  QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"登出 Facebook"];
+  button.enabled = [[ANAtlas sharedFacebook] isSessionValid];
+  button.controllerAction = @"logoutButtonAction:";
+  [section2 addElement:button];
+  [root addSection:section2];
+  
+  return [[ANSettingsViewController alloc] initWithRoot:root];
+}
 
 - (void)captureButtonClicked:(id)sender {
   if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

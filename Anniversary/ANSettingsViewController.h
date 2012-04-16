@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANSettingsViewController : UITableViewController
+@interface ANSettingsViewController : QuickDialogController
 
 @end
