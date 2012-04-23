@@ -13,6 +13,8 @@
 
 @property (nonatomic, assign) BOOL isLoaded;
 @property (nonatomic, assign) BOOL isLoading;
+@property (nonatomic, assign) NSInteger currentPageIndex;
+@property (nonatomic, assign) BOOL canLoadMore;
 @property (nonatomic, strong) NSArray *photos;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 

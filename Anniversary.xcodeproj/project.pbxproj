@@ -180,6 +180,7 @@
 		E3CAC460151653F3003994A7 /* NIPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC45A151653F3003994A7 /* NIPageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3CAC461151653F3003994A7 /* NIPagingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC45C151653F3003994A7 /* NIPagingScrollView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3CFF90215334B2B008589F2 /* ANPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CFF90115334B2B008589F2 /* ANPhoto.m */; };
+		E3E1C60B15458CFE006C2248 /* ANLoadMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3E1C60A15458CFE006C2248 /* ANLoadMoreCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -499,6 +500,8 @@
 		E3CAC45F151653F3003994A7 /* NIPagingScrollViewPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIPagingScrollViewPage.h; sourceTree = "<group>"; };
 		E3CFF90015334B2B008589F2 /* ANPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANPhoto.h; sourceTree = "<group>"; };
 		E3CFF90115334B2B008589F2 /* ANPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANPhoto.m; sourceTree = "<group>"; };
+		E3E1C60915458CFE006C2248 /* ANLoadMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANLoadMoreCell.h; sourceTree = "<group>"; };
+		E3E1C60A15458CFE006C2248 /* ANLoadMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANLoadMoreCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,6 +669,8 @@
 			children = (
 				E3BD42D71533570A000F707E /* ANPhotosTableViewCell.h */,
 				E3BD42D81533570A000F707E /* ANPhotosTableViewCell.m */,
+				E3E1C60915458CFE006C2248 /* ANLoadMoreCell.h */,
+				E3E1C60A15458CFE006C2248 /* ANLoadMoreCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1289,6 +1294,7 @@
 				E385A357153444C100420C09 /* SEDraggable.m in Sources */,
 				E385A358153444C100420C09 /* SEDraggableLocation.m in Sources */,
 				E385A35E15353CFF00420C09 /* SVProgressHUD.m in Sources */,
+				E3E1C60B15458CFE006C2248 /* ANLoadMoreCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

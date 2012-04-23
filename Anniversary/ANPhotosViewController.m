@@ -13,6 +13,7 @@
 #import "ANPhotosTableViewCell.h"
 #import "ANPhotoViewController.h"
 #import "ANPhoto.h"
+#import "ANLoadMoreCell.h"
 
 @interface ANPhotosViewController ()
 - (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
@@ -25,6 +26,8 @@
 @synthesize isLoading = _isLoading;
 @synthesize photos = _photos;
 @synthesize pullToRefreshView = _pullToRefreshView;
+@synthesize currentPageIndex = _currentPageIndex;
+@synthesize canLoadMore = _canLoadMore;
 
 - (id)initWithStyle:(UITableViewStyle)style {
   if (self = [super initWithStyle:style]) {
@@ -76,7 +79,11 @@
 
 - (void)reloadTableData {
   if (!self.isLoading) {
+    self.canLoadMore = NO;
+    self.currentPageIndex = 0;
     self.isLoading = YES;
+    
+    __weak ANPhotosViewController *tempSelf = self;
     
     [[ANHTTPClient sharedClient] getPath:@"/photos.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
       NSMutableArray *photos = [NSMutableArray array];
@@ -95,16 +102,23 @@
         
         [photos addObject:photo];
       }
-      self.photos = photos;
-      self.isLoading = NO;
-      self.isLoaded = YES;
+      tempSelf.photos = photos;
+      tempSelf.isLoading = NO;
+      tempSelf.isLoaded = YES;
+      tempSelf.currentPageIndex++;
       
-      [self.tableView reloadData];
-      [self.pullToRefreshView finishedLoading];
+      if (photos.count == 12) {
+        tempSelf.canLoadMore = YES;
+      } else {
+        tempSelf.canLoadMore = NO;
+      }
+      
+      [tempSelf.tableView reloadData];
+      [tempSelf.pullToRefreshView finishedLoading];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-      self.isLoading = NO;
+      tempSelf.isLoading = NO;
       
-      [self.pullToRefreshView finishedLoading];
+      [tempSelf.pullToRefreshView finishedLoading];
     }];
   }
 }
@@ -112,10 +126,29 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return ceil(self.photos.count / 2.0);
+  if (self.photos.count == 0) {
+    return 0;
+  }
+  
+	return ceil(self.photos.count / 2.0) + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.row * 2 >= self.photos.count) {
+    ANLoadMoreCell *cell = (ANLoadMoreCell *)[tableView dequeueReusableCellWithIdentifier:@"LoadMoreCellIdentifier"];
+    if (!cell) {
+      cell = [[ANLoadMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadMoreCellIdentifier"];
+    }
+    
+    if (self.canLoadMore) {
+      [cell.activityIndicatorView startAnimating];
+    } else {
+      [cell.activityIndicatorView stopAnimating];
+    }
+    
+    return cell;
+  }
+  
   static NSString *PhotosCellIdentifier = @"PhotosCellIdentifier";
   ANPhotosTableViewCell *cell = (ANPhotosTableViewCell *)[tableView dequeueReusableCellWithIdentifier:PhotosCellIdentifier];
 	
@@ -167,10 +200,54 @@
   return cell;
 }
 
-#pragma mark - Table view delegate
+#pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return kThumbPhotoHeight + 20;
+	return indexPath.row * 2 < self.photos.count ? kThumbPhotoHeight + 20 : 44;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+  if ([tableView.indexPathsForVisibleRows.lastObject row] - ceil(self.photos.count / 2.0) < 2 && !self.isLoading && self.canLoadMore) {
+    self.isLoading = YES;
+    
+    __weak ANPhotosViewController *tempSelf = self;
+    
+    [[ANHTTPClient sharedClient] getPath:[NSString stringWithFormat:@"/photos.json?page=%d", self.currentPageIndex + 1] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+      NSMutableArray *photos = [NSMutableArray array];
+      for (NSDictionary *dictioanry in responseObject) {
+        ANPhoto *photo = [[ANPhoto alloc] init];
+        photo.objectID = [[dictioanry objectForKey:@"id"] integerValue];
+        photo.photoDescription = [dictioanry objectForKey:@"description"];
+        photo.createdAt = [dictioanry objectForKey:@"created_at"];
+        photo.updatedAt = [dictioanry objectForKey:@"updated_at"];
+        photo.imageURL = [NSURL URLWithString:[[dictioanry objectForKey:@"image"] objectForKey:@"url"]];
+        photo.thumbURL = [NSURL URLWithString:[[[dictioanry objectForKey:@"image"] objectForKey:@"thumb"] objectForKey:@"url"]];
+        photo.userFid = [[[dictioanry objectForKey:@"user"] objectForKey:@"fid"] longLongValue];
+        photo.userName = [[dictioanry objectForKey:@"user"] objectForKey:@"name"];
+        photo.longitude = [[dictioanry objectForKey:@"longitude"] doubleValue];
+        photo.latitude = [[dictioanry objectForKey:@"latitude"] doubleValue];
+        
+        [photos addObject:photo];
+      }
+      tempSelf.photos = [tempSelf.photos arrayByAddingObjectsFromArray:photos];
+      tempSelf.isLoading = NO;
+      tempSelf.isLoaded = YES;
+      tempSelf.currentPageIndex++;
+      
+      if (photos.count == 12) {
+        tempSelf.canLoadMore = YES;
+      } else {
+        tempSelf.canLoadMore = NO;
+      }
+      
+      [tempSelf.tableView reloadData];
+      [tempSelf.pullToRefreshView finishedLoading];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+      tempSelf.isLoading = NO;
+      
+      [tempSelf.pullToRefreshView finishedLoading];
+    }];
+  }
 }
 
 #pragma mark - Pull To Refresh View Delegate 
