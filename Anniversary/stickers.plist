@@ -3,14 +3,16 @@
 <plist version="1.0">
 <array>
 	<string>bus</string>
-	<string>學士帽</string>
-	<string>學士服</string>
-	<string>小橘</string>
-	<string>杏花</string>
-	<string>纜車</string>
-	<string>茶具</string>
-	<string>麵疙瘩</string>
-	<string>李四端</string>
-	<string>陶晶瑩</string>
+	<string>cat</string>
+	<string>cloth</string>
+	<string>flower</string>
+	<string>hat</string>
+	<string>noodle</string>
+	<string>tea</string>
+	<string>text_sticker_a</string>
+	<string>text_sticker_b</string>
+	<string>text_sticker_c</string>
+	<string>text_sticker_d</string>
+	<string>tram</string>
 </array>
 </plist>

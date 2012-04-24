@@ -24,13 +24,11 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>tw.edu.nccu.cs.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>tw.edu.nccu.anniversary85</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
+	<string>Anniversary85</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
