@@ -158,7 +158,7 @@ float angle = 0, size=14;
       if (index != alertView.cancelButtonIndex) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
         label.text = [[alertView textFieldAtIndex:0] text];
-        label.textColor = [UIColor colorWithRed:0.541 green:0.710 blue:0.882 alpha:1.000];
+        label.textColor = [UIColor colorWithRed:0.800 green:0.400 blue:0.400 alpha:1.000];
         label.font = [UIFont boldSystemFontOfSize:30];
         label.backgroundColor = [UIColor clearColor];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
