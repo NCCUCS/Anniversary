@@ -18,9 +18,9 @@
 				<string>icon114.png</string>
 				<string>Default@2x.png</string>
 				<string>Default.png</string>
+				<string>iPadIcon@2x.png</string>
+				<string>iPadIcon.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -46,8 +46,6 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>

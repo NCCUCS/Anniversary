@@ -13,4 +13,6 @@ UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate>
 
+@property (nonatomic, strong) UIImageView *tabBarImageView;
+
 @end
