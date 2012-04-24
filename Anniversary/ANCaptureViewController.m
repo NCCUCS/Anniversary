@@ -22,7 +22,6 @@
 
 @synthesize imageView = _imageView;
 @synthesize frameImageView = _frameImageView;
-@synthesize toolbar = _toolbar;
 @synthesize image = _image;
 @synthesize selectedView = _selectedView;
 
@@ -40,25 +39,6 @@ float angle = 0, size=14;
 }
 
 #pragma mark - Private
-
-- (void)cancelButtonClicked:(id)sender {
-  __weak UIViewController *tempSelf = self;
-  [UIAlertView showAlertViewWithTitle:@"放棄編輯" message:@"確定要離開此畫面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"確定"] handler:^(UIAlertView *alertView, NSInteger index){
-    [tempSelf dismissModalViewControllerAnimated:YES];
-  }];
-}
-
-- (void)doneButtonClicked:(id)sender {
-  UIGraphicsBeginImageContextWithOptions(self.imageView.bounds.size, self.imageView.opaque, 0.0);
-  [self.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
-  
-  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-  
-  UIGraphicsEndImageContext();
-  
-  ANUploadViewController *uploadViewController = [ANUploadViewController uploadViewControllerWithImage:image];
-  [self.navigationController pushViewController:uploadViewController animated:YES];
-}
 
 - (void)frameButtonClicked:(id)sender {
   [self presentModalViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
@@ -92,32 +72,35 @@ float angle = 0, size=14;
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
   [self.imageView addSubview:_frameImageView];
   
-  // Buttons
+  UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frameShadow"]];
+  shadowImageView.frame = CGRectOffset(shadowImageView.frame, 0, 320);
+  [self.view addSubview:shadowImageView];
   
-  UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [zoomInButton setTitle:@"+" forState:UIControlStateNormal];
-  zoomInButton.frame = CGRectMake(18.0, 325.0, 30.0, 30.0);
+  // Buttons
+  UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [zoomInButton setImage:[UIImage imageNamed:@"plusButton"] forState:UIControlStateNormal];
+  zoomInButton.frame = CGRectMake(9, 332, 31, 31);
   [zoomInButton addEventHandler:^(id sender){
     [UIView animateWithDuration:0.1 animations:^{
-      self.selectedView.transform = CGAffineTransformScale(self.selectedView.transform, 1.1, 1.1);
+      tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, 1.1, 1.1);
     }];
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:zoomInButton];
   
-  UIButton *zoomOutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [zoomOutButton setTitle:@"-" forState:UIControlStateNormal];
-  zoomOutButton.frame = CGRectMake(55.0, 325.0, 30.0, 30.0);
+  UIButton *zoomOutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [zoomOutButton setImage:[UIImage imageNamed:@"minusButton"] forState:UIControlStateNormal];
+  zoomOutButton.frame = CGRectMake(51, 332, 31, 31);
   [zoomOutButton addEventHandler:^(id sender){
     [UIView animateWithDuration:0.1 animations:^{
-      self.selectedView.transform = CGAffineTransformScale(self.selectedView.transform, 0.909, 0.909);
+      tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, 0.909, 0.909);
     }];
 
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:zoomOutButton];
   
-  UIButton *rotateRightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [rotateRightButton setTitle:@"↷" forState:UIControlStateNormal];
-  rotateRightButton.frame = CGRectMake(92.0, 325.0, 30.0, 30.0);
+  UIButton *rotateRightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [rotateRightButton setImage:[UIImage imageNamed:@"leftButton"] forState:UIControlStateNormal];
+  rotateRightButton.frame = CGRectMake(91, 332, 32, 31);
   [rotateRightButton addEventHandler:^(id sender){
     [UIView animateWithDuration:0.1 animations:^{
       tempSelf.selectedView.transform = CGAffineTransformRotate(CGAffineTransformRotate(tempSelf.selectedView.transform, -degreesToRadians(45 * (tempSelf.selectedView.tag))), degreesToRadians(45 * (++tempSelf.selectedView.tag)));
@@ -125,9 +108,9 @@ float angle = 0, size=14;
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:rotateRightButton];
   
-  UIButton *rotateLeftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [rotateLeftButton setTitle:@"↶" forState:UIControlStateNormal];
-  rotateLeftButton.frame = CGRectMake(129.0, 325.0, 30.0, 30.0);
+  UIButton *rotateLeftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [rotateLeftButton setImage:[UIImage imageNamed:@"rightButton"] forState:UIControlStateNormal];
+  rotateLeftButton.frame = CGRectMake(133, 332, 32, 31);
   [rotateLeftButton addEventHandler:^(id sender){
     [UIView animateWithDuration:0.1 animations:^{
       tempSelf.selectedView.transform = CGAffineTransformRotate(CGAffineTransformRotate(tempSelf.selectedView.transform, -degreesToRadians(-45 * (tempSelf.selectedView.tag))), degreesToRadians(-45 * (++tempSelf.selectedView.tag)));
@@ -135,51 +118,39 @@ float angle = 0, size=14;
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:rotateLeftButton];
   
-  UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  [trashButton setTitle:@"x" forState:UIControlStateNormal];
-  trashButton.frame = CGRectMake(275.0, 325.0, 30.0, 30.0);
+  UIButton *trashButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  [trashButton setImage:[UIImage imageNamed:@"deleteButton"] forState:UIControlStateNormal];
+  trashButton.frame = CGRectMake(280, 332, 32, 31);
   [trashButton addEventHandler:^(id sender){
     [tempSelf.selectedView removeFromSuperview];
     tempSelf.selectedView = nil;
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:trashButton];
   
-  // Toolbar
-  
-  _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - NIToolbarHeightForOrientation(self.interfaceOrientation), 
-                         self.view.bounds.size.width, NIToolbarHeightForOrientation(self.interfaceOrientation))];
-  _toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-  [self.view addSubview:_toolbar];
-  
-  UIBarItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+  // Toolbar  
   UIButton *frameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  frameButton.frame = CGRectMake(24, 374, 87, 33);
   [frameButton setImage:[UIImage imageNamed:@"frameButton"] forState:UIControlStateNormal];
-  [frameButton setImage:[UIImage imageNamed:@"frameButtonClicked"] forState:UIControlStateHighlighted];
-  [frameButton sizeToFit];
   [frameButton addEventHandler:^(id sender){
     ANFramePickerViewController *viewController = [[ANFramePickerViewController alloc] initWithNibName:nil bundle:nil];
     viewController.delegate = self;
     [tempSelf presentModalViewController:viewController animated:YES];
   } forControlEvents:UIControlEventTouchUpInside];
-  
-  UIBarButtonItem *frameButtonItem = [[UIBarButtonItem alloc] initWithCustomView:frameButton];
+  [self.view addSubview:frameButton];
   
   UIButton *stickerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  stickerButton.frame = CGRectMake(117, 374, 87, 33);
   [stickerButton setImage:[UIImage imageNamed:@"stickerButton"] forState:UIControlStateNormal];
-  [stickerButton setImage:[UIImage imageNamed:@"stickerButtonClicked"] forState:UIControlStateHighlighted];
-  [stickerButton sizeToFit];
   [stickerButton addEventHandler:^(id sender){
     ANStickerPickerViewController *viewController = [[ANStickerPickerViewController alloc] initWithNibName:nil bundle:nil];
     viewController.delegate = self;
     [tempSelf presentModalViewController:viewController animated:YES];
   } forControlEvents:UIControlEventTouchUpInside];
-  
-  UIBarButtonItem *stickerButtonItem = [[UIBarButtonItem alloc] initWithCustomView:stickerButton];
+  [self.view addSubview:stickerButton];
   
   UIButton *textButton = [UIButton buttonWithType:UIButtonTypeCustom];
+  textButton.frame = CGRectMake(209, 374, 87, 33);
   [textButton setImage:[UIImage imageNamed:@"textButton"] forState:UIControlStateNormal];
-  [textButton setImage:[UIImage imageNamed:@"textButtonClicked"] forState:UIControlStateHighlighted];
-  [textButton sizeToFit];
   [textButton addEventHandler:^(id sender){
     UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"請輸入文字" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"完成", nil];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -206,17 +177,45 @@ float angle = 0, size=14;
     [alertView show];
     
   } forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:textButton];
   
-  UIBarButtonItem *textButtonItem = [[UIBarButtonItem alloc] initWithCustomView:textButton];
-  
-  _toolbar.items = [NSArray arrayWithObjects: space, frameButtonItem, space, stickerButtonItem, space, textButtonItem, space, nil];
+  UIImageView *bottomImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"toolbar"]];
+  bottomImageView.frame = CGRectOffset(bottomImageView.frame, 0, 372);
+  [self.view addSubview:bottomImageView];
 }
 
 - (void)viewDidLoad{
   [super viewDidLoad];
   
-  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonClicked:)];
-  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+  __weak ANCaptureViewController *tempSelf = self;
+  
+  UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
+  [cancelButton setImage:[UIImage imageNamed:@"backButton"] forState:UIControlStateNormal];
+  [cancelButton addEventHandler:^(id sender){
+    [UIAlertView showAlertViewWithTitle:@"放棄編輯" message:@"確定要離開此畫面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"確定"] handler:^(UIAlertView *alertView, NSInteger index){
+      if (alertView.cancelButtonIndex != index) {
+        [tempSelf dismissModalViewControllerAnimated:YES];
+      }
+    }];
+  } forControlEvents:UIControlEventTouchUpInside];
+  
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+  
+  UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
+  [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
+  [doneButton addEventHandler:^(id sender){
+    UIGraphicsBeginImageContextWithOptions(tempSelf.imageView.bounds.size, tempSelf.imageView.opaque, 0.0);
+    [tempSelf.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    ANUploadViewController *uploadViewController = [ANUploadViewController uploadViewControllerWithImage:image];
+    [tempSelf.navigationController pushViewController:uploadViewController animated:YES];
+  } forControlEvents:UIControlEventTouchUpInside];
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
   
 }
 
@@ -225,7 +224,6 @@ float angle = 0, size=14;
   
   _imageView = nil;
   _frameImageView = nil;
-  _toolbar = nil;
   _selectedView = nil;
 }
 

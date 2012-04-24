@@ -34,7 +34,7 @@
   self.tableView.allowsSelection = NO;
   self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
-  self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+  self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"drawer-background"]];
 }
 
 #pragma mark - UITableViewDataSource

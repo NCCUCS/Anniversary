@@ -20,7 +20,6 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImageView *frameImageView;
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, retain) UIToolbar *toolbar;
 
 @property (nonatomic, weak) UIView *selectedView;
 

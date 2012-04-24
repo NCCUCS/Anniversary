@@ -145,13 +145,25 @@
   
   __weak ANUploadViewController *tempSelf = self;
   
-  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone handler:^(id sender){
+  UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
+  [cancelButton setImage:[UIImage imageNamed:@"backButton"] forState:UIControlStateNormal];
+  [cancelButton addEventHandler:^(id sender){
+    [tempSelf.navigationController popViewControllerAnimated:YES];
+  } forControlEvents:UIControlEventTouchUpInside];
+  
+  self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+  
+  UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
+  [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
+  [doneButton addEventHandler:^(id sender){
     tempSelf.navigationItem.rightBarButtonItem.enabled = NO;
     [SVProgressHUD showWithStatus:@"上傳中"];
     if ((!_isUploadingToStage && !_isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
       [tempSelf processImage:tempSelf.image];
     }
-  }];
+  } forControlEvents:UIControlEventTouchUpInside];
+  
+  self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
 }
 
 
