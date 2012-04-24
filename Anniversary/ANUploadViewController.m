@@ -77,6 +77,7 @@
 #pragma mark - Private
 
 - (void)facebookDidLogin:(NSNotification *)notification {
+  [SVProgressHUD showWithStatus:@"上傳中"];
   [self processImage:self.image];
 }
 
@@ -157,8 +158,8 @@
   [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
   [doneButton addEventHandler:^(id sender){
     tempSelf.navigationItem.rightBarButtonItem.enabled = NO;
-    [SVProgressHUD showWithStatus:@"上傳中"];
     if ((!_isUploadingToStage && !_isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
+      [SVProgressHUD showWithStatus:@"上傳中"];
       [tempSelf processImage:tempSelf.image];
     }
   } forControlEvents:UIControlEventTouchUpInside];

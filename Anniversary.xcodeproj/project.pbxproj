@@ -103,6 +103,7 @@
 		E31702A51546A0AB00A53B18 /* text_sticker_c.png in Resources */ = {isa = PBXBuildFile; fileRef = E31702991546A0AB00A53B18 /* text_sticker_c.png */; };
 		E31702A61546A0AB00A53B18 /* text_sticker_d.png in Resources */ = {isa = PBXBuildFile; fileRef = E317029A1546A0AB00A53B18 /* text_sticker_d.png */; };
 		E31702A71546A0AB00A53B18 /* tram.png in Resources */ = {isa = PBXBuildFile; fileRef = E317029B1546A0AB00A53B18 /* tram.png */; };
+		E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
 		E341BA4E150E82ED003F1A9F /* 42-photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */; };
 		E341BA51150E832F003F1A9F /* 20-gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4F150E832F003F1A9F /* 20-gear-2.png */; };
@@ -123,7 +124,7 @@
 		E3568268153404F20011F99B /* textButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568262153404F20011F99B /* textButton@2x.png */; };
 		E3568269153404F20011F99B /* textButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568263153404F20011F99B /* textButton.png */; };
 		E356826A153404F20011F99B /* stickerButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568264153404F20011F99B /* stickerButton.png */; };
-		E356826B153404F20011F99B /* sitckerButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568265153404F20011F99B /* sitckerButton@2x.png */; };
+		E356826B153404F20011F99B /* stickerButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3568265153404F20011F99B /* stickerButton@2x.png */; };
 		E356827915340C3E0011F99B /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827815340C3E0011F99B /* icon57.png */; };
 		E356827B15340C420011F99B /* icon114.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827A15340C420011F99B /* icon114.png */; };
 		E356827D15340D1C0011F99B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E356827C15340D1C0011F99B /* Default@2x.png */; };
@@ -373,6 +374,8 @@
 		E31702991546A0AB00A53B18 /* text_sticker_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_sticker_c.png; sourceTree = "<group>"; };
 		E317029A1546A0AB00A53B18 /* text_sticker_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_sticker_d.png; sourceTree = "<group>"; };
 		E317029B1546A0AB00A53B18 /* tram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tram.png; sourceTree = "<group>"; };
+		E31702AE1546A4C100A53B18 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
+		E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
 		E341BA4F150E832F003F1A9F /* 20-gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear-2.png"; sourceTree = "<group>"; };
@@ -394,7 +397,7 @@
 		E3568262153404F20011F99B /* textButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textButton@2x.png"; sourceTree = "<group>"; };
 		E3568263153404F20011F99B /* textButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textButton.png; sourceTree = "<group>"; };
 		E3568264153404F20011F99B /* stickerButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stickerButton.png; sourceTree = "<group>"; };
-		E3568265153404F20011F99B /* sitckerButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sitckerButton@2x.png"; sourceTree = "<group>"; };
+		E3568265153404F20011F99B /* stickerButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stickerButton@2x.png"; sourceTree = "<group>"; };
 		E356827815340C3E0011F99B /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon57.png; path = ../icon57.png; sourceTree = "<group>"; };
 		E356827A15340C420011F99B /* icon114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon114.png; path = ../icon114.png; sourceTree = "<group>"; };
 		E356827C15340D1C0011F99B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -715,6 +718,16 @@
 			path = "Frame(640x640)";
 			sourceTree = "<group>";
 		};
+		E31702A81546A4C100A53B18 /* Touchpose */ = {
+			isa = PBXGroup;
+			children = (
+				E31702AE1546A4C100A53B18 /* QTouchposeApplication.h */,
+				E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */,
+			);
+			name = Touchpose;
+			path = "Dependencies/Touchpose/Touchposé Example/Source";
+			sourceTree = "<group>";
+		};
 		E3568295153413EC0011F99B /* Stickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,7 +932,7 @@
 				E3568262153404F20011F99B /* textButton@2x.png */,
 				E3568263153404F20011F99B /* textButton.png */,
 				E3568264153404F20011F99B /* stickerButton.png */,
-				E3568265153404F20011F99B /* sitckerButton@2x.png */,
+				E3568265153404F20011F99B /* stickerButton@2x.png */,
 				E35682541533FED70011F99B /* toolbar.png */,
 				E35682551533FED70011F99B /* toolbar@2x.png */,
 				E35682561533FED70011F99B /* background.png */,
@@ -956,6 +969,7 @@
 		E3CAC2E71515EE87003994A7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E31702A81546A4C100A53B18 /* Touchpose */,
 				E385A35915353CFF00420C09 /* SVProgressHUD */,
 				E385A352153444C100420C09 /* SEDraggable */,
 				E3AEAB251530995F00AEEBB2 /* QuickDialog.xcodeproj */,
@@ -1253,7 +1267,7 @@
 				E3568268153404F20011F99B /* textButton@2x.png in Resources */,
 				E3568269153404F20011F99B /* textButton.png in Resources */,
 				E356826A153404F20011F99B /* stickerButton.png in Resources */,
-				E356826B153404F20011F99B /* sitckerButton@2x.png in Resources */,
+				E356826B153404F20011F99B /* stickerButton@2x.png in Resources */,
 				E356827915340C3E0011F99B /* icon57.png in Resources */,
 				E356827B15340C420011F99B /* icon114.png in Resources */,
 				E356827D15340D1C0011F99B /* Default@2x.png in Resources */,
@@ -1432,6 +1446,7 @@
 				E385A358153444C100420C09 /* SEDraggableLocation.m in Sources */,
 				E385A35E15353CFF00420C09 /* SVProgressHUD.m in Sources */,
 				E3E1C60B15458CFE006C2248 /* ANLoadMoreCell.m in Sources */,
+				E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

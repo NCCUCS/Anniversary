@@ -25,3 +25,6 @@
 [submodule "Dependencies/SVProgressHUD"]
 	path = Dependencies/SVProgressHUD
 	url = git://github.com/samvermette/SVProgressHUD.git
+[submodule "Dependencies/Touchpose"]
+	path = Dependencies/Touchpose
+	url = git://github.com/toddreed/Touchpose.git
