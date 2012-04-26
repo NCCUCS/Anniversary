@@ -44,7 +44,7 @@
   
   QSection *section1 = [[QSection alloc] init];
   QBooleanElement *uploadElement = [[QBooleanElement alloc] initWithTitle:@"參加活動" BoolValue:YES];
-  uploadElement.controllerAction = @"uploadToStageSwitched:";
+  uploadElement.controllerAction = @"uploadSwitched:";
   QBooleanElement *facebookElement = [[QBooleanElement alloc] initWithTitle:@"分享到 Facebook" BoolValue:YES];
   facebookElement.controllerAction = @"facebookSwitched:";
   
@@ -77,7 +77,6 @@
 #pragma mark - Private
 
 - (void)facebookDidLogin:(NSNotification *)notification {
-  [SVProgressHUD showWithStatus:@"上傳中"];
   [self processImage:self.image];
 }
 
@@ -90,7 +89,7 @@
   return isSessionValid;
 }
 
-- (void)uplaodSwitched:(QBooleanElement *)element {
+- (void)uploadSwitched:(QBooleanElement *)element {
   _isUploadingToStage = element.boolValue;
 }
 
@@ -101,6 +100,13 @@
 - (void)processImage:(UIImage *)image {
   NSData *data = UIImageJPEGRepresentation(image, 0.9);
   UIImageWriteToSavedPhotosAlbum(image, NULL, NULL, NULL);
+  
+  if (_isUploadingToFacebook || _isUploadingToStage) {
+    [SVProgressHUD showWithStatus:@"上傳中"];
+  } else {
+    [self dismissModalViewControllerAnimated:YES];
+    return;
+  }
   
   if (_isUploadingToFacebook) {
     [[ANAtlas sharedFacebook] requestWithGraphPath:@"me/photos" andParams:[NSMutableDictionary dictionaryWithObjectsAndKeys:data, @"source", nil] andHttpMethod:@"POST" andDelegate:nil];
@@ -157,9 +163,7 @@
   UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
   [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
   [doneButton addEventHandler:^(id sender){
-    tempSelf.navigationItem.rightBarButtonItem.enabled = NO;
-    if ((!_isUploadingToStage && !_isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
-      [SVProgressHUD showWithStatus:@"上傳中"];
+    if ((!tempSelf.isUploadingToStage && !tempSelf.isUploadingToFacebook) || [tempSelf checkFacebookAuthorized]) {
       [tempSelf processImage:tempSelf.image];
     }
   } forControlEvents:UIControlEventTouchUpInside];
