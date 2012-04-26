@@ -7,6 +7,7 @@
 //
 
 #import "ANPhotosTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ANPhotosTableViewCell
 
@@ -16,8 +17,13 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
   if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
     _imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 130, 130)];
+    _imageView1.layer.borderColor = [[UIColor grayColor] CGColor];
+    _imageView1.layer.borderWidth = 2;
     [self.contentView addSubview:_imageView1];
+    
     _imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(170, 10, 130, 130)];
+    _imageView2.layer.borderColor = [[UIColor grayColor] CGColor];
+    _imageView2.layer.borderWidth = 2;
     [self.contentView addSubview:_imageView2];
     
     _imageView1.contentMode = _imageView2.contentMode = UIViewContentModeScaleAspectFit;
