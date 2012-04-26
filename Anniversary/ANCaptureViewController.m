@@ -70,6 +70,7 @@ float angle = 0, size=14;
   [self.view addSubview:_imageView];
   
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+  _frameImageView.image = [UIImage imageNamed:[[NSArray arrayWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"frames.plist")] firstObject]];
   [self.imageView addSubview:_frameImageView];
   
   UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frameShadow"]];
