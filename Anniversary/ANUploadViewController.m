@@ -37,7 +37,7 @@
   
   QTextElement *textElement = [[QTextElement alloc] init];
   textElement.text = [NSString stringWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"description.txt") encoding:NSUTF8StringEncoding error:nil];
-  textElement.font = [UIFont systemFontOfSize:11];
+  textElement.font = [UIFont systemFontOfSize:12];
   textElement.color = [UIColor colorWithRed:0.878 green:0.271 blue:0.325 alpha:1.000];
   
   [section0 addElement:textElement];
