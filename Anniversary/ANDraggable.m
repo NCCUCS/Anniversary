@@ -12,16 +12,40 @@
 @implementation ANDraggable
 
 @synthesize pinchRecognizer = _pinchRecognizer;
+@synthesize rotationRecognizer = _rotationRecognizer;
 
 - (id)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
     _pinchRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)];
+    _pinchRecognizer.delegate = self;
     [self addGestureRecognizer:_pinchRecognizer];
+    _rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotation:)];
+    _rotationRecognizer.delegate = self;
+    [self addGestureRecognizer:_rotationRecognizer];
   }
   return self;
 }
 
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+  return YES;
+}
+
 #pragma mark - Private
+
+- (void)handleRotation:(UIRotationGestureRecognizer *)recognizer {
+	if(recognizer.state == UIGestureRecognizerStateEnded) {
+		_lastRotation = 0.0;
+		return;
+	}
+  
+	CGFloat rotation = 0.0 - (_lastRotation - recognizer.rotation);
+  
+	recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, rotation);
+
+	_lastRotation = recognizer.rotation;
+}
 
 - (void)handlePinch:(UIPinchGestureRecognizer *)recognizer {
   if(recognizer.state == UIGestureRecognizerStateBegan) {

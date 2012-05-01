@@ -10,8 +10,10 @@
 
 @interface ANDraggable : SEDraggable {
   CGFloat _lastScale;
+  CGFloat _lastRotation;
 }
 
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchRecognizer;
+@property (nonatomic, strong) UIRotationGestureRecognizer *rotationRecognizer;
 
 @end
