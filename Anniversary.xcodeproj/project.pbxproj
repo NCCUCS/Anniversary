@@ -104,6 +104,7 @@
 		E31702A61546A0AB00A53B18 /* text_sticker_d.png in Resources */ = {isa = PBXBuildFile; fileRef = E317029A1546A0AB00A53B18 /* text_sticker_d.png */; };
 		E31702A71546A0AB00A53B18 /* tram.png in Resources */ = {isa = PBXBuildFile; fileRef = E317029B1546A0AB00A53B18 /* tram.png */; };
 		E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E32A2ACE155063F200F911C4 /* ANDraggable.m in Sources */ = {isa = PBXBuildFile; fileRef = E32A2ACD155063F200F911C4 /* ANDraggable.m */; };
 		E341BA4D150E82ED003F1A9F /* 42-photos.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4B150E82ED003F1A9F /* 42-photos.png */; };
 		E341BA4E150E82ED003F1A9F /* 42-photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */; };
 		E341BA51150E832F003F1A9F /* 20-gear-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E341BA4F150E832F003F1A9F /* 20-gear-2.png */; };
@@ -377,6 +378,8 @@
 		E317029B1546A0AB00A53B18 /* tram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tram.png; sourceTree = "<group>"; };
 		E31702AE1546A4C100A53B18 /* QTouchposeApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTouchposeApplication.h; sourceTree = "<group>"; };
 		E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTouchposeApplication.m; sourceTree = "<group>"; };
+		E32A2ACC155063F200F911C4 /* ANDraggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDraggable.h; sourceTree = "<group>"; };
+		E32A2ACD155063F200F911C4 /* ANDraggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDraggable.m; sourceTree = "<group>"; };
 		E341BA4B150E82ED003F1A9F /* 42-photos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos.png"; sourceTree = "<group>"; };
 		E341BA4C150E82ED003F1A9F /* 42-photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-photos@2x.png"; sourceTree = "<group>"; };
 		E341BA4F150E832F003F1A9F /* 20-gear-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "20-gear-2.png"; sourceTree = "<group>"; };
@@ -759,6 +762,8 @@
 				E3E1C60A15458CFE006C2248 /* ANLoadMoreCell.m */,
 				E3BC653815492D4700A96D13 /* UINavigationBar+DropShadow.h */,
 				E3BC653915492D4700A96D13 /* UINavigationBar+DropShadow.m */,
+				E32A2ACC155063F200F911C4 /* ANDraggable.h */,
+				E32A2ACD155063F200F911C4 /* ANDraggable.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1453,6 +1458,7 @@
 				E3E1C60B15458CFE006C2248 /* ANLoadMoreCell.m in Sources */,
 				E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */,
 				E3BC653A15492D4700A96D13 /* UINavigationBar+DropShadow.m in Sources */,
+				E32A2ACE155063F200F911C4 /* ANDraggable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

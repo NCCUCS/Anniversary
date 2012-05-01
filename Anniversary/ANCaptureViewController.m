@@ -12,7 +12,7 @@
 #import "ANStickerPickerViewController.h"
 #import "ANTextViewController.h"
 #import "ANUploadViewController.h"
-#import "SEDraggable.h"
+#import "ANDraggable.h"
 
 @interface ANCaptureViewController ()
 
@@ -166,7 +166,7 @@ float angle = 0, size=14;
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [label sizeToFit];
         
-        SEDraggable *draggable = [[SEDraggable alloc] initWithFrame:label.frame];
+        ANDraggable *draggable = [[ANDraggable alloc] initWithFrame:label.frame];
         draggable.delegate = tempSelf;
         [draggable addSubview:label];
         [tempSelf.imageView insertSubview:draggable belowSubview:tempSelf.frameImageView];
@@ -244,7 +244,7 @@ float angle = 0, size=14;
   CGFloat ratio = kMaxStickerWidth / image.size.width;
   imageView.frame = CGRectMake(0, 0, image.size.width * ratio, image.size.height * ratio);
   
-  SEDraggable *dragView = [[SEDraggable alloc] initWithImageView:imageView];
+  ANDraggable *dragView = [[ANDraggable alloc] initWithImageView:imageView];
   dragView.delegate = self;
   [self.imageView addSubview:dragView];
   
