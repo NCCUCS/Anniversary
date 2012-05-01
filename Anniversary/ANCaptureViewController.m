@@ -70,8 +70,9 @@ float angle = 0, size=14;
   [self.view addSubview:_imageView];
   
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+  _frameImageView.userInteractionEnabled = NO;
   _frameImageView.image = [UIImage imageNamed:[[NSArray arrayWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"frames.plist")] firstObject]];
-  [self.imageView addSubview:_frameImageView];
+  [self.view addSubview:_frameImageView];
   
   UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"frameShadow"]];
   shadowImageView.frame = CGRectOffset(shadowImageView.frame, 0, 320);
@@ -206,7 +207,7 @@ float angle = 0, size=14;
   [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
   [doneButton addEventHandler:^(id sender){
     UIGraphicsBeginImageContextWithOptions(tempSelf.imageView.bounds.size, tempSelf.imageView.opaque, 0.0);
-    [tempSelf.imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    [tempSelf.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
@@ -247,9 +248,7 @@ float angle = 0, size=14;
   dragView.delegate = self;
   [self.imageView addSubview:dragView];
   
-  if (!self.selectedView) {
-    self.selectedView = dragView;
-  }
+  self.selectedView = dragView;
 }
 
 #pragma mark - SEDraggableEventResponder
