@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchRecognizer;
 @property (nonatomic, strong) UIRotationGestureRecognizer *rotationRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 
 @end

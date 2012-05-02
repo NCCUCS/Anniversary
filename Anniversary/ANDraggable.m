@@ -13,6 +13,7 @@
 
 @synthesize pinchRecognizer = _pinchRecognizer;
 @synthesize rotationRecognizer = _rotationRecognizer;
+@synthesize tapRecognizer = _tapRecognizer;
 
 - (id)initWithFrame:(CGRect)frame {
   if (self = [super initWithFrame:frame]) {
@@ -22,6 +23,8 @@
     _rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotation:)];
     _rotationRecognizer.delegate = self;
     [self addGestureRecognizer:_rotationRecognizer];
+    _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [self addGestureRecognizer:_tapRecognizer];
   }
   return self;
 }
@@ -65,6 +68,12 @@
     recognizer.view.transform = transform;
     
     _lastScale = recognizer.scale;  // Store the previous scale factor for the next pinch gesture call
+  }
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)recognizer {
+  if ([self.delegate respondsToSelector:@selector(draggableObjectDidMove:)]) {
+    [self.delegate draggableObjectDidMove:self];
   }
 }
 
