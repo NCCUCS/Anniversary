@@ -28,7 +28,9 @@
 #pragma mark - Private
 
 - (void)openWebsite:(QElement *)element {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.cs.nccu.edu.tw/"]];
+  NIWebController *webController = [[NIWebController alloc] init];
+  [self.navigationController pushViewController:webController animated:YES];
+  [webController openURL:[NSURL URLWithString:@"http://nccu85.herokuapp.com/staff.html"]];
 }
 
 - (void)logoutButtonAction:(QButtonElement *)button {

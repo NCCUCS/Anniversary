@@ -120,7 +120,7 @@
   
   QLabelElement *version = [[QLabelElement alloc] initWithTitle:@"版本" Value:[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey]];
   [section1 addElement:version];
-  QLabelElement *fansPage = [[QLabelElement alloc] initWithTitle:@"製作團隊" Value:@"政治大學資訊科學系"];
+  QLabelElement *fansPage = [[QLabelElement alloc] initWithTitle:@"製作團隊" Value:nil];
   fansPage.controllerAction = @"openWebsite:";
   [section1 addElement:fansPage];
   
