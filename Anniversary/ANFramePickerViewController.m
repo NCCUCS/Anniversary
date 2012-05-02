@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Polydice, Inc. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "ANFramePickerViewController.h"
 #import "ANPhotosTableViewCell.h"
 
@@ -63,6 +65,11 @@
     [cell.imageView1 addGestureRecognizer:recognizer1];
     cell.imageView1.userInteractionEnabled = YES;
     
+    cell.imageView1.layer.shadowColor = [[UIColor blackColor] CGColor];
+    cell.imageView1.layer.shadowRadius = 2;
+    cell.imageView1.layer.shouldRasterize = YES;
+    cell.imageView1.layer.shadowOpacity = 0.5;
+    
     UIGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
       if (UIGestureRecognizerStateRecognized == state) {
         if (sender.view.tag < tempSelf.frames.count && [self.delegate respondsToSelector:@selector(framePickerController:didFinishPickingFrame:)]) {
@@ -74,6 +81,11 @@
     }];
     [cell.imageView2 addGestureRecognizer:recognizer2];
     cell.imageView2.userInteractionEnabled = YES;
+    
+    cell.imageView2.layer.shadowColor = [[UIColor blackColor] CGColor];
+    cell.imageView2.layer.shadowRadius = 2;
+    cell.imageView2.layer.shouldRasterize = YES;
+    cell.imageView2.layer.shadowOpacity = 0.5;
 	}
   
   NSUInteger index1 = 2 * indexPath.row;
@@ -91,6 +103,7 @@
   
   cell.imageView1.image = [UIImage imageNamed:imageName1];
   cell.imageView2.image = [UIImage imageNamed:imageName2];
+  
 	
   return cell;
 }

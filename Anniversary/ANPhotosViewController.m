@@ -168,6 +168,9 @@
     [cell.imageView1 addGestureRecognizer:recognizer1];
     cell.imageView1.userInteractionEnabled = YES;
     
+    cell.imageView1.layer.borderColor = [[UIColor grayColor] CGColor];
+    cell.imageView1.layer.borderWidth = 2;
+    
     UIGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
       if (UIGestureRecognizerStateRecognized == state) {
         if (sender.view.tag < tempSelf.photos.count) {
@@ -179,6 +182,9 @@
     }];
     [cell.imageView2 addGestureRecognizer:recognizer2];
     cell.imageView2.userInteractionEnabled = YES;
+    
+    cell.imageView2.layer.borderColor = [[UIColor grayColor] CGColor];
+    cell.imageView2.layer.borderWidth = 2;
 	}
   
   NSUInteger index1 = 2 * indexPath.row;
