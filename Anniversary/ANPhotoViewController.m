@@ -44,10 +44,16 @@
   [_avatarImageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%lld/picture", self.photo.userFid]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
   [self.view addSubview:_avatarImageView];
   
+  UITapGestureRecognizer *tapAvatarGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openFacebook:)];
+  [self.view addGestureRecognizer:tapAvatarGestureRecognizer];
+  
   _userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(51, 323, 272, 45)];
   _userNameLabel.backgroundColor = [UIColor clearColor];
   _userNameLabel.text = self.photo.userName;
   [self.view addSubview:_userNameLabel];
+  
+  UITapGestureRecognizer *tapLabelGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openFacebook:)];
+  [self.view addGestureRecognizer:tapLabelGestureRecognizer];
 }
 
 - (void)viewDidUnload {
@@ -55,6 +61,22 @@
   
   _imageView = nil;
   _avatarImageView = nil;
+}
+
+#pragma mark - Private
+
+- (void)openFacebook:(id)sender {
+  __weak ANPhotoViewController *tempSelf = self;
+  [UIAlertView showAlertViewWithTitle:@"開啟 Facebook" message:@"跳轉到作者的 Fcebook 個人頁面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"開啟"] handler:^(UIAlertView *alertView, NSInteger index){
+    if (alertView.cancelButtonIndex != index) {
+      NSURL *facebookURL = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%lld", tempSelf.photo.userFid]];
+      if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
+        [[UIApplication sharedApplication] openURL:facebookURL];
+      } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.facebook.com/%lld", tempSelf.photo.userFid]]];
+      }
+    }
+  }];
 }
 
 @end
