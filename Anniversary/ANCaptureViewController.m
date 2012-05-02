@@ -206,6 +206,7 @@ float angle = 0, size=14;
   UIButton *doneButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
   [doneButton setImage:[UIImage imageNamed:@"doneButton"] forState:UIControlStateNormal];
   [doneButton addEventHandler:^(id sender){
+    self.selectedView = nil;
     UIGraphicsBeginImageContextWithOptions(tempSelf.imageView.bounds.size, tempSelf.imageView.opaque, 0.0);
     [tempSelf.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     
@@ -256,6 +257,16 @@ float angle = 0, size=14;
 - (void)draggableObjectDidMove:(SEDraggable *)object {
   self.selectedView = object;
   [self.imageView bringSubviewToFront:object];
+}
+
+#pragma mark - Public
+
+- (void)setSelectedView:(UIView *)selectedView {
+  if (_selectedView != selectedView) {
+    _selectedView.alpha = 1;
+    _selectedView = selectedView;
+    _selectedView.alpha = 0.8;
+  }
 }
 
 
