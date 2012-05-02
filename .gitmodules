@@ -28,3 +28,6 @@
 [submodule "Dependencies/Touchpose"]
 	path = Dependencies/Touchpose
 	url = git://github.com/toddreed/Touchpose.git
+[submodule "Dependencies/SDURLCache"]
+	path = Dependencies/SDURLCache
+	url = git://github.com/rs/SDURLCache.git

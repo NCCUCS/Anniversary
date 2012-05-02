@@ -9,6 +9,7 @@
 #import "ANAppDelegate.h"
 #import "ANTabBarController.h"
 #import "Facebook.h"
+#import "SDURLCache.h"
 
 @implementation ANAppDelegate
 
@@ -21,6 +22,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+  // Setup cache
+  SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024 * 1024   // 1MB mem cache
+                                                       diskCapacity:1024 * 1024 * 5 // 5MB disk cache
+                                                           diskPath:[SDURLCache defaultCachePath]];
+  [NSURLCache setSharedURLCache:urlCache];
   
   // Setup UIAppearance
   [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
