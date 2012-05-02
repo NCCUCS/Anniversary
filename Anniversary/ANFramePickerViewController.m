@@ -68,6 +68,7 @@
     cell.imageView1.layer.shadowColor = [[UIColor blackColor] CGColor];
     cell.imageView1.layer.shadowRadius = 2;
     cell.imageView1.layer.shouldRasterize = YES;
+    cell.imageView1.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     cell.imageView1.layer.shadowOpacity = 0.5;
     
     UIGestureRecognizer *recognizer2 = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
@@ -85,6 +86,7 @@
     cell.imageView2.layer.shadowColor = [[UIColor blackColor] CGColor];
     cell.imageView2.layer.shadowRadius = 2;
     cell.imageView2.layer.shouldRasterize = YES;
+    cell.imageView2.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     cell.imageView2.layer.shadowOpacity = 0.5;
 	}
   
