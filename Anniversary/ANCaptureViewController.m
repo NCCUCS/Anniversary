@@ -67,6 +67,7 @@ float angle = 0, size=14;
   _imageView.image = self.image;
   _imageView.userInteractionEnabled = YES;
   _imageView.clipsToBounds = YES;
+  _imageView.contentMode = UIViewContentModeScaleAspectFit;
   [self.view addSubview:_imageView];
   
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
@@ -171,9 +172,7 @@ float angle = 0, size=14;
         [draggable addSubview:label];
         [tempSelf.imageView insertSubview:draggable belowSubview:tempSelf.frameImageView];
         
-        if (!tempSelf.selectedView) {
-          tempSelf.selectedView = draggable;
-        }
+        tempSelf.selectedView = draggable;
       }
     };
     [alertView show];
@@ -256,7 +255,6 @@ float angle = 0, size=14;
 
 - (void)draggableObjectDidMove:(SEDraggable *)object {
   self.selectedView = object;
-  [self.imageView bringSubviewToFront:object];
 }
 
 #pragma mark - Public
@@ -266,6 +264,8 @@ float angle = 0, size=14;
     _selectedView.alpha = 1;
     _selectedView = selectedView;
     _selectedView.alpha = 0.8;
+    
+    [self.imageView bringSubviewToFront:_selectedView];
   }
 }
 
