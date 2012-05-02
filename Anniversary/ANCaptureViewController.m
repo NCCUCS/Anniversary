@@ -70,6 +70,12 @@ float angle = 0, size=14;
   _imageView.contentMode = UIViewContentModeScaleAspectFit;
   [self.view addSubview:_imageView];
   
+  UITapGestureRecognizer *deselectRecognizer = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
+    tempSelf.selectedView = nil;
+  }];
+  
+  [self.imageView addGestureRecognizer:deselectRecognizer];
+  
   _frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
   _frameImageView.userInteractionEnabled = NO;
   _frameImageView.image = [UIImage imageNamed:[[NSArray arrayWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"frames.plist")] firstObject]];
