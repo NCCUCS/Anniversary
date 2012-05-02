@@ -10,6 +10,7 @@
 #import "ANTabBarController.h"
 #import "Facebook.h"
 #import "SDURLCache.h"
+#import "TestFlight.h"
 
 @implementation ANAppDelegate
 
@@ -22,6 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  
+  // Setup TestFlight
+  [TestFlight takeOff:@"869b45ee1d8209a6278904c015bb4dc5_ODYyNjcyMDEyLTA1LTAyIDAwOjM4OjUzLjQ5OTY1OQ"];
   
   // Setup cache
   SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024 * 1024   // 1MB mem cache
