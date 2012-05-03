@@ -123,6 +123,9 @@
   QLabelElement *fansPage = [[QLabelElement alloc] initWithTitle:@"製作團隊" Value:nil];
   fansPage.controllerAction = @"openWebsite:";
   [section1 addElement:fansPage];
+  QLabelElement *licensePage = [[QLabelElement alloc] initWithTitle:@"版權" Value:nil];
+  licensePage.controllerAction = @"openLicense:";
+  [section1 addElement:licensePage];
   
   [root addSection:section1];
   

@@ -77,6 +77,7 @@
 		E3023E501552939E0024378F /* tram.png in Resources */ = {isa = PBXBuildFile; fileRef = E3023DF51552939E0024378F /* tram.png */; };
 		E3023E511552939E0024378F /* txt1_sticker.png in Resources */ = {isa = PBXBuildFile; fileRef = E3023DF61552939E0024378F /* txt1_sticker.png */; };
 		E3023E521552939E0024378F /* txt2_sticker.png in Resources */ = {isa = PBXBuildFile; fileRef = E3023DF71552939E0024378F /* txt2_sticker.png */; };
+		E3023E54155298D50024378F /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3023E53155298D50024378F /* License.txt */; };
 		E3156A7F1531B1A10094565C /* A2BlockDelegate+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3156A451531B1A10094565C /* A2BlockDelegate+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3156A801531B1A10094565C /* BlocksKit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3156A481531B1A10094565C /* BlocksKit-Info.plist */; };
 		E3156A811531B1A10094565C /* MFMailComposeViewController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E3156A4D1531B1A10094565C /* MFMailComposeViewController+BlocksKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -372,6 +373,7 @@
 		E3023DF51552939E0024378F /* tram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tram.png; sourceTree = "<group>"; };
 		E3023DF61552939E0024378F /* txt1_sticker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt1_sticker.png; sourceTree = "<group>"; };
 		E3023DF71552939E0024378F /* txt2_sticker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txt2_sticker.png; sourceTree = "<group>"; };
+		E3023E53155298D50024378F /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		E3156A441531B1A10094565C /* A2BlockDelegate+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A2BlockDelegate+BlocksKit.h"; sourceTree = "<group>"; };
 		E3156A451531B1A10094565C /* A2BlockDelegate+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "A2BlockDelegate+BlocksKit.m"; sourceTree = "<group>"; };
 		E3156A461531B1A10094565C /* BKGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGlobals.h; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 				E317023F15467D7A00A53B18 /* Frames */,
 				E3568295153413EC0011F99B /* Stickers */,
 				E3C1FDD315366DEF00582855 /* description.txt */,
+				E3023E53155298D50024378F /* License.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1587,6 +1590,7 @@
 				E3023E501552939E0024378F /* tram.png in Resources */,
 				E3023E511552939E0024378F /* txt1_sticker.png in Resources */,
 				E3023E521552939E0024378F /* txt2_sticker.png in Resources */,
+				E3023E54155298D50024378F /* License.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

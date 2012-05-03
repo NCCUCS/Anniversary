@@ -33,6 +33,12 @@
   [webController openURL:[NSURL URLWithString:@"http://nccu85.herokuapp.com/staff.html"]];
 }
 
+- (void)openLicense:(QElement *)element {
+  NIWebController *webController = [[NIWebController alloc] init];
+  [self.navigationController pushViewController:webController animated:YES];
+  [webController openURL:[NSURL fileURLWithPath:NIPathForBundleResource([NSBundle mainBundle], @"License.txt")]];
+}
+
 - (void)logoutButtonAction:(QButtonElement *)button {
   __weak ANSettingsViewController *tempSelf = self;
   
