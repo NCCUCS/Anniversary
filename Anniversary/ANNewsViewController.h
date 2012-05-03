@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANNewsViewController : UIViewController
+@interface ANNewsViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webView; 
 
