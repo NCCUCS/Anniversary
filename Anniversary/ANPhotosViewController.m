@@ -70,7 +70,8 @@
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   
-  if (!self.isLoaded) {
+  if (!self.isLoaded && !self.isLoading) {
+    [self.pullToRefreshView setState:PullToRefreshViewStateLoading];
     [self reloadTableData];
   }
 }
