@@ -272,6 +272,12 @@ float angle = 0, size=14;
     _selectedView.alpha = 0.8;
     
     [self.imageView bringSubviewToFront:_selectedView];
+    
+    for (UIView *view in self.imageView.subviews) {
+      if ([view.subviews.lastObject isKindOfClass:[UILabel class]]) {
+        [self.imageView bringSubviewToFront:view];
+      }
+    }
   }
 }
 
