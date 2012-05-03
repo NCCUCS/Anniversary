@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
+	<string>txt1_sticker</string>
+	<string>txt2_sticker</string>
+	<string>bird1_sticker</string>
+	<string>bird2_sticker</string>
+  <string>logo_sticker</string>
 	<string>bus</string>
 	<string>cat</string>
 	<string>cloth</string>
@@ -9,11 +14,25 @@
 	<string>hat</string>
 	<string>noodle</string>
 	<string>tea</string>
+	<string>tram</string>
+  <string>pinktree</string>
+	<string>people1</string>
+	<string>people2</string>
+	<string>people3</string>
+	<string>people4</string>
+	<string>schoolcloth</string>
+	<string>fans</string>
+	<string>schoolbag</string>
+	<string>famous1_sticker</string>
+	<string>famous2_sticker</string>
+	<string>famous3_sticker</string>
+	<string>famous4_sticker</string>
+	<string>famous5_sticker</string>
+	<string>famous6_sticker</string>
 	<string>text_sticker_a</string>
 	<string>text_sticker_b</string>
 	<string>text_sticker_c</string>
 	<string>text_sticker_d</string>
-	<string>tram</string>
 	<string>build1</string>
 	<string>build2</string>
 	<string>build3</string>
@@ -44,13 +63,5 @@
 	<string>build28</string>
 	<string>build29</string>
 	<string>build30</string>
-	<string>pinktree</string>
-	<string>people1</string>
-	<string>people2</string>
-	<string>people3</string>
-	<string>people4</string>
-	<string>schoolcloth</string>
-	<string>fans</string>
-	<string>schoolbag</string>
 </array>
 </plist>
