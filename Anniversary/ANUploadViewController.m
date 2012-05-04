@@ -108,6 +108,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.enabled = NO;
   } else {
+    [SVProgressHUD showSuccessWithStatus:@"已存入相片圖庫" duration:1.5];
     [self dismissModalViewControllerAnimated:YES];
     return;
   }
