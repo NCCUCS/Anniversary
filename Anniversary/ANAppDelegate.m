@@ -27,6 +27,11 @@
   // Setup TestFlight
   [TestFlight takeOff:@"869b45ee1d8209a6278904c015bb4dc5_ODYyNjcyMDEyLTA1LTAyIDAwOjM4OjUzLjQ5OTY1OQ"];
   
+#define ADHOC
+#ifdef ADHOC
+  [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
+  
   // Setup cache
   SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024 * 1024   // 1MB mem cache
                                                        diskCapacity:1024 * 1024 * 5 // 5MB disk cache

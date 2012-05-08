@@ -105,7 +105,10 @@
   
   if (_isUploadingToFacebook || _isUploadingToStage) {
     [SVProgressHUD showWithStatus:@"上傳中"];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.enabled = NO;
   } else {
+    [SVProgressHUD showSuccessWithStatus:@"已存入相片圖庫" duration:1.5];
     [self dismissModalViewControllerAnimated:YES];
     return;
   }
@@ -140,6 +143,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error){
       [SVProgressHUD dismiss];
       tempSelf.navigationItem.rightBarButtonItem.enabled = YES;
+      tempSelf.navigationItem.leftBarButtonItem.enabled = YES;
       [UIAlertView showAlertViewWithTitle:@"上傳失敗" message:@"請檢查網路連線，稍後重新再試一次。" cancelButtonTitle:@"完成" otherButtonTitles:nil handler:NULL];
     }];
     
