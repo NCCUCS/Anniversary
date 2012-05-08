@@ -1,0 +1,33 @@
+[submodule "Dependencies/facebook-ios-sdk"]
+	path = Dependencies/facebook-ios-sdk
+	url = git://github.com/facebook/facebook-ios-sdk.git
+[submodule "Dependencies/AFNetworking"]
+	path = Dependencies/AFNetworking
+	url = git://github.com/AFNetworking/AFNetworking.git
+[submodule "Dependencies/nimbus"]
+	path = Dependencies/nimbus
+	url = git://github.com/jverkoey/nimbus.git
+[submodule "Dependencies/PullToRefresh"]
+	path = Dependencies/PullToRefresh
+	url = https://github.com/sonnyparlin/PullToRefresh.git
+[submodule "Dependencies/QuickDialog"]
+	path = Dependencies/QuickDialog
+	url = git://github.com/escoz/QuickDialog.git
+[submodule "Dependencies/BlocksKit"]
+	path = Dependencies/BlocksKit
+	url = git://github.com/zwaldowski/BlocksKit.git
+[submodule "Dependencies/A2DynamicDelegate"]
+	path = Dependencies/A2DynamicDelegate
+	url = https://github.com/pandamonia/A2DynamicDelegate.git
+[submodule "Dependencies/iOS-DragAndDrop"]
+	path = Dependencies/iOS-DragAndDrop
+	url = git://github.com/brynbellomy/iOS-DragAndDrop.git
+[submodule "Dependencies/SVProgressHUD"]
+	path = Dependencies/SVProgressHUD
+	url = git://github.com/samvermette/SVProgressHUD.git
+[submodule "Dependencies/Touchpose"]
+	path = Dependencies/Touchpose
+	url = git://github.com/toddreed/Touchpose.git
+[submodule "Dependencies/SDURLCache"]
+	path = Dependencies/SDURLCache
+	url = git://github.com/rs/SDURLCache.git

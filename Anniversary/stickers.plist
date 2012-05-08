@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>txt1_sticker</string>
+	<string>txt2_sticker</string>
+	<string>bird1_sticker</string>
+	<string>bird2_sticker</string>
+  <string>logo_sticker</string>
+	<string>bus</string>
+	<string>cat</string>
+	<string>cloth</string>
+	<string>flower</string>
+	<string>hat</string>
+	<string>noodle</string>
+	<string>tea</string>
+	<string>tram</string>
+  <string>pinktree</string>
+	<string>people1</string>
+	<string>people2</string>
+	<string>people3</string>
+	<string>people4</string>
+	<string>schoolcloth</string>
+	<string>fans</string>
+	<string>schoolbag</string>
+	<string>famous1_sticker</string>
+	<string>famous4_sticker</string>
+	<string>famous3_sticker</string>
+	<string>famous2_sticker</string>
+	<string>famous5_sticker</string>
+	<string>famous6_sticker</string>
+	<string>text_sticker_a</string>
+	<string>text_sticker_b</string>
+	<string>text_sticker_c</string>
+	<string>text_sticker_d</string>
+	<string>build1</string>
+	<string>build2</string>
+	<string>build3</string>
+	<string>build4</string>
+	<string>build5</string>
+	<string>build6</string>
+	<string>build7</string>
+	<string>build8</string>
+	<string>build9</string>
+	<string>build10</string>
+	<string>build11</string>
+	<string>build12</string>
+	<string>build13</string>
+	<string>build14</string>
+	<string>build15</string>
+	<string>build16</string>
+	<string>build17</string>
+	<string>build18</string>
+	<string>build19</string>
+	<string>build20</string>
+	<string>build21</string>
+	<string>build22</string>
+	<string>build23</string>
+	<string>build24</string>
+	<string>build25</string>
+	<string>build26</string>
+	<string>build27</string>
+	<string>build28</string>
+	<string>build29</string>
+	<string>build30</string>
+</array>
+</plist>
