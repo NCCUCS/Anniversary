@@ -153,7 +153,6 @@
 		E317028B1546955100A53B18 /* settingsTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31702871546955100A53B18 /* settingsTab@2x.png */; };
 		E317028D1546984400A53B18 /* iPadIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E317028C1546984400A53B18 /* iPadIcon@2x.png */; };
 		E317028F1546984800A53B18 /* iPadIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E317028E1546984800A53B18 /* iPadIcon.png */; };
-		E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = E31702AF1546A4C100A53B18 /* QTouchposeApplication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E3212D76155193900009519E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3212D721551938F0009519E /* libTestFlight.a */; };
 		E3212D77155193900009519E /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3212D731551938F0009519E /* README.txt */; };
 		E3212D78155193900009519E /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3212D741551938F0009519E /* release_notes.txt */; };
@@ -1697,7 +1696,6 @@
 				E385A358153444C100420C09 /* SEDraggableLocation.m in Sources */,
 				E385A35E15353CFF00420C09 /* SVProgressHUD.m in Sources */,
 				E3E1C60B15458CFE006C2248 /* ANLoadMoreCell.m in Sources */,
-				E31702B71546A4C100A53B18 /* QTouchposeApplication.m in Sources */,
 				E3BC653A15492D4700A96D13 /* UINavigationBar+DropShadow.m in Sources */,
 				E32A2ACE155063F200F911C4 /* ANDraggable.m in Sources */,
 				E3743FD61550E5F800F81255 /* SDURLCache.m in Sources */,
@@ -1760,7 +1758,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1770,6 +1768,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "${PROJECT_DIR}/Dependencies/QuickDialog/**";
 				VALIDATE_PRODUCT = YES;
@@ -1782,7 +1781,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anniversary/Anniversary-Prefix.pch";
 				INFOPLIST_FILE = "Anniversary/Anniversary-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dependencies/TestFlightSDK\"",
@@ -1799,7 +1798,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Anniversary/Anniversary-Prefix.pch";
 				INFOPLIST_FILE = "Anniversary/Anniversary-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Dependencies/TestFlightSDK\"",
