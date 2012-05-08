@@ -52,7 +52,7 @@
   [photosButton setBackgroundImage:[UIImage imageNamed:@"photosTabSelected"] forState:UIControlStateSelected];
   [photosButton addTarget:self action:@selector(tabButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   photosButton.tag = 0;
-  photosButton.selected = YES;
+  photosButton.selected = (self.selectedIndex == photosButton.tag || self.selectedIndex > 6);
   [_tabBarImageView addSubview:photosButton];
   
   UIButton* mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -61,6 +61,7 @@
   [mapButton setBackgroundImage:[UIImage imageNamed:@"mapTabSelected"] forState:UIControlStateSelected];
   [mapButton addTarget:self action:@selector(tabButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   mapButton.tag = 1;
+  mapButton.selected = (self.selectedIndex == mapButton.tag);
   [_tabBarImageView addSubview:mapButton];
   
   UIButton* newsButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -69,6 +70,7 @@
   [newsButton setBackgroundImage:[UIImage imageNamed:@"newsTabSelected"] forState:UIControlStateSelected];
   [newsButton addTarget:self action:@selector(tabButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   newsButton.tag = 3;
+  newsButton.selected = (self.selectedIndex == newsButton.tag);
   [_tabBarImageView addSubview:newsButton];
   
   UIButton* settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -77,6 +79,7 @@
   [settingsButton setBackgroundImage:[UIImage imageNamed:@"settingsTabSelected"] forState:UIControlStateSelected];
   [settingsButton addTarget:self action:@selector(tabButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
   settingsButton.tag = 4;
+  settingsButton.selected = (self.selectedIndex == settingsButton.tag);
   [_tabBarImageView addSubview:settingsButton];
   
   UIButton* captureButton = [UIButton buttonWithType:UIButtonTypeCustom];
