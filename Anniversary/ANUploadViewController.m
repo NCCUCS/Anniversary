@@ -33,7 +33,6 @@
   root.controllerName = @"ANUploadViewController";
   
   QSection *section0 = [[QSection alloc] init];
-  section0.title = @"活動說明";
   
   QTextElement *textElement = [[QTextElement alloc] init];
   textElement.text = [NSString stringWithContentsOfFile:NIPathForBundleResource([NSBundle mainBundle], @"description.txt") encoding:NSUTF8StringEncoding error:nil];
