@@ -93,6 +93,11 @@
   captureButton.center = center;
   
   [self.view addSubview:captureButton];
+  
+  // To fix a bug showing black screen after view discarded
+  NSUInteger oldIndex = self.selectedIndex;
+  self.selectedIndex = 3;
+  self.selectedIndex = oldIndex;
 }
 
 - (void)viewDidUnload {
@@ -154,7 +159,7 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
     picker.delegate = self;  
     picker.allowsEditing = YES;  
-    [self presentModalViewController:picker animated:YES];
+    [self.selectedViewController presentModalViewController:picker animated:YES];
   }
 }
 
@@ -167,7 +172,7 @@
       picker.sourceType = UIImagePickerControllerSourceTypeCamera;  
       picker.delegate = self;  
       picker.allowsEditing = YES;  
-      [self presentModalViewController:picker animated:YES];
+      [self.selectedViewController presentModalViewController:picker animated:YES];
       break;
     }
     case 1:{
@@ -175,7 +180,7 @@
       picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
       picker.delegate = self;  
       picker.allowsEditing = YES;  
-      [self presentModalViewController:picker animated:YES];
+      [self.selectedViewController presentModalViewController:picker animated:YES];
       break;
     }
   }
@@ -185,11 +190,11 @@
   [self dismissModalViewControllerAnimated:NO];
   ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
   viewController.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-  [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
+  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-	[self dismissModalViewControllerAnimated:YES];	
+	[self.selectedViewController dismissModalViewControllerAnimated:YES];	
 }
 
 @end
