@@ -67,7 +67,7 @@
 
 - (void)openFacebook:(id)sender {
   __weak ANPhotoViewController *tempSelf = self;
-  [UIAlertView showAlertViewWithTitle:@"開啟 Facebook" message:@"跳轉到作者的 Fcebook 個人頁面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"開啟"] handler:^(UIAlertView *alertView, NSInteger index){
+  [UIAlertView showAlertViewWithTitle:@"開啟 Facebook" message:@"跳轉到作者的 Facebook 個人頁面？" cancelButtonTitle:@"取消" otherButtonTitles:[NSArray arrayWithObject:@"開啟"] handler:^(UIAlertView *alertView, NSInteger index){
     if (alertView.cancelButtonIndex != index) {
       NSURL *facebookURL = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%lld", tempSelf.photo.userFid]];
       if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
