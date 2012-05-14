@@ -9,9 +9,9 @@
 #import "ANTabBarController.h"
 #import "ANPhotosViewController.h"
 #import "ANSettingsViewController.h"
-#import "ANNewsViewController.h"
 #import "ANMapViewController.h"
 #import "ANCaptureViewController.h"
+#import "ANNewsController.h"
 
 @interface ANTabBarController ()
 
@@ -24,12 +24,12 @@
 @synthesize tabBarImageView = _tabBarImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil { 
-  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {    
     self.viewControllers = [NSArray arrayWithObjects:
                             [[UINavigationController alloc] initWithRootViewController:[[ANPhotosViewController alloc] initWithStyle:UITableViewStylePlain]],
                             [[UINavigationController alloc] initWithRootViewController:[[ANMapViewController alloc] initWithNibName:nil bundle:nil]],
                             [[UIViewController alloc] initWithNibName:nil bundle:nil], 
-                            [[UINavigationController alloc] initWithRootViewController:[[ANNewsViewController alloc] initWithNibName:nil bundle:nil]],
+                            [[UINavigationController alloc] initWithRootViewController:[[ANNewsController alloc] init]],
                             [[UINavigationController alloc] initWithRootViewController:[self settingsViewController]], nil];
   }
   return self;

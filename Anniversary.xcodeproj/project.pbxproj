@@ -187,6 +187,7 @@
 		E3568294153413A00011F99B /* stickers.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3568293153413A00011F99B /* stickers.plist */; };
 		E35682AE153417520011F99B /* ANFramePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E35682AD153417510011F99B /* ANFramePickerViewController.m */; };
 		E35682C515341CDA0011F99B /* frames.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35682C415341CDA0011F99B /* frames.plist */; };
+		E35D9E171561019E00C6C97C /* ANNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = E35D9E161561019E00C6C97C /* ANNewsController.m */; };
 		E35EBFA1153C03D600D8AD6B /* NimbusWebController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E35EBFA0153C03D600D8AD6B /* NimbusWebController.bundle */; };
 		E3743FD61550E5F800F81255 /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E3743FC91550E5F800F81255 /* SDURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37509E8150D25DA00F3EC3F /* ANTabBarController.m */; };
@@ -215,7 +216,6 @@
 		E3BDC47214FF7202001343BE /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDC47014FF7202001343BE /* 07-map-marker.png */; };
 		E3BDC47314FF7202001343BE /* 07-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDC47114FF7202001343BE /* 07-map-marker@2x.png */; };
 		E3BDC48614FF750E001343BE /* ANMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BDC48514FF750E001343BE /* ANMapViewController.m */; };
-		E3BDC48914FF751A001343BE /* ANNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3BDC48814FF751A001343BE /* ANNewsViewController.m */; };
 		E3BDC48B14FF753F001343BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3BDC48A14FF753F001343BE /* MapKit.framework */; };
 		E3C1FDD415366DEF00582855 /* description.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3C1FDD315366DEF00582855 /* description.txt */; };
 		E3CAC2E51515EE2A003994A7 /* ANAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CAC2E41515EE2A003994A7 /* ANAtlas.m */; };
@@ -521,6 +521,8 @@
 		E35682AC153417510011F99B /* ANFramePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANFramePickerViewController.h; sourceTree = "<group>"; };
 		E35682AD153417510011F99B /* ANFramePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANFramePickerViewController.m; sourceTree = "<group>"; };
 		E35682C415341CDA0011F99B /* frames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = frames.plist; sourceTree = "<group>"; };
+		E35D9E151561019E00C6C97C /* ANNewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANNewsController.h; sourceTree = "<group>"; };
+		E35D9E161561019E00C6C97C /* ANNewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANNewsController.m; sourceTree = "<group>"; };
 		E35EBFA0153C03D600D8AD6B /* NimbusWebController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NimbusWebController.bundle; path = Dependencies/nimbus/src/webcontroller/resources/NimbusWebController.bundle; sourceTree = SOURCE_ROOT; };
 		E3743FC81550E5F800F81255 /* SDURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDURLCache.h; sourceTree = "<group>"; };
 		E3743FC91550E5F800F81255 /* SDURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDURLCache.m; sourceTree = "<group>"; };
@@ -565,8 +567,6 @@
 		E3BDC47114FF7202001343BE /* 07-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker@2x.png"; sourceTree = "<group>"; };
 		E3BDC48414FF750E001343BE /* ANMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANMapViewController.h; sourceTree = "<group>"; };
 		E3BDC48514FF750E001343BE /* ANMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANMapViewController.m; sourceTree = "<group>"; };
-		E3BDC48714FF751A001343BE /* ANNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANNewsViewController.h; sourceTree = "<group>"; };
-		E3BDC48814FF751A001343BE /* ANNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANNewsViewController.m; sourceTree = "<group>"; };
 		E3BDC48A14FF753F001343BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E3C1FDD315366DEF00582855 /* description.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = description.txt; sourceTree = "<group>"; };
 		E3CAC2E31515EE2A003994A7 /* ANAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAtlas.h; sourceTree = "<group>"; };
@@ -969,8 +969,6 @@
 				E34F5017150EF92300A5FCD2 /* ANPersonPickerViewController.m */,
 				874C841315235F2800866E26 /* ANTextViewController.h */,
 				874C841415235F2800866E26 /* ANTextViewController.m */,
-				E3BDC48714FF751A001343BE /* ANNewsViewController.h */,
-				E3BDC48814FF751A001343BE /* ANNewsViewController.m */,
 				E37509F1150D289800F3EC3F /* ANSettingsViewController.h */,
 				E37509F2150D289900F3EC3F /* ANSettingsViewController.m */,
 				E3AEAB3715309A6000AEEBB2 /* ANUploadViewController.h */,
@@ -979,6 +977,8 @@
 				E356829115340EDA0011F99B /* ANStickerPickerViewController.m */,
 				E35682AC153417510011F99B /* ANFramePickerViewController.h */,
 				E35682AD153417510011F99B /* ANFramePickerViewController.m */,
+				E35D9E151561019E00C6C97C /* ANNewsController.h */,
+				E35D9E161561019E00C6C97C /* ANNewsController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1603,7 +1603,6 @@
 				E3BDC44E14FF6B7B001343BE /* main.m in Sources */,
 				E3BDC45214FF6B7B001343BE /* ANAppDelegate.m in Sources */,
 				E3BDC48614FF750E001343BE /* ANMapViewController.m in Sources */,
-				E3BDC48914FF751A001343BE /* ANNewsViewController.m in Sources */,
 				E37509E9150D25DA00F3EC3F /* ANTabBarController.m in Sources */,
 				E37509ED150D27B500F3EC3F /* ANPhotosViewController.m in Sources */,
 				E37509F0150D27C000F3EC3F /* ANPhotoViewController.m in Sources */,
@@ -1699,6 +1698,7 @@
 				E3BC653A15492D4700A96D13 /* UINavigationBar+DropShadow.m in Sources */,
 				E32A2ACE155063F200F911C4 /* ANDraggable.m in Sources */,
 				E3743FD61550E5F800F81255 /* SDURLCache.m in Sources */,
+				E35D9E171561019E00C6C97C /* ANNewsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
