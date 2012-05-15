@@ -176,5 +176,9 @@
   self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:doneButton];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+  return toInterfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
 
 @end
