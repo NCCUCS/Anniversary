@@ -108,7 +108,7 @@
       tempSelf.isLoaded = YES;
       tempSelf.currentPageIndex++;
       
-      if (photos.count == 12) {
+      if (photos.count != 0) {
         tempSelf.canLoadMore = YES;
       } else {
         tempSelf.canLoadMore = NO;
@@ -214,7 +214,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([tableView.indexPathsForVisibleRows.lastObject row] - ceil(self.photos.count / 2.0) < 2 && !self.isLoading && self.canLoadMore) {
+  if ([cell isKindOfClass:[ANLoadMoreCell class]] &&
+      ceil(self.photos.count / 2.0) - [tableView.indexPathsForVisibleRows.lastObject row] < 2 &&
+      !self.isLoading && self.canLoadMore) {
     self.isLoading = YES;
     
     __weak ANPhotosViewController *tempSelf = self;
@@ -241,7 +243,7 @@
       tempSelf.isLoaded = YES;
       tempSelf.currentPageIndex++;
       
-      if (photos.count == 12) {
+      if (photos.count != 0) {
         tempSelf.canLoadMore = YES;
       } else {
         tempSelf.canLoadMore = NO;
