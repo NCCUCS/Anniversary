@@ -7,10 +7,8 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ANPersonPickerViewController.h"
 #import "ANCaptureViewController.h"
 #import "ANStickerPickerViewController.h"
-#import "ANTextViewController.h"
 #import "ANUploadViewController.h"
 #import "ANDraggable.h"
 
@@ -36,20 +34,6 @@ float angle = 0, size=14;
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
   }
   return self;
-}
-
-#pragma mark - Private
-
-- (void)frameButtonClicked:(id)sender {
-  [self presentModalViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
-}
-
-- (void)stickerButtonClicked:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)textButtonClicked:(id)sender {
-  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANTextViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 
 #pragma mark - UIViewController

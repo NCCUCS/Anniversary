@@ -16,8 +16,9 @@
 #import "ANLoadMoreCell.h"
 
 @interface ANPhotosViewController ()
-- (void)handleImageTap:(UITapGestureRecognizer *)tapGestureRecognizer;
+
 - (void)reloadTableData;
+
 @end
 
 @implementation ANPhotosViewController
