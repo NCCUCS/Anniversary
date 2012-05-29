@@ -3,15 +3,15 @@
 //  Aniversary
 //
 //  Created by Lee Chih-Wei on 3/12/12.
-//  Copyright (c) 2012 Polydice, Inc. All rights reserved.
+//  Copyright (c) 2012 National Chengchi University. All rights reserved.
 //
 
 #import "ANTabBarController.h"
 #import "ANPhotosViewController.h"
 #import "ANSettingsViewController.h"
-#import "ANNewsViewController.h"
 #import "ANMapViewController.h"
 #import "ANCaptureViewController.h"
+#import "ANNewsController.h"
 
 @interface ANTabBarController ()
 
@@ -24,12 +24,12 @@
 @synthesize tabBarImageView = _tabBarImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil { 
-  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+  if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {    
     self.viewControllers = [NSArray arrayWithObjects:
                             [[UINavigationController alloc] initWithRootViewController:[[ANPhotosViewController alloc] initWithStyle:UITableViewStylePlain]],
                             [[UINavigationController alloc] initWithRootViewController:[[ANMapViewController alloc] initWithNibName:nil bundle:nil]],
                             [[UIViewController alloc] initWithNibName:nil bundle:nil], 
-                            [[UINavigationController alloc] initWithRootViewController:[[ANNewsViewController alloc] initWithNibName:nil bundle:nil]],
+                            [[UINavigationController alloc] initWithRootViewController:[[ANNewsController alloc] init]],
                             [[UINavigationController alloc] initWithRootViewController:[self settingsViewController]], nil];
   }
   return self;
@@ -93,6 +93,11 @@
   captureButton.center = center;
   
   [self.view addSubview:captureButton];
+  
+  // To fix a bug showing black screen after view discarded
+  NSUInteger oldIndex = self.selectedIndex;
+  self.selectedIndex = 3;
+  self.selectedIndex = oldIndex;
 }
 
 - (void)viewDidUnload {
@@ -154,7 +159,7 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
     picker.delegate = self;  
     picker.allowsEditing = YES;  
-    [self presentModalViewController:picker animated:YES];
+    [self.selectedViewController presentModalViewController:picker animated:YES];
   }
 }
 
@@ -167,7 +172,7 @@
       picker.sourceType = UIImagePickerControllerSourceTypeCamera;  
       picker.delegate = self;  
       picker.allowsEditing = YES;  
-      [self presentModalViewController:picker animated:YES];
+      [self.selectedViewController presentModalViewController:picker animated:YES];
       break;
     }
     case 1:{
@@ -175,7 +180,7 @@
       picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
       picker.delegate = self;  
       picker.allowsEditing = YES;  
-      [self presentModalViewController:picker animated:YES];
+      [self.selectedViewController presentModalViewController:picker animated:YES];
       break;
     }
   }
@@ -185,11 +190,11 @@
   [self dismissModalViewControllerAnimated:NO];
   ANCaptureViewController *viewController = [[ANCaptureViewController alloc] initWithNibName:nil bundle:nil];
   viewController.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-  [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
+  [self.selectedViewController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:viewController] animated:YES];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-	[self dismissModalViewControllerAnimated:YES];	
+	[self.selectedViewController dismissModalViewControllerAnimated:YES];	
 }
 
 @end

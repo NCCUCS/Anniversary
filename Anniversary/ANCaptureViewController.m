@@ -3,14 +3,12 @@
 //  Anniversary
 //
 //  Created by Devi Eddy on 03/28/12.
-//  Copyright (c) 2012 Polydice, Inc. All rights reserved.
+//  Copyright (c) 2012 National Chengchi University. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ANPersonPickerViewController.h"
 #import "ANCaptureViewController.h"
 #import "ANStickerPickerViewController.h"
-#import "ANTextViewController.h"
 #import "ANUploadViewController.h"
 #import "ANDraggable.h"
 
@@ -36,20 +34,6 @@ float angle = 0, size=14;
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titleView"]];
   }
   return self;
-}
-
-#pragma mark - Private
-
-- (void)frameButtonClicked:(id)sender {
-  [self presentModalViewController:[[ANPersonPickerViewController alloc] initWithNibName:nil bundle:nil] animated:YES];
-}
-
-- (void)stickerButtonClicked:(id)sender {
-  [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)textButtonClicked:(id)sender {
-  [self.navigationController presentModalViewController:[[UINavigationController alloc] initWithRootViewController:[[ANTextViewController alloc] initWithNibName:nil bundle:nil]] animated:YES];
 }
 
 #pragma mark - UIViewController
@@ -90,8 +74,15 @@ float angle = 0, size=14;
   [zoomInButton setImage:[UIImage imageNamed:@"plusButton"] forState:UIControlStateNormal];
   zoomInButton.frame = CGRectMake(9, 332, 31, 31);
   [zoomInButton addEventHandler:^(id sender){
+    const CGFloat kMaxScale = 3;
+    CGFloat currentScale = [[tempSelf.selectedView.layer valueForKeyPath:@"transform.scale"] floatValue];
+    
+    CGFloat newScale = 1.1;
+    newScale = MIN(newScale, kMaxScale / currentScale);
+    
     [UIView animateWithDuration:0.1 animations:^{
-      tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, 1.1, 1.1);
+      
+      tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, newScale, newScale);
     }];
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:zoomInButton];
@@ -100,10 +91,17 @@ float angle = 0, size=14;
   [zoomOutButton setImage:[UIImage imageNamed:@"minusButton"] forState:UIControlStateNormal];
   zoomOutButton.frame = CGRectMake(51, 332, 31, 31);
   [zoomOutButton addEventHandler:^(id sender){
-    [UIView animateWithDuration:0.1 animations:^{
-      tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, 0.909, 0.909);
-    }];
-
+    const CGFloat kMinScale = 0.5;
+    CGFloat currentScale = [[tempSelf.selectedView.layer valueForKeyPath:@"transform.scale"] floatValue];
+    
+    CGFloat newScale = 0.909;
+    newScale = MAX(newScale, kMinScale / currentScale);
+    
+    if (currentScale > kMinScale) {
+      [UIView animateWithDuration:0.1 animations:^{
+        tempSelf.selectedView.transform = CGAffineTransformScale(tempSelf.selectedView.transform, newScale, newScale);
+      }];
+    }
   } forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:zoomOutButton];
   
