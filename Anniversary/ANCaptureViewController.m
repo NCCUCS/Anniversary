@@ -3,7 +3,7 @@
 //  Anniversary
 //
 //  Created by Devi Eddy on 03/28/12.
-//  Copyright (c) 2012 Polydice, Inc. All rights reserved.
+//  Copyright (c) 2012 National Chengchi University. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>

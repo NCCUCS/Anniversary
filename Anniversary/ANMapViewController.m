@@ -3,7 +3,7 @@
 //  Aniversary
 //
 //  Created by Lee Chih-Wei on 3/1/12.
-//  Copyright (c) 2012 Polydice, Inc. All rights reserved.
+//  Copyright (c) 2012 National Chengchi University. All rights reserved.
 //
 
 #import "ANMapViewController.h"

@@ -3,7 +3,7 @@
 //  Anniversary
 //
 //  Created by Lee Chih-Wei on 4/7/12.
-//  Copyright (c) 2012 Polydice, Inc. All rights reserved.
+//  Copyright (c) 2012 National Chengchi University. All rights reserved.
 //
 
 #import "ANUploadViewController.h"
